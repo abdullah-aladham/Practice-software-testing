@@ -234,4 +234,135 @@ it('[003-0016][Invalid] Register User with invalid email format (e.g “test”,
     cy.get("button[type='submit']").should('be.visible').and('not.be.disabled').click()
     cy.url().should('eq','auth/login');
 })
+it('[003-0016][Invalid] Register User with invalid email format (e.g “test”,e.g2 “test@test”,eg.3 “test@test,com”).',()=>{
+    cy.visit('/auth/login')
+    cy.get("a[aria-label='Register your account']").should('be.visible').and('not.be.disabled').click();
+    cy.url().should('eq','auth/register');
+    cy.get('input[id="first_name"]').should('be.null').and('not.be.disabled').type(faker.person.firstName);
+    cy.get('input[id="last_name"]').should('be.null').and('not.be.disabled').type(faker.person.lastName);
+    cy.get('input[id="dob"]').should('be.visible').and('not.be.disabled').type(faker.date);
+    cy.get('input[id="address"]').should('be.visible').and('not.be.disabled').type(faker.location.streetAddress);
+    cy.get('input[id="postcode"]').should('be.visible').and('not.be.disabled').type(faker.location.zipCode);
+    cy.get('input[id="city"]').should('be.visible').and('not.be.disabled').type(faker.location.city);
+    cy.get('input[id="state"]').should('be.visible').and('not.be.disabled').type(faker.location.state);
+    cy.get('select[id="country"]').select("US");
+    cy.get('input[id="phone"]').should('be.visible').should('be.null').type(faker.phone.number);
+    cy.get('input[id="email"]').should('be.visible').type("test@test,com");
+    cy.get('input[id="password"]').should('be.visible').and('not.be.disabled').type('H3lp1111!')
+    cy.get("button[type='submit']").should('be.visible').and('not.be.disabled').click()
+   cy.get("div[data-test='email-error']").should('be.visible').and('have.text','invalid email format');
+})
+it('[003-0017][invalid] Register User with invalid password length (password length less than 8)',()=>{
+    cy.visit('/auth/login')
+    cy.get("a[aria-label='Register your account']").should('be.visible').and('not.be.disabled').click();
+    cy.url().should('eq','auth/register');
+    cy.get('input[id="first_name"]').should('be.null').and('not.be.disabled').type(faker.person.firstName);
+    cy.get('input[id="last_name"]').should('be.null').and('not.be.disabled').type(faker.person.lastName);
+    cy.get('input[id="dob"]').should('be.visible').and('not.be.disabled').type(faker.date);
+    cy.get('input[id="address"]').should('be.visible').and('not.be.disabled').type(faker.location.streetAddress);
+    cy.get('input[id="postcode"]').should('be.visible').and('not.be.disabled').type(faker.location.zipCode);
+    cy.get('input[id="city"]').should('be.visible').and('not.be.disabled').type(faker.location.city);
+    cy.get('input[id="state"]').should('be.visible').and('not.be.disabled').type(faker.location.state);
+    cy.get('select[id="country"]').select("US");
+    cy.get('input[id="phone"]').should('be.visible').should('be.null').type(faker.phone.number);
+    cy.get('input[id="email"]').should('be.visible').type("test@test,com");
+    cy.get('input[id="password"]').should('be.visible').and('not.be.disabled').type('H3lp!');
+    cy.get("button[type='submit']").should('be.visible').and('not.be.disabled').click()
+    cy.get("div[data-test='password-error']").should('be.visible').and('have.text','Password is required Password must be minimal 6 characters long. Password can not include invalid characters.')
+})
+
+	
+it('[003-0018] Register User with password that does not Contain both uppercase and lowercase letters[UPPERCASE LETTERS ONLY]',()=>{
+    cy.visit('/auth/login')
+    cy.get("a[aria-label='Register your account']").should('be.visible').and('not.be.disabled').click();
+    cy.url().should('eq','auth/register');
+    cy.get('input[id="first_name"]').should('be.null').and('not.be.disabled').type(faker.person.firstName);
+    cy.get('input[id="last_name"]').should('be.null').and('not.be.disabled').type(faker.person.lastName);
+    cy.get('input[id="dob"]').should('be.visible').and('not.be.disabled').type(faker.date);
+    cy.get('input[id="address"]').should('be.visible').and('not.be.disabled').type(faker.location.streetAddress);
+    cy.get('input[id="postcode"]').should('be.visible').and('not.be.disabled').type(faker.location.zipCode);
+    cy.get('input[id="city"]').should('be.visible').and('not.be.disabled').type(faker.location.city);
+    cy.get('input[id="state"]').should('be.visible').and('not.be.disabled').type(faker.location.state);
+    cy.get('select[id="country"]').select("US");
+    cy.get('input[id="phone"]').should('be.visible').should('be.null').type(faker.phone.number);
+    cy.get('input[id="email"]').should('be.visible').type("test@test,com");
+    cy.get('input[id="password"]').should('be.visible').and('not.be.disabled').type('OJGWEOGKWEGPKQFWE!Q342');
+    cy.get("button[type='submit']").should('be.visible').and('not.be.disabled').click()
+    cy.get("div[data-test='password-error']").should('be.visible').and('have.text','Password can not include invalid characters.')
+})
+
+
+it('[003-0019] Register User with password that does not Contain both uppercase and lowercase letters[lowercase only]',()=>{
+    cy.visit('/auth/login')
+    cy.get("a[aria-label='Register your account']").should('be.visible').and('not.be.disabled').click();
+    cy.url().should('eq','auth/register');
+    cy.get('input[id="first_name"]').should('be.null').and('not.be.disabled').type(faker.person.firstName);
+    cy.get('input[id="last_name"]').should('be.null').and('not.be.disabled').type(faker.person.lastName);
+    cy.get('input[id="dob"]').should('be.visible').and('not.be.disabled').type(faker.date);
+    cy.get('input[id="address"]').should('be.visible').and('not.be.disabled').type(faker.location.streetAddress);
+    cy.get('input[id="postcode"]').should('be.visible').and('not.be.disabled').type(faker.location.zipCode);
+    cy.get('input[id="city"]').should('be.visible').and('not.be.disabled').type(faker.location.city);
+    cy.get('input[id="state"]').should('be.visible').and('not.be.disabled').type(faker.location.state);
+    cy.get('select[id="country"]').select("US");
+    cy.get('input[id="phone"]').should('be.visible').should('be.null').type(faker.phone.number);
+    cy.get('input[id="email"]').should('be.visible').type("test@test,com");
+    cy.get('input[id="password"]').should('be.visible').and('not.be.disabled').type('kjgkjwjkegjkqlemglkwegokloegwmmlwerglmwrb!3');
+    cy.get("button[type='submit']").should('be.visible').and('not.be.disabled').click()
+    cy.get("div[data-test='password-error']").should('be.visible').and('have.text','Password can not include invalid characters.')
+})
+	
+it('[003-0020] Register User with password that does not Contain numbers',()=>{
+    cy.visit('/auth/login')
+    cy.get("a[aria-label='Register your account']").should('be.visible').and('not.be.disabled').click();
+    cy.url().should('eq','auth/register');
+    cy.get('input[id="first_name"]').should('be.null').and('not.be.disabled').type(faker.person.firstName);
+    cy.get('input[id="last_name"]').should('be.null').and('not.be.disabled').type(faker.person.lastName);
+    cy.get('input[id="dob"]').should('be.visible').and('not.be.disabled').type(faker.date);
+    cy.get('input[id="address"]').should('be.visible').and('not.be.disabled').type(faker.location.streetAddress);
+    cy.get('input[id="postcode"]').should('be.visible').and('not.be.disabled').type(faker.location.zipCode);
+    cy.get('input[id="city"]').should('be.visible').and('not.be.disabled').type(faker.location.city);
+    cy.get('input[id="state"]').should('be.visible').and('not.be.disabled').type(faker.location.state);
+    cy.get('select[id="country"]').select("US");
+    cy.get('input[id="phone"]').should('be.visible').should('be.null').type(faker.phone.number);
+    cy.get('input[id="email"]').should('be.visible').type("test@test,com");
+    cy.get('input[id="password"]').should('be.visible').and('not.be.disabled').type('kmqpegkpqemgqkmpegmqegkmqeg;kmqegG!');
+    cy.get("button[type='submit']").should('be.visible').and('not.be.disabled').click()
+    cy.get("div[data-test='password-error']").should('be.visible').and('have.text','Password must contain at least one number')
+})
+it('[003-0021] Register User with password that does not have any special symbols',()=>{
+    cy.visit('/auth/login')
+    cy.get("a[aria-label='Register your account']").should('be.visible').and('not.be.disabled').click();
+    cy.url().should('eq','auth/register');
+    cy.get('input[id="first_name"]').should('be.null').and('not.be.disabled').type(faker.person.firstName);
+    cy.get('input[id="last_name"]').should('be.null').and('not.be.disabled').type(faker.person.lastName);
+    cy.get('input[id="dob"]').should('be.visible').and('not.be.disabled').type(faker.date);
+    cy.get('input[id="address"]').should('be.visible').and('not.be.disabled').type(faker.location.streetAddress);
+    cy.get('input[id="postcode"]').should('be.visible').and('not.be.disabled').type(faker.location.zipCode);
+    cy.get('input[id="city"]').should('be.visible').and('not.be.disabled').type(faker.location.city);
+    cy.get('input[id="state"]').should('be.visible').and('not.be.disabled').type(faker.location.state);
+    cy.get('select[id="country"]').select("US");
+    cy.get('input[id="phone"]').should('be.visible').should('be.null').type(faker.phone.number);
+    cy.get('input[id="email"]').should('be.visible').type("test@test,com");
+    cy.get('input[id="password"]').should('be.visible').and('not.be.disabled').type('Kkwergkiwerg2412');
+    cy.get("button[type='submit']").should('be.visible').and('not.be.disabled').click()
+    cy.get("div[data-test='password-error']").should('be.visible').and('have.text','Password must contain at least one Special Character')
+})
+it('[003-0022] Register User with blank password(without adding a password)',()=>{
+    cy.visit('/auth/login')
+    cy.get("a[aria-label='Register your account']").should('be.visible').and('not.be.disabled').click();
+    cy.url().should('eq','auth/register');
+    cy.get('input[id="first_name"]').should('be.null').and('not.be.disabled').type(faker.person.firstName);
+    cy.get('input[id="last_name"]').should('be.null').and('not.be.disabled').type(faker.person.lastName);
+    cy.get('input[id="dob"]').should('be.visible').and('not.be.disabled').type(faker.date);
+    cy.get('input[id="address"]').should('be.visible').and('not.be.disabled').type(faker.location.streetAddress);
+    cy.get('input[id="postcode"]').should('be.visible').and('not.be.disabled').type(faker.location.zipCode);
+    cy.get('input[id="city"]').should('be.visible').and('not.be.disabled').type(faker.location.city);
+    cy.get('input[id="state"]').should('be.visible').and('not.be.disabled').type(faker.location.state);
+    cy.get('select[id="country"]').select("US");
+    cy.get('input[id="phone"]').should('be.visible').should('be.null').type(faker.phone.number);
+    cy.get('input[id="email"]').should('be.visible').type("test@test,com");
+    cy.get("button[type='submit']").should('be.visible').and('not.be.disabled').click()
+    cy.get("div[data-test='password-error']").should('be.visible').and('have.text','Password is required Password must be minimal 6 characters long. Password can not include invalid characters.')
+})
+
 })
