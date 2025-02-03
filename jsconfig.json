@@ -1,0 +1,8 @@
+{
+    "include": ["./node_modules/cypress", "cypress/**/*.js"]
+  }
+  ,{
+    "compilerOptions": {
+      "types": ["cypress", "node", "cypress-real-events"]
+    }
+  }
