@@ -106,4 +106,18 @@ describe('Cart TestSuite',()=>{
         });
     })
 
+    it('[006-0004][Valid] View Cart List with sign in',()=>{
+        cy.login();
+        cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click();
+        cy.url().should('eq','/checkout');
+        cy.intercept({
+            method:"GET",
+            'url':"https://api.practicesoftwaretesting.com/carts/01jk8fgb99ja76a1tqfjcgpyyw"
+        }).as('CartList');
+        cy.wait('@CartList').then(interception =>{
+            console.log(interception);
+            cy.wrap(interception.response.statusCode).should('eq',204)
+        });
+    })
+
 })
