@@ -1,6 +1,6 @@
 describe('Messaging TestSuite',()=>{
     beforeEach(()=>{
-        cy.login()
+        cy.login("customer@practicesoftwaretesting.com","welcome01")
         cy.visit('/account')
         cy.url().should('eq','https://practicesoftwaretesting.com/account')
         cy.get("#menu").should('be.visible').and('not.be.disabled').click();

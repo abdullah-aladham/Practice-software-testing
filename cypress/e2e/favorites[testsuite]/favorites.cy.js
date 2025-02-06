@@ -1,6 +1,6 @@
 describe('Favorites Testsuite',()=>{
     it('[006-0005] [Valid] Adding product to favorites when signed in',()=>{
-        cy.login();
+        cy.login("customer@practicesoftwaretesting.com","welcome01")
         cy.get("a:nth-child(1) div:nth-child(2) h5:nth-child(1)").should('be.visible').and('not.be.disabled')
         .should('have.text','Combination Pliers').click();
         cy.get("#btn-add-to-favorites").should('be.visible').and('not.be.disabled').click();
@@ -48,7 +48,7 @@ describe('Favorites Testsuite',()=>{
     })
 
     it("[006-0007][Valid] View Favorites lists",()=>{
-        cy.login();
+        cy.login("customer@practicesoftwaretesting.com","welcome01")
         cy.get(".dropdown-item[data-test='nav-my-favorites']").should('be.visible').and('not.be.disabled').click();
         cy.intercept({
             method:"GET",
