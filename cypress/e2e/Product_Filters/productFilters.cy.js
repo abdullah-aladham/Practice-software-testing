@@ -165,5 +165,73 @@ describe('Product Filters TestSuite',()=>{
     
            });
      })
-
+     it('[009-0001] Filter products by Checking “grinder” Check box',()=>{
+        cy.get("body > app-root:nth-child(2) > div:nth-child(2) > app-overview:nth-child(2) > div:nth-child(3) > div:nth-child(2) > fieldset:nth-child(13) > div:nth-child(3) > ul:nth-child(2) > fieldset:nth-child(1) > div:nth-child(2) > label:nth-child(1)").check(); 
+        cy.intercept({method:"Options",
+         url:"https://api.practicesoftwaretesting.com/products?between=price,1,100&by_category=01JKC5F602K6BRPKNZE80QT5VR&page=0"
+ 
+        }).as("grinderChoiceOptionsReq");
+        cy.wait("@grinderChoiceOptionsReq")
+        .then(interception =>{
+         console.log(interception)
+         cy.wrap(interception.response.statusCode).should('eq',204)
+ 
+        });
+        cy.intercept({method:"GET",
+         url:"https://api.practicesoftwaretesting.com/products?between=price,1,100&by_category=01JKC5F602K6BRPKNZE80QT5VR&page=0"
+ 
+        }).as("getGrinder");
+        cy.wait("@getGrinder")
+        .then(interception =>{
+         console.log(interception)
+         cy.wrap(interception.response.statusCode).should('eq',200)
+ 
+        });
+    })
+    it('[009-0001] Filter products by Checking “grinder” Check box',()=>{
+        cy.get("    body > app-root:nth-child(2) > div:nth-child(2) > app-overview:nth-child(2) > div:nth-child(3) > div:nth-child(2) > fieldset:nth-child(13) > div:nth-child(4) > ul:nth-child(2) > fieldset:nth-child(1) > div:nth-child(2) > label:nth-child(1)").check(); 
+        cy.intercept({method:"Options",
+         url:"https://api.practicesoftwaretesting.com/products?between=price,1,100&by_category=01JKC5F602K6BRPKNZE80QT5VW&page=0"
+ 
+        }).as("ToolbeltsOptionReq");
+        cy.wait("@ToolbeltsOptionReq")
+        .then(interception =>{
+         console.log(interception)
+         cy.wrap(interception.response.statusCode).should('eq',204)
+ 
+        });
+        cy.intercept({method:"GET",
+         url:"https://api.practicesoftwaretesting.com/products?between=price,1,100&by_category=01JKC5F602K6BRPKNZE80QT5VW&page=0"
+ 
+        }).as("getToolBelts");
+        cy.wait("@getToolBelts")
+        .then(interception =>{
+         console.log(interception)
+         cy.wrap(interception.response.statusCode).should('eq',200)
+ 
+        });
+    })
+    it('By checking “ForgeFlex Tools” check box',()=>{
+        cy.get("body > app-root:nth-child(2) > div:nth-child(2) > app-overview:nth-child(2) > div:nth-child(3) > div:nth-child(2) > fieldset:nth-child(16) > div:nth-child(2) > label:nth-child(1)").check(); 
+        cy.intercept({method:"Options",
+         url:"https://api.practicesoftwaretesting.com/products?between=price,1,100&by_brand=01JKC5F5Z7RBM4A8TVDYWCEZK9&page=0"
+ 
+        }).as("BrandsOptionsReq");
+        cy.wait("@BrandsOptionsReq")
+        .then(interception =>{
+         console.log(interception)
+         cy.wrap(interception.response.statusCode).should('eq',204)
+ 
+        });
+        cy.intercept({method:"GET",
+         url:"https://api.practicesoftwaretesting.com/products?between=price,1,100&by_brand=01JKC5F5Z7RBM4A8TVDYWCEZK9&page=0"
+ 
+        }).as("getProductsByBrand");
+        cy.wait("@getProductsByBrand")
+        .then(interception =>{
+         console.log(interception)
+         cy.wrap(interception.response.statusCode).should('eq',200)
+ 
+        });
+    })
 })
