@@ -190,7 +190,7 @@ cy.intercept({method:"GET",
  })
 
  
- it('[008-0008][Valid] Buying a product with “Buy now Pay later” Method.',()=>{
+ it('[008-0008]&[008-0026][Valid] Buying a product with “Buy now Pay later” Method.',()=>{
     cy.login("customer@practicesoftwaretesting.com","welcome01")
     cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
     cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
@@ -198,7 +198,7 @@ cy.intercept({method:"GET",
     cy.get("div[class='col-md-6 offset-md-3 login-form-1'] div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled').click();
     cy.get("#state").should('be.visible').and('not.be.disabled').type(faker.location.state);
     cy.get('#postcode').should('be.visible').and('not.be.disabled').type('123456790')
-    cy.get("#payment-method").select('Credit Card');
+    cy.get("#payment-method").select('Buy Now Pay Later');
    cy.get("#monthly_installments").should('be.visible').and('not.be.disabled').select("3 Monthly Installments")
     cy.get(".alert.alert-success.ng-star-inserted").should('be.visible').and('have.text','Payment was successful');
 
@@ -450,7 +450,7 @@ cy.get("button[data-test='finish']").should('be.visible').and('be.disabled');
     cy.get("#expiration_date").should('be.visible').and('not.be.disabled').type("ddd")
     cy.get("#cvv").should('be.visible').and("not.be.disabled").type('01')
     cy.get("#card_holder_name").should('be.visible').and("not.be.disabled").type("John doe2")
-   cy.get(".alert.alert-danger").should('be.visible').and('have.text','Name must be string format only');
+   cy.get(".alert.alert-danger").should('be.visible').and('have.text','Card Holder Name must be string format only');
 cy.get("button[data-test='finish']").should('be.visible').and('be.disabled');
 cy.intercept({method:"POST",
     url:"https://api.practicesoftwaretesting.com/payment/check"
@@ -471,8 +471,8 @@ cy.intercept({method:"POST",
     cy.get("#credit_card_number").should('be.visible').and('not.be.disabled').type(faker.finance.creditCardNumber)
     cy.get("#expiration_date").should('be.visible').and('not.be.disabled').type("ddd")
     cy.get("#cvv").should('be.visible').and("not.be.disabled").type('01')
-    cy.get("#card_holder_name").should('be.visible').and("not.be.disabled").type("John doe2")
-   cy.get(".alert.alert-danger.ng-star-inserted").should('be.visible').and('have.text','');
+    cy.get("#card_holder_name").should('be.visible').and("not.be.disabled").type("John.doe")
+   cy.get(".alert.alert-danger.ng-star-inserted").should('be.visible').and('have.text','Card Holder Name must be string format only');
 cy.get("button[data-test='finish']").should('be.visible').and('be.disabled');
 cy.intercept({method:"POST",
     url:"https://api.practicesoftwaretesting.com/payment/check"
@@ -481,4 +481,165 @@ cy.intercept({method:"POST",
     url:"https://api.practicesoftwaretesting.com/payment/check"
  }).as("OPTIONSReq")
  })
+
+ 
+ it('[008-0025][Invalid] Buying a product with “Buy now Pay Later” option and not choosing any option from “Choose your monthly installments”.',()=>{
+    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
+    cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
+    cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
+    cy.get("div[class='col-md-6 offset-md-3 login-form-1'] div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled').click();
+    cy.get("#state").should('be.visible').and('not.be.disabled').type(faker.location.state);
+    cy.get('#postcode').should('be.visible').and('not.be.disabled').type('123456790')
+    cy.get("#payment-method").select('Buy Now Pay Later');
+//    cy.get("#monthly_installments").should('be.visible').and('not.be.disabled').select("3 Monthly Installments")
+
+    cy.intercept({
+        method:"POST",
+        url:"https://api.practicesoftwaretesting.com/payment/check"
+    }).as("CheckReq");
+    cy.wait("@CheckReq")
+    cy.intercept({
+        method:"OPTIONS",
+        url:"https://api.practicesoftwaretesting.com/payment/check"
+    }).as("FailedCheck");
+    cy.wait("@FailCheck");
+ })
+
+ it('[008-0027][Valid] Buying a product with “Buy now Pay Later” option and choosing “6 monthly Installments”.',()=>{
+    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
+    cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
+    cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
+    cy.get("div[class='col-md-6 offset-md-3 login-form-1'] div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled').click();
+    cy.get("#state").should('be.visible').and('not.be.disabled').type(faker.location.state);
+    cy.get('#postcode').should('be.visible').and('not.be.disabled').type('123456790')
+    cy.get("#payment-method").select('Buy Now Pay Later');
+   cy.get("#monthly_installments").should('be.visible').and('not.be.disabled').select("6 Monthly Installments")
+    cy.get(".alert.alert-success.ng-star-inserted").should('be.visible').and('have.text','Payment was successful');
+
+    cy.intercept({
+        method:"POST",
+        url:"https://api.practicesoftwaretesting.com/payment/check"
+    }).as("CheckReq");
+    cy.wait("@CheckReq")
+    cy.intercept({
+        method:"OPTIONS",
+        url:"https://api.practicesoftwaretesting.com/payment/check"
+    }).as("BuyNowPayLaterReq");
+    cy.wait("@BuyNowPayLaterReq");
+ })
+ it('[008-0028][Valid] Buying a product with “Buy now Pay Later” option and choosing “9 monthly Installments”.',()=>{
+    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
+    cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
+    cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
+    cy.get("div[class='col-md-6 offset-md-3 login-form-1'] div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled').click();
+    cy.get("#state").should('be.visible').and('not.be.disabled').type(faker.location.state);
+    cy.get('#postcode').should('be.visible').and('not.be.disabled').type('123456790')
+    cy.get("#payment-method").select('Buy Now Pay Later');
+   cy.get("#monthly_installments").should('be.visible').and('not.be.disabled').select("9 Monthly Installments")
+    cy.get(".alert.alert-success.ng-star-inserted").should('be.visible').and('have.text','Payment was successful');
+
+    cy.intercept({
+        method:"POST",
+        url:"https://api.practicesoftwaretesting.com/payment/check"
+    }).as("CheckReq");
+    cy.wait("@CheckReq")
+    cy.intercept({
+        method:"OPTIONS",
+        url:"https://api.practicesoftwaretesting.com/payment/check"
+    }).as("BuyNowPayLaterReq");
+    cy.wait("@BuyNowPayLaterReq");
+ })
+ 	
+ it('[008-0029][Valid] Buying a product with “Buy now Pay Later” option and choosing “12 monthly Installments”.',()=>{
+    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
+    cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
+    cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
+    cy.get("div[class='col-md-6 offset-md-3 login-form-1'] div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled').click();
+    cy.get("#state").should('be.visible').and('not.be.disabled').type(faker.location.state);
+    cy.get('#postcode').should('be.visible').and('not.be.disabled').type('123456790')
+    cy.get("#payment-method").select('Buy Now Pay Later');
+   cy.get("#monthly_installments").should('be.visible').and('not.be.disabled').select("9 Monthly Installments")
+    cy.get(".alert.alert-success.ng-star-inserted").should('be.visible').and('have.text','Payment was successful');
+
+    cy.intercept({
+        method:"POST",
+        url:"https://api.practicesoftwaretesting.com/payment/check"
+    }).as("CheckReq");
+    cy.wait("@CheckReq")
+    cy.intercept({
+        method:"OPTIONS",
+        url:"https://api.practicesoftwaretesting.com/payment/check"
+    }).as("BuyNowPayLaterReq");
+    cy.wait("@BuyNowPayLaterReq");
+ })
+ 	
+ it('[008-0030][invalid] Buying a product with blank gift card number',()=>{
+    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
+    cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
+    cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
+    cy.get("div[class='col-md-6 offset-md-3 login-form-1'] div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled').click();
+    cy.get("#state").should('be.visible').and('not.be.disabled').type(faker.location.state);
+    cy.get('#postcode').should('be.visible').and('not.be.disabled').type('123456790')
+    cy.get("#payment-method").select('Credit Card');
+    // cy.get("#gift_card_number").should('be.visible').and('not.be.disabled').type('1234f34wa32')
+    cy.get("#validation_code").should('be.visible').and('not.be.disabled').type('juweg123')
+    // cy.get(".alert.alert-success.ng-star-inserted").should('be.visible').and('have.text','Payment was successful');
+cy.get(".alert.alert-danger").should('be.visible').and('have.text','Gift card number must be alphanumeric.')
+   
+ })
+ it('[008-0031][invalid] Buying a product with gift card number with invalid format(Contains special characters)',()=>{
+    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
+    cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
+    cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
+    cy.get("div[class='col-md-6 offset-md-3 login-form-1'] div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled').click();
+    cy.get("#state").should('be.visible').and('not.be.disabled').type(faker.location.state);
+    cy.get('#postcode').should('be.visible').and('not.be.disabled').type('123456790')
+    cy.get("#payment-method").select('Credit Card');
+    // cy.get("#gift_card_number").should('be.visible').and('not.be.disabled').type('1234f34wa32')
+    cy.get("#validation_code").should('be.visible').and('not.be.disabled').type('juweg123')
+    // cy.get(".alert.alert-success.ng-star-inserted").should('be.visible').and('have.text','Payment was successful');
+cy.get(".alert.alert-danger").should('be.visible').and('have.text','Gift card number must be alphanumeric.')
+   cy.get("button[data-test='finish']").should('be.visible').and('be.disabled')
+ })
+ 
+
+ it('[008-0032][invalid] Buying a product with gift card by leaving the validation code blank',()=>{
+    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
+    cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
+    cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
+    cy.get("div[class='col-md-6 offset-md-3 login-form-1'] div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled').click();
+    cy.get("#state").should('be.visible').and('not.be.disabled').type(faker.location.state);
+    cy.get('#postcode').should('be.visible').and('not.be.disabled').type('123456790')
+    cy.get("#payment-method").select('Credit Card');
+    cy.get("#gift_card_number").should('be.visible').and('not.be.disabled').type('1234f34wa32')
+    // cy.get("#validation_code").should('be.visible').and('not.be.disabled').type('juweg123')
+    // cy.get(".alert.alert-success.ng-star-inserted").should('be.visible').and('have.text','Payment was successful');
+cy.get(".alert.alert-danger.ng-star-inserted").should('be.visible').and('have.text','Validation code must be alphanumeric.')
+   cy.get("button[data-test='finish']").should('be.visible').and('be.disabled')
+ })
+ 
+ it('[008-0033][invalid] Buying a product with gift card by filling the “validation code” with invalid format.',()=>{
+    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
+    cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
+    cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
+    cy.get("div[class='col-md-6 offset-md-3 login-form-1'] div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled').click();
+    cy.get("#state").should('be.visible').and('not.be.disabled').type(faker.location.state);
+    cy.get('#postcode').should('be.visible').and('not.be.disabled').type('123456790')
+    cy.get("#payment-method").select('Credit Card');
+    cy.get("#gift_card_number").should('be.visible').and('not.be.disabled').type('1234f34wa32')
+    cy.get("#validation_code").should('be.visible').and('not.be.disabled').type("lpgewpklpweg1'")
+    // cy.get(".alert.alert-success.ng-star-inserted").should('be.visible').and('have.text','Payment was successful');
+cy.get(".alert.alert-danger.ng-star-inserted").should('be.visible').and('have.text','Validation code must be alphanumeric.')
+   cy.get("button[data-test='finish']").should('be.visible').and('be.disabled')
+ })
+
+
 })
