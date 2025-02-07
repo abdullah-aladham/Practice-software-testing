@@ -322,5 +322,77 @@ cy.get("button[data-test='finish']").should('be.visible').and('be.disabled');
    cy.get(".alert.alert-danger").should('be.visible').and('have.text','Invalid card number format.');
 cy.get("button[data-test='finish']").should('be.visible').and('be.disabled');
  })
+ 	
+ it('[008-0015][Invalid] Buying a product with “Credit Card” with Credit Card Number with special characters format',()=>{
+    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
+    cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
+    cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
+    cy.get("div[class='col-md-6 offset-md-3 login-form-1'] div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled').click();
+    cy.get("#state").should('be.visible').and('not.be.disabled').type(faker.location.state);
+    cy.get('#postcode').should('be.visible').and('not.be.disabled').type('123456790')
+    cy.get("#payment-method").select('Credit Card');
+   cy.get("#credit_card_number").should('be.visible').and('not.be.disabled').type("-=@#$%^&*()##$%^&*")
+   cy.get(".alert.alert-danger").should('be.visible').and('have.text','Invalid card number format.');
+cy.get("button[data-test='finish']").should('be.visible').and('be.disabled');
+ })
  
+ it('[008-0016][Invalid] Buying a product with “Credit Card” with Expiration date with ‘mm/dd/yyyy format',()=>{
+    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
+    cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
+    cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
+    cy.get("div[class='col-md-6 offset-md-3 login-form-1'] div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled').click();
+    cy.get("#state").should('be.visible').and('not.be.disabled').type(faker.location.state);
+    cy.get('#postcode').should('be.visible').and('not.be.disabled').type('123456790')
+    cy.get("#payment-method").select('Credit Card');
+    cy.get("#credit_card_number").should('be.visible').and('not.be.disabled').type(faker.finance.creditCardNumber)
+    cy.get("#expiration_date").should('be.visible').and('not.be.disabled').type("01/14/2027")
+   cy.get(".alert.alert-danger").should('be.visible').and('have.text','Invalid card number format.');
+cy.get("button[data-test='finish']").should('be.visible').and('be.disabled');
+ })
+ it('[008-0017][Invalid] Buying a product with “Credit Card” with Expiration date that is expired (e.g 04/2024)',()=>{
+    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
+    cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
+    cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
+    cy.get("div[class='col-md-6 offset-md-3 login-form-1'] div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled').click();
+    cy.get("#state").should('be.visible').and('not.be.disabled').type(faker.location.state);
+    cy.get('#postcode').should('be.visible').and('not.be.disabled').type('123456790')
+    cy.get("#payment-method").select('Credit Card');
+    cy.get("#credit_card_number").should('be.visible').and('not.be.disabled').type(faker.finance.creditCardNumber)
+    cy.get("#expiration_date").should('be.visible').and('not.be.disabled').type("04/2024")
+   cy.get(".alert.alert-danger").should('be.visible').and('have.text','Expiration date must be in the future.');
+cy.get("button[data-test='finish']").should('be.visible').and('be.disabled');
+ })
+ it(' •	[008-0018][Invalid] Buying a product with “Credit Card” with Expiration date with string data',()=>{
+    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
+    cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
+    cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
+    cy.get("div[class='col-md-6 offset-md-3 login-form-1'] div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled').click();
+    cy.get("#state").should('be.visible').and('not.be.disabled').type(faker.location.state);
+    cy.get('#postcode').should('be.visible').and('not.be.disabled').type('123456790')
+    cy.get("#payment-method").select('Credit Card');
+    cy.get("#credit_card_number").should('be.visible').and('not.be.disabled').type(faker.finance.creditCardNumber)
+    cy.get("#expiration_date").should('be.visible').and('not.be.disabled').type("ddd")
+   cy.get(".alert.alert-danger").should('be.visible').and('have.text','Invalid date format. Use MM/YYYY.');
+cy.get("button[data-test='finish']").should('be.visible').and('be.disabled');
+ })
+  
+
+ it(' [008-0020][Invalid] Buying a product with “Credit Card” CVV input with invalid numeric data format (5 digit number)',()=>{
+    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
+    cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
+    cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
+    cy.get("div[class='col-md-6 offset-md-3 login-form-1'] div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled').click();
+    cy.get("#state").should('be.visible').and('not.be.disabled').type(faker.location.state);
+    cy.get('#postcode').should('be.visible').and('not.be.disabled').type('123456790')
+    cy.get("#payment-method").select('Credit Card');
+    cy.get("#credit_card_number").should('be.visible').and('not.be.disabled').type(faker.finance.creditCardNumber)
+    cy.get("#expiration_date").should('be.visible').and('not.be.disabled').type("ddd")
+   cy.get(".alert.alert-danger").should('be.visible').and('have.text','Invalid date format. Use MM/YYYY.');
+cy.get("button[data-test='finish']").should('be.visible').and('be.disabled');
+ })
 })
