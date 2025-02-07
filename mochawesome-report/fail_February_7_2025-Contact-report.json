@@ -1,0 +1,429 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 15,
+    "passes": 0,
+    "pending": 0,
+    "failures": 15,
+    "start": "2025-02-07T13:56:24.523Z",
+    "end": "2025-02-07T13:57:25.830Z",
+    "duration": 61307,
+    "testsRegistered": 15,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "52f01f8c-877a-4f03-8aa7-af0e639ca8a7",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Contact-TestSuite\\Contact.cy.js",
+      "file": "cypress\\e2e\\Contact-TestSuite\\Contact.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2d0f37a8-aa68-4019-9a14-63d47e911ec2",
+          "title": "Contact Test Suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "[004-0001] [Valid] Sending data in valid data format and valid text attachment.",
+              "fullTitle": "Contact Test Suite [004-0001] [Valid] Sending data in valid data format and valid text attachment.",
+              "timedOut": null,
+              "duration": 1504,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"#first_name\").should('be.visible').and('not.be.disabled').type(faker.person.firstName);\ncy.get(\"#last_name\").should('be.visible').and('not.be.disabled').type(faker.person.lastName);\ncy.get(\"#email\").should('be.visible').and('not.be.disabled').type(faker.internet.email);\ncy.get('#subject').should('be.visible').and('not.be.disabled').select(subjects[rand_index]);\ncy.get('#message').should('be.visible').and('not.be.disabled').type(\"Test done by Abdullah Aladham ❤️,my account :https://www.linkedin.com/in/abdullah-aladham/\");\ncy.get(\"#attachment\").should('be.visible').and('not.be.disabled').selectFile(\"E:\\github\\cypress\\practice-software-testing\\cypress\\e2e\\test.txt\");\ncy.get(\"input[value='Send']\").should('be.visible').and('not.be.disabled').click();",
+              "err": {
+                "message": "CypressError: `cy.type()` can only accept a string or number. You passed in: `Murphy`\n\nhttps://on.cypress.io/type",
+                "estack": "CypressError: `cy.type()` can only accept a string or number. You passed in: `Murphy`\n\nhttps://on.cypress.io/type\n    at Context.type (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:114404:68)\n    at wrapped (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:137883:19)\nFrom Your Spec Code:\n    at captureUserInvocationStack (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:138885:94)\n    at $Cy.expect (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:138923:7)\n    at Context.shouldFn (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:117807:18)\n    at Context.and (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:117926:23)\n    at <unknown> (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:142805:39)\n    at assertions (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:143053:16)\n    at tryCatcher (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Object.gotValue (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:6448:18)\n    at Object.gotAccum (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:6435:25)\n    at Object.tryCatcher (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:1777:23)",
+                "diff": null
+              },
+              "uuid": "587f36b2-5415-4349-8f4c-cb62f98a91ce",
+              "parentUUID": "2d0f37a8-aa68-4019-9a14-63d47e911ec2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[004-0002] [Valid] Sending data without sending text attachment.",
+              "fullTitle": "Contact Test Suite [004-0002] [Valid] Sending data without sending text attachment.",
+              "timedOut": null,
+              "duration": 4370,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"#first_name\").should('be.visible').and('not.be.disabled').type(faker.person.firstName);\ncy.get(\"#last_name\").should('be.visible').and('not.be.disabled').type(faker.person.lastName);\ncy.get(\"#email\").should('be.visible').and('not.be.disabled').type(faker.internet.email);\ncy.get('#subject').should('be.visible').and('not.be.disabled').select(subjects[rand_index]);\ncy.get('#message').should('be.visible').and('not.be.disabled').type(\"Test done by Abdullah Aladham ❤️,my account :https://www.linkedin.com/in/abdullah-aladham/\");\ncy.get(\"input[value='Send']\").should('be.visible').and('not.be.disabled').click();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#first_name`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#first_name`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/Contact-TestSuite/Contact.cy.js:19:26)",
+                "diff": null
+              },
+              "uuid": "b000f158-8481-4fed-b914-3c81bb299035",
+              "parentUUID": "2d0f37a8-aa68-4019-9a14-63d47e911ec2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[004-0003] [Invalid] Sending data without filling first name.",
+              "fullTitle": "Contact Test Suite [004-0003] [Invalid] Sending data without filling first name.",
+              "timedOut": null,
+              "duration": 4246,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// cy.get(\"#first_name\").should('be.visible').and('not.be.disabled').type(faker.person.firstName);\ncy.get(\"#last_name\").should('be.visible').and('not.be.disabled').type(faker.person.lastName);\ncy.get(\"#email\").should('be.visible').and('not.be.disabled').type(faker.internet.email);\ncy.get('#subject').should('be.visible').and('not.be.disabled').select(subjects[rand_index]);\ncy.get('#message').should('be.visible').and('not.be.disabled').type(\"Test done by Abdullah Aladham ❤️,my account :https://www.linkedin.com/in/abdullah-aladham/\");\ncy.get(\"#attachment\").should('be.visible').and('not.be.disabled').selectFile(\"E:\\github\\cypress\\practice-software-testing\\cypress\\e2e\\test.txt\");\ncy.get(\"input[value='Send']\").should('be.visible').and('not.be.disabled').click();\ncy.get(\"#first_name_alert\").should('be.visible').and('have.text', 'First name is required');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#last_name`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#last_name`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/Contact-TestSuite/Contact.cy.js:29:25)",
+                "diff": null
+              },
+              "uuid": "6f01c25a-f604-401b-b682-3854d874dfaf",
+              "parentUUID": "2d0f37a8-aa68-4019-9a14-63d47e911ec2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[004-0004] [Invalid] Sending data without filling last name.",
+              "fullTitle": "Contact Test Suite [004-0004] [Invalid] Sending data without filling last name.",
+              "timedOut": null,
+              "duration": 4170,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"#first_name\").should('be.visible').and('not.be.disabled').type(faker.person.firstName);\n// cy.get(\"#last_name\").should('be.visible').and('not.be.disabled').type(faker.person.lastName);\ncy.get(\"#email\").should('be.visible').and('not.be.disabled').type(faker.internet.email);\ncy.get('#subject').should('be.visible').and('not.be.disabled').select(subjects[rand_index]);\ncy.get('#message').should('be.visible').and('not.be.disabled').type(\"Test done by Abdullah Aladham ❤️,my account :https://www.linkedin.com/in/abdullah-aladham/\");\ncy.get(\"#attachment\").should('be.visible').and('not.be.disabled').selectFile(\"E:\\github\\cypress\\practice-software-testing\\cypress\\e2e\\test.txt\");\ncy.get(\"input[value='Send']\").should('be.visible').and('not.be.disabled').click();\ncy.get(\"#last_name_alert\").should('be.visible').and('have.text', 'Last name is required');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#first_name`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#first_name`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/Contact-TestSuite/Contact.cy.js:38:26)",
+                "diff": null
+              },
+              "uuid": "b11cebb9-db1d-41b5-b104-447207d5200b",
+              "parentUUID": "2d0f37a8-aa68-4019-9a14-63d47e911ec2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[004-0005] [Invalid] Sending data without filling Email Address.",
+              "fullTitle": "Contact Test Suite [004-0005] [Invalid] Sending data without filling Email Address.",
+              "timedOut": null,
+              "duration": 4230,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"#first_name\").should('be.visible').and('not.be.disabled').type(faker.person.firstName);\ncy.get(\"#last_name\").should('be.visible').and('not.be.disabled').type(faker.person.lastName);\n// cy.get(\"#email\").should('be.visible').and('not.be.disabled').type(faker.internet.email)\ncy.get('#subject').should('be.visible').and('not.be.disabled').select(subjects[rand_index]);\ncy.get('#message').should('be.visible').and('not.be.disabled').type(\"Test done by Abdullah Aladham ❤️,my account: https://www.linkedin.com/in/abdullah-aladham/\");\ncy.get(\"#attachment\").should('be.visible').and('not.be.disabled').selectFile(\"E:\\github\\cypress\\practice-software-testing\\cypress\\e2e\\test.txt\");\ncy.get(\"input[value='Send']\").should('be.visible').and('not.be.disabled').click();\ncy.get(\"#email_name_alert\").should('be.visible').and('have.text', 'Email is required');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#first_name`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#first_name`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/Contact-TestSuite/Contact.cy.js:49:26)",
+                "diff": null
+              },
+              "uuid": "de874288-439c-46ab-a4e2-a44a2fdde66b",
+              "parentUUID": "2d0f37a8-aa68-4019-9a14-63d47e911ec2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[004-0006] [Invalid] Sending data with filling invalid email format (e.g:test@test@test).",
+              "fullTitle": "Contact Test Suite [004-0006] [Invalid] Sending data with filling invalid email format (e.g:test@test@test).",
+              "timedOut": null,
+              "duration": 4211,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"#first_name\").should('be.visible').and('not.be.disabled').type(faker.person.firstName);\ncy.get(\"#last_name\").should('be.visible').and('not.be.disabled').type(faker.person.lastName);\ncy.get(\"#email\").should('be.visible').and('not.be.disabled').type(\"test@test@test\");\ncy.get('#subject').should('be.visible').and('not.be.disabled').select(subjects[rand_index]);\ncy.get('#message').should('be.visible').and('not.be.disabled').type(\"Test done by Abdullah Aladham ❤️, my account :https://www.linkedin.com/in/abdullah-aladham/\");\ncy.get(\"#attachment\").should('be.visible').and('not.be.disabled').selectFile(\"E:\\github\\cypress\\practice-software-testing\\cypress\\e2e\\test.txt\");\ncy.get(\"input[value='Send']\").should('be.visible').and('not.be.disabled').click();\ncy.get(\"#email_name_alert\").should('be.visible').and('have.text', 'Email format is invalid');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#first_name`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#first_name`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/Contact-TestSuite/Contact.cy.js:59:26)",
+                "diff": null
+              },
+              "uuid": "5dc91b0d-60fb-49b5-8da9-089300dd5291",
+              "parentUUID": "2d0f37a8-aa68-4019-9a14-63d47e911ec2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[004-0007] [Invalid] Sending data with filling invalid email format (e.g:test).",
+              "fullTitle": "Contact Test Suite [004-0007] [Invalid] Sending data with filling invalid email format (e.g:test).",
+              "timedOut": null,
+              "duration": 4200,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"#first_name\").should('be.visible').and('not.be.disabled').type(faker.person.firstName);\ncy.get(\"#last_name\").should('be.visible').and('not.be.disabled').type(faker.person.lastName);\ncy.get(\"#email\").should('be.visible').and('not.be.disabled').type(\"test\");\ncy.get('#subject').should('be.visible').and('not.be.disabled').select(subjects[rand_index]);\ncy.get('#message').should('be.visible').and('not.be.disabled').type(\"Test done by Abdullah Aladham ❤️, my account :https://www.linkedin.com/in/abdullah-aladham/\");\ncy.get(\"#attachment\").should('be.visible').and('not.be.disabled').selectFile(\"E:\\github\\cypress\\practice-software-testing\\cypress\\e2e\\test.txt\");\ncy.get(\"input[value='Send']\").should('be.visible').and('not.be.disabled').click();\ncy.get(\"#email_name_alert\").should('be.visible').and('have.text', 'Email format is invalid');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#first_name`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#first_name`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/Contact-TestSuite/Contact.cy.js:69:26)",
+                "diff": null
+              },
+              "uuid": "d86b6b96-f1f0-466f-b3eb-e035e5ff8e97",
+              "parentUUID": "2d0f37a8-aa68-4019-9a14-63d47e911ec2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[004-0008] [Invalid] Sending data with filling invalid email format (e.g:test).",
+              "fullTitle": "Contact Test Suite [004-0008] [Invalid] Sending data with filling invalid email format (e.g:test).",
+              "timedOut": null,
+              "duration": 4198,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"#first_name\").should('be.visible').and('not.be.disabled').type(faker.person.firstName);\ncy.get(\"#last_name\").should('be.visible').and('not.be.disabled').type(faker.person.lastName);\ncy.get(\"#email\").should('be.visible').and('not.be.disabled').type(\"test.com\");\ncy.get('#subject').should('be.visible').and('not.be.disabled').select(subjects[rand_index]);\ncy.get('#message').should('be.visible').and('not.be.disabled').type(\"Test done by Abdullah Aladham ❤️, my account :https://www.linkedin.com/in/abdullah-aladham/\");\ncy.get(\"#attachment\").should('be.visible').and('not.be.disabled').selectFile(\"E:\\github\\cypress\\practice-software-testing\\cypress\\e2e\\test.txt\");\ncy.get(\"input[value='Send']\").should('be.visible').and('not.be.disabled').click();\ncy.get(\"#email_name_alert\").should('be.visible').and('have.text', 'Email format is invalid');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#first_name`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#first_name`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/Contact-TestSuite/Contact.cy.js:81:26)",
+                "diff": null
+              },
+              "uuid": "d67f7028-f454-412b-af94-3077ae511147",
+              "parentUUID": "2d0f37a8-aa68-4019-9a14-63d47e911ec2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[004-0009] [Invalid] Sending data with filling numerical value (e.g:123).",
+              "fullTitle": "Contact Test Suite [004-0009] [Invalid] Sending data with filling numerical value (e.g:123).",
+              "timedOut": null,
+              "duration": 4234,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"#first_name\").should('be.visible').and('not.be.disabled').type(faker.person.firstName);\ncy.get(\"#last_name\").should('be.visible').and('not.be.disabled').type(faker.person.lastName);\ncy.get(\"#email\").should('be.visible').and('not.be.disabled').type(\"123\");\ncy.get('#subject').should('be.visible').and('not.be.disabled').select(subjects[rand_index]);\ncy.get('#message').should('be.visible').and('not.be.disabled').type(\"Test done by Abdullah Aladham ❤️, my account :https://www.linkedin.com/in/abdullah-aladham/\");\ncy.get(\"#attachment\").should('be.visible').and('not.be.disabled').selectFile(\"E:\\github\\cypress\\practice-software-testing\\cypress\\e2e\\test.txt\");\ncy.get(\"input[value='Send']\").should('be.visible').and('not.be.disabled').click();\ncy.get(\"#email_name_alert\").should('be.visible').and('have.text', 'Email format is invalid');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#first_name`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#first_name`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/Contact-TestSuite/Contact.cy.js:91:26)",
+                "diff": null
+              },
+              "uuid": "9e9d549a-889e-4dba-bd3c-915a77e90a12",
+              "parentUUID": "2d0f37a8-aa68-4019-9a14-63d47e911ec2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[004-0009] [Invalid] Sending data with filling numerical value (e.g:123).",
+              "fullTitle": "Contact Test Suite [004-0009] [Invalid] Sending data with filling numerical value (e.g:123).",
+              "timedOut": null,
+              "duration": 4222,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"#first_name\").should('be.visible').and('not.be.disabled').type(faker.person.firstName);\ncy.get(\"#last_name\").should('be.visible').and('not.be.disabled').type(faker.person.lastName);\ncy.get(\"#email\").should('be.visible').and('not.be.disabled').type(\"123\");\n// cy.get('#subject').should('be.visible').and('not.be.disabled').select(subjects[rand_index])\ncy.get('#message').should('be.visible').and('not.be.disabled').type(\"Test done by Abdullah Aladham ❤️,my account :https://www.linkedin.com/in/abdullah-aladham/\");\ncy.get(\"#attachment\").should('be.visible').and('not.be.disabled').selectFile(\"E:\\github\\cypress\\practice-software-testing\\cypress\\e2e\\test.txt\");\ncy.get(\"input[value='Send']\").should('be.visible').and('not.be.disabled').click();\ncy.get(\"#subject_alert\").should('be.visible').and('have.text', 'Subject is required');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#first_name`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#first_name`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/Contact-TestSuite/Contact.cy.js:102:26)",
+                "diff": null
+              },
+              "uuid": "fab88f4d-b87d-4bf1-b59f-2d3ab4d057f3",
+              "parentUUID": "2d0f37a8-aa68-4019-9a14-63d47e911ec2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[004-0011] [invalid] Sending data with blank message input field.",
+              "fullTitle": "Contact Test Suite [004-0011] [invalid] Sending data with blank message input field.",
+              "timedOut": null,
+              "duration": 4196,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"#first_name\").should('be.visible').and('not.be.disabled').type(faker.person.firstName);\ncy.get(\"#last_name\").should('be.visible').and('not.be.disabled').type(faker.person.lastName);\ncy.get(\"#email\").should('be.visible').and('not.be.disabled').type(\"123\");\n// cy.get('#subject').should('be.visible').and('not.be.disabled').select(subjects[rand_index])\ncy.get('#message').should('be.visible').and('not.be.disabled').type(\"Test done by Abdullah Aladham ❤️ ,my account :https://www.linkedin.com/in/abdullah-aladham/\");\ncy.get(\"#attachment\").should('be.visible').and('not.be.disabled').selectFile(\"E:\\github\\cypress\\practice-software-testing\\cypress\\e2e\\test.txt\");\ncy.get(\"input[value='Send']\").should('be.visible').and('not.be.disabled').click();\ncy.get(\"#message_alert\").should('be.visible').and('have.text', 'Message is required');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#first_name`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#first_name`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/Contact-TestSuite/Contact.cy.js:113:26)",
+                "diff": null
+              },
+              "uuid": "b0fa9c9b-7023-4644-bc89-81ece7ae8933",
+              "parentUUID": "2d0f37a8-aa68-4019-9a14-63d47e911ec2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": " [004-0012] [invalid] Sending data with message that has length less than 50 characters.",
+              "fullTitle": "Contact Test Suite  [004-0012] [invalid] Sending data with message that has length less than 50 characters.",
+              "timedOut": null,
+              "duration": 4218,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"#first_name\").should('be.visible').and('not.be.disabled').type(faker.person.firstName);\ncy.get(\"#last_name\").should('be.visible').and('not.be.disabled').type(faker.person.lastName);\ncy.get(\"#email\").should('be.visible').and('not.be.disabled').type(\"123\");\n// cy.get('#subject').should('be.visible').and('not.be.disabled').select(subjects[rand_index])\ncy.get('#message').should('be.visible').and('not.be.disabled').type(\"Test done by Abdullah Aladham ❤️\");\ncy.get(\"#attachment\").should('be.visible').and('not.be.disabled').selectFile(\"E:\\github\\cypress\\practice-software-testing\\cypress\\e2e\\test.txt\");\ncy.get(\"input[value='Send']\").should('be.visible').and('not.be.disabled').click();\ncy.get(\"#message_alert\").should('be.visible').and('have.text', 'Message is required');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#first_name`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#first_name`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/Contact-TestSuite/Contact.cy.js:123:26)",
+                "diff": null
+              },
+              "uuid": "9c8f2ab5-3688-4198-b5a3-83fc0c201144",
+              "parentUUID": "2d0f37a8-aa68-4019-9a14-63d47e911ec2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[004-0013] [invalid] Sending data with non .txt file extension and 0kb size",
+              "fullTitle": "Contact Test Suite [004-0013] [invalid] Sending data with non .txt file extension and 0kb size",
+              "timedOut": null,
+              "duration": 4249,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"#first_name\").should('be.visible').and('not.be.disabled').type(faker.person.firstName);\ncy.get(\"#last_name\").should('be.visible').and('not.be.disabled').type(faker.person.lastName);\ncy.get(\"#email\").should('be.visible').and('not.be.disabled').type(\"123\");\n// cy.get('#subject').should('be.visible').and('not.be.disabled').select(subjects[rand_index])\ncy.get('#message').should('be.visible').and('not.be.disabled').type(\"Test done by Abdullah Aladham ❤️\");\ncy.get(\"#attachment\").should('be.visible').and('not.be.disabled').selectFile(\"E:\\\\github\\\\cypress\\\\practice-software-testing\\\\cypress\\\\e2e\\\\test.docx\");\ncy.get(\"input[value='Send']\").should('be.visible').and('not.be.disabled').click();\ncy.get(\"#attachment_alert\").should('be.visible').and('have.text', 'File should have a txt extension.');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#first_name`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#first_name`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/Contact-TestSuite/Contact.cy.js:135:26)",
+                "diff": null
+              },
+              "uuid": "c2f75962-41f1-443d-bcb4-5fb5c15eea96",
+              "parentUUID": "2d0f37a8-aa68-4019-9a14-63d47e911ec2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[004-0014] [Invalid] Sending data with .txt file extension and bigger than 0kb size",
+              "fullTitle": "Contact Test Suite [004-0014] [Invalid] Sending data with .txt file extension and bigger than 0kb size",
+              "timedOut": null,
+              "duration": 4217,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"#first_name\").should('be.visible').and('not.be.disabled').type(faker.person.firstName);\ncy.get(\"#last_name\").should('be.visible').and('not.be.disabled').type(faker.person.lastName);\ncy.get(\"#email\").should('be.visible').and('not.be.disabled').type(faker.internet.email);\ncy.get('#subject').should('be.visible').and('not.be.disabled').select(subjects[rand_index]);\ncy.get('#message').should('be.visible').and('not.be.disabled').type(\"Test done by Abdullah Aladham ❤️,my account :https://www.linkedin.com/in/abdullah-aladham/\");\ncy.get(\"#attachment\").should('be.visible').and('not.be.disabled').selectFile(\"E:\\\\github\\\\cypress\\\\practice-software-testing\\\\cypress\\\\e2e\\\\invalid.text\");\ncy.get(\"input[value='Send']\").should('be.visible').and('not.be.disabled').click();\ncy.get('#attachment_alert').should('be.visible').and('have.text', 'File should be empty.');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#first_name`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#first_name`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/Contact-TestSuite/Contact.cy.js:149:26)",
+                "diff": null
+              },
+              "uuid": "16171f23-c254-4d56-9973-10f2353ff030",
+              "parentUUID": "2d0f37a8-aa68-4019-9a14-63d47e911ec2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[004-0014] [invalid] Sending data with non .txt file extension and bigger than 0kb size",
+              "fullTitle": "Contact Test Suite [004-0014] [invalid] Sending data with non .txt file extension and bigger than 0kb size",
+              "timedOut": null,
+              "duration": 4233,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"#first_name\").should('be.visible').and('not.be.disabled').type(faker.person.firstName);\ncy.get(\"#last_name\").should('be.visible').and('not.be.disabled').type(faker.person.lastName);\ncy.get(\"#email\").should('be.visible').and('not.be.disabled').type(faker.internet.email);\ncy.get('#subject').should('be.visible').and('not.be.disabled').select(subjects[rand_index]);\ncy.get('#message').should('be.visible').and('not.be.disabled').type(\"Test done by Abdullah Aladham ❤️,my account :https://www.linkedin.com/in/abdullah-aladham/\");\ncy.get(\"#attachment\").should('be.visible').and('not.be.disabled').selectFile(\"E:\\\\github\\\\cypress\\\\practice-software-testing\\\\cypress\\\\e2e\\\\invalid.docx\");\ncy.get(\"input[value='Send']\").should('be.visible').and('not.be.disabled').click();\ncy.get('#attachment_alert').should('be.visible').and('have.text', 'File should be empty.'); //finally found a bug🤣",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#first_name`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#first_name`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/Contact-TestSuite/Contact.cy.js:160:26)",
+                "diff": null
+              },
+              "uuid": "924fc1c8-1427-4575-88af-277d16d1208f",
+              "parentUUID": "2d0f37a8-aa68-4019-9a14-63d47e911ec2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "587f36b2-5415-4349-8f4c-cb62f98a91ce",
+            "b000f158-8481-4fed-b914-3c81bb299035",
+            "6f01c25a-f604-401b-b682-3854d874dfaf",
+            "b11cebb9-db1d-41b5-b104-447207d5200b",
+            "de874288-439c-46ab-a4e2-a44a2fdde66b",
+            "5dc91b0d-60fb-49b5-8da9-089300dd5291",
+            "d86b6b96-f1f0-466f-b3eb-e035e5ff8e97",
+            "d67f7028-f454-412b-af94-3077ae511147",
+            "9e9d549a-889e-4dba-bd3c-915a77e90a12",
+            "fab88f4d-b87d-4bf1-b59f-2d3ab4d057f3",
+            "b0fa9c9b-7023-4644-bc89-81ece7ae8933",
+            "9c8f2ab5-3688-4198-b5a3-83fc0c201144",
+            "c2f75962-41f1-443d-bcb4-5fb5c15eea96",
+            "16171f23-c254-4d56-9973-10f2353ff030",
+            "924fc1c8-1427-4575-88af-277d16d1208f"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 60698,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "timestamp": "longDate"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

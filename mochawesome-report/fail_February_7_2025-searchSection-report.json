@@ -1,0 +1,222 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 0,
+    "pending": 0,
+    "failures": 6,
+    "start": "2025-02-07T13:59:27.462Z",
+    "end": "2025-02-07T13:59:52.862Z",
+    "duration": 25400,
+    "testsRegistered": 6,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "adf26052-1e23-4ede-bc4a-06ec12c68ec6",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Product Grid TestSuite\\searchSection.cy.js",
+      "file": "cypress\\e2e\\Product Grid TestSuite\\searchSection.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f1b10c67-dcd2-448b-acff-e4f7420a0a84",
+          "title": "Search Section Testsuite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "[005-003-01] [invalid] trying to search without typing in search bar.",
+              "fullTitle": "Search Section Testsuite [005-003-01] [invalid] trying to search without typing in search bar.",
+              "timedOut": null,
+              "duration": 4257,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"button[type='submit']\").should('be.visible').and('not.be.disabled').click();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `button[type='submit']`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `button[type='submit']`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/Product Grid TestSuite/searchSection.cy.js:3:40)",
+                "diff": null
+              },
+              "uuid": "449dac8a-91de-4d1a-a84f-8b88dfb20c3a",
+              "parentUUID": "f1b10c67-dcd2-448b-acff-e4f7420a0a84",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[005-003-02] [invalid] trying to search with numerical data between 0-9",
+              "fullTitle": "Search Section Testsuite [005-003-02] [invalid] trying to search with numerical data between 0-9",
+              "timedOut": null,
+              "duration": 4137,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"#search-query\").should('be.visible').and('not.be.disabled').and('be.null').type(\"0{enter}\");\n//nothing should be happened",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#search-query`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#search-query`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/Product Grid TestSuite/searchSection.cy.js:6:32)",
+                "diff": null
+              },
+              "uuid": "27465238-80c0-47be-b33a-3ef4fd6bca48",
+              "parentUUID": "f1b10c67-dcd2-448b-acff-e4f7420a0a84",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[005-003-03] [Valid] trying to search with string data[e.g :hammer]",
+              "fullTitle": "Search Section Testsuite [005-003-03] [Valid] trying to search with string data[e.g :hammer]",
+              "timedOut": null,
+              "duration": 4216,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"#search-query\").should('be.visible').and('not.be.disabled').and('be.null').type(\"hammer{enter}\");\ncy.intercept({\n  method: \"GET\",\n  url: '/products/search?q=hammer'\n}).as('getHammer');\ncy.wait('@getHammer');\ncy.get(\"h3[data-test='search-caption']\").should('have.text', 'Searched for: hammer').and('be.visible');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#search-query`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#search-query`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/Product Grid TestSuite/searchSection.cy.js:10:32)",
+                "diff": null
+              },
+              "uuid": "cb11ede1-a7e8-4137-91b4-4eaa8e9c1030",
+              "parentUUID": "f1b10c67-dcd2-448b-acff-e4f7420a0a84",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[005-003-04] [Invalid] trying to search with less than 3 digit number",
+              "fullTitle": "Search Section Testsuite [005-003-04] [Invalid] trying to search with less than 3 digit number",
+              "timedOut": null,
+              "duration": 4175,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"#search-query\").should('be.visible').and('not.be.disabled').and('be.null').type(\"1{enter}\");",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#search-query`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#search-query`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/Product Grid TestSuite/searchSection.cy.js:21:32)",
+                "diff": null
+              },
+              "uuid": "cdbc06cd-dace-4989-b32d-a79c1fe79673",
+              "parentUUID": "f1b10c67-dcd2-448b-acff-e4f7420a0a84",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[005-003-05] [invalid] trying to search with less than 3 character string.",
+              "fullTitle": "Search Section Testsuite [005-003-05] [invalid] trying to search with less than 3 character string.",
+              "timedOut": null,
+              "duration": 4225,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"#search-query\").should('be.visible').and('not.be.disabled').and('be.null').type(\"he{enter}\");",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#search-query`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#search-query`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/Product Grid TestSuite/searchSection.cy.js:26:32)",
+                "diff": null
+              },
+              "uuid": "7acdf273-ae9c-4277-be22-9e78a08720c5",
+              "parentUUID": "f1b10c67-dcd2-448b-acff-e4f7420a0a84",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[005-003-06][Valid] trying to search with irrelevant data to the product\business. (e.g:cola).",
+              "fullTitle": "Search Section Testsuite [005-003-06][Valid] trying to search with irrelevant data to the product\business. (e.g:cola).",
+              "timedOut": null,
+              "duration": 4162,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"#search-query\").should('be.visible').and('not.be.disabled').and('be.null').type(\"cola{enter}\");\ncy.get(\"h3[data-test='search-caption']\").should('be.visible').and('have.text', \"Searched for: cola\");\ncy.get(\"div[data-test='no-results']\").should('have.text', 'There are no products found.');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#search-query`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#search-query`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/Product Grid TestSuite/searchSection.cy.js:31:32)",
+                "diff": null
+              },
+              "uuid": "67c06071-cf3a-4a31-a537-08a3b096c730",
+              "parentUUID": "f1b10c67-dcd2-448b-acff-e4f7420a0a84",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "449dac8a-91de-4d1a-a84f-8b88dfb20c3a",
+            "27465238-80c0-47be-b33a-3ef4fd6bca48",
+            "cb11ede1-a7e8-4137-91b4-4eaa8e9c1030",
+            "cdbc06cd-dace-4989-b32d-a79c1fe79673",
+            "7acdf273-ae9c-4277-be22-9e78a08720c5",
+            "67c06071-cf3a-4a31-a537-08a3b096c730"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 25172,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "timestamp": "longDate"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

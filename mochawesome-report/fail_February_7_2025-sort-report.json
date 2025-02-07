@@ -1,0 +1,176 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 0,
+    "pending": 0,
+    "failures": 4,
+    "start": "2025-02-07T13:59:55.473Z",
+    "end": "2025-02-07T14:00:12.348Z",
+    "duration": 16875,
+    "testsRegistered": 4,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "904387a3-ff7a-443b-acbb-6984f31ab114",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Product Grid TestSuite\\sort.cy.js",
+      "file": "cypress\\e2e\\Product Grid TestSuite\\sort.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c9e5c14d-2abc-4538-8088-5a45f1a9aef5",
+          "title": "Sort Test Suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "[005-001-01][Valid] Sort products alphabetically from A-Z.",
+              "fullTitle": "Sort Test Suite [005-001-01][Valid] Sort products alphabetically from A-Z.",
+              "timedOut": null,
+              "duration": 4177,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"select[aria-label='sort']\").should('be.visible').and('not.be.disabled').select('value=\"name,asc\"');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `select[aria-label='sort']`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `select[aria-label='sort']`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/Product Grid TestSuite/sort.cy.js:3:44)",
+                "diff": null
+              },
+              "uuid": "9aa7a44d-7e78-4a62-84b1-45754b6d397d",
+              "parentUUID": "c9e5c14d-2abc-4538-8088-5a45f1a9aef5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[005-001-02][Valid] Sort products alphabetically from Z-A.",
+              "fullTitle": "Sort Test Suite [005-001-02][Valid] Sort products alphabetically from Z-A.",
+              "timedOut": null,
+              "duration": 4197,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"select[aria-label='sort']\").should('be.visible').and('not.be.disabled').select('Name (Z - A)');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `select[aria-label='sort']`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `select[aria-label='sort']`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/Product Grid TestSuite/sort.cy.js:7:44)",
+                "diff": null
+              },
+              "uuid": "f61ce390-6644-47a8-9c09-04000c7a8433",
+              "parentUUID": "c9e5c14d-2abc-4538-8088-5a45f1a9aef5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[005-001-03][Valid] Sort products by price from High-Low.",
+              "fullTitle": "Sort Test Suite [005-001-03][Valid] Sort products by price from High-Low.",
+              "timedOut": null,
+              "duration": 4178,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"select[aria-label='sort']\").should('be.visible').and('not.be.disabled').select('Price (High - Low)');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `select[aria-label='sort']`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `select[aria-label='sort']`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/Product Grid TestSuite/sort.cy.js:11:44)",
+                "diff": null
+              },
+              "uuid": "efc6d6c2-942c-4cde-b476-2a1d8ae82654",
+              "parentUUID": "c9e5c14d-2abc-4538-8088-5a45f1a9aef5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[005-001-04][Valid] Sort products by price from Low-High.",
+              "fullTitle": "Sort Test Suite [005-001-04][Valid] Sort products by price from Low-High.",
+              "timedOut": null,
+              "duration": 4173,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"select[aria-label='sort']\").should('be.visible').and('not.be.disabled').select('Price (Low - High)');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `select[aria-label='sort']`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `select[aria-label='sort']`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/Product Grid TestSuite/sort.cy.js:15:44)",
+                "diff": null
+              },
+              "uuid": "eee3ce69-fb42-4fd3-af57-709ea9829a5a",
+              "parentUUID": "c9e5c14d-2abc-4538-8088-5a45f1a9aef5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "9aa7a44d-7e78-4a62-84b1-45754b6d397d",
+            "f61ce390-6644-47a8-9c09-04000c7a8433",
+            "efc6d6c2-942c-4cde-b476-2a1d8ae82654",
+            "eee3ce69-fb42-4fd3-af57-709ea9829a5a"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 16725,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "timestamp": "longDate"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

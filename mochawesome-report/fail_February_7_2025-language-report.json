@@ -1,0 +1,349 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 12,
+    "passes": 3,
+    "pending": 0,
+    "failures": 9,
+    "start": "2025-02-07T13:58:00.159Z",
+    "end": "2025-02-07T13:58:48.568Z",
+    "duration": 48409,
+    "testsRegistered": 12,
+    "passPercent": 25,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "bfe8f09f-3bf4-4d04-a7da-b039821b7d9d",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Languages-Test-Suite\\language.cy.js",
+      "file": "cypress\\e2e\\Languages-Test-Suite\\language.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ca121892-8ee3-450f-87ad-345982ea72c5",
+          "title": "Languages testSuite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "[01-0006] Clicks on “EN” Symbol",
+              "fullTitle": "Languages testSuite [01-0006] Clicks on “EN” Symbol",
+              "timedOut": null,
+              "duration": 834,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/');\ncy.get('button[id=\"language\"]').should('be.visible').and('not.be.disabled').click();\ncy.get('ul[id=\"dropdown-animated\"]').should('be.visible');\ncy.url().should('eq', \"https://practicesoftwaretesting.com/\");",
+              "err": {},
+              "uuid": "42fc3dda-086f-4d96-b269-2c15dc9294f2",
+              "parentUUID": "ca121892-8ee3-450f-87ad-345982ea72c5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[01-0006-01][Valid] Click on “DE” option for Germany language For UI Only.",
+              "fullTitle": "Languages testSuite [01-0006-01][Valid] Click on “DE” option for Germany language For UI Only.",
+              "timedOut": null,
+              "duration": 885,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/');\ncy.get('[data-test=\"language\"]').should('be.visible').click();\ncy.get('#dropdown-animated > :nth-child(1) > .dropdown-item').should('be.visible').click();\ncy.get(\".nav-link[data-test='nav-contact']\").should('have.text', 'Kontakt');",
+              "err": {},
+              "uuid": "947bd8d4-0140-4ee6-9310-56469130636a",
+              "parentUUID": "ca121892-8ee3-450f-87ad-345982ea72c5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[01-0006-02] Click on “EN” option for English language For UI Only.",
+              "fullTitle": "Languages testSuite [01-0006-02] Click on “EN” option for English language For UI Only.",
+              "timedOut": null,
+              "duration": 4988,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/');\ncy.get('[data-test=\"language\"]').should('be.visible').click();\ncy.get('#dropdown-animated > :nth-child(1) > .dropdown-item').should('be.visible').click();\ncy.get(\".nav-link[data-test='nav-contact']\").should('have.text', 'Contact');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected '<a.nav-link>' to have text 'Contact', but the text was 'Kontakt'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected '<a.nav-link>' to have text 'Contact', but the text was 'Kontakt'\n    at Context.eval (webpack:///./cypress/e2e/Languages-Test-Suite/language.cy.js:18:53)",
+                "diff": "- 'Kontakt'\n+ 'Contact'\n"
+              },
+              "uuid": "a41c6833-5d5c-43b9-add5-2c0e5835da3d",
+              "parentUUID": "ca121892-8ee3-450f-87ad-345982ea72c5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[01-0006-03] Click on “ES” option for Spain language.",
+              "fullTitle": "Languages testSuite [01-0006-03] Click on “ES” option for Spain language.",
+              "timedOut": null,
+              "duration": 5021,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/');\ncy.get('[data-test=\"language\"]').should('be.visible').click();\ncy.get('#dropdown-animated > :nth-child(1) > .dropdown-item').should('be.visible').click();\ncy.get(\".nav-link[data-test='nav-contact']\").should('have.text', 'Contacto');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected '<a.nav-link>' to have text 'Contacto', but the text was 'Kontakt'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected '<a.nav-link>' to have text 'Contacto', but the text was 'Kontakt'\n    at Context.eval (webpack:///./cypress/e2e/Languages-Test-Suite/language.cy.js:24:53)",
+                "diff": "- 'Kontakt'\n+ 'Contacto'\n"
+              },
+              "uuid": "0d3d2535-922a-4040-bc8b-c37b8044edb1",
+              "parentUUID": "ca121892-8ee3-450f-87ad-345982ea72c5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[01-0006-04] Click on “FR” option for French language.",
+              "fullTitle": "Languages testSuite [01-0006-04] Click on “FR” option for French language.",
+              "timedOut": null,
+              "duration": 4953,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/');\ncy.get('[data-test=\"language\"]').should('be.visible').click();\ncy.get('#dropdown-animated > :nth-child(1) > .dropdown-item').should('be.visible').click();\ncy.get(\".nav-link[data-test='nav-contact']\").should('have.text', 'Contact');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected '<a.nav-link>' to have text 'Contact', but the text was 'Kontakt'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected '<a.nav-link>' to have text 'Contact', but the text was 'Kontakt'\n    at Context.eval (webpack:///./cypress/e2e/Languages-Test-Suite/language.cy.js:30:53)",
+                "diff": "- 'Kontakt'\n+ 'Contact'\n"
+              },
+              "uuid": "d1bd13f3-2aab-453a-9cd8-148b0cd2c852",
+              "parentUUID": "ca121892-8ee3-450f-87ad-345982ea72c5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[01-0006-05] Click on “NL” option for Netherlands language.",
+              "fullTitle": "Languages testSuite [01-0006-05] Click on “NL” option for Netherlands language.",
+              "timedOut": null,
+              "duration": 782,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/');\ncy.get('[data-test=\"language\"]').should('be.visible').click();\ncy.get('#dropdown-animated > :nth-child(1) > .dropdown-item').should('be.visible').click();\ncy.get(\".nav-link[data-test='nav-contact']\").should('have.text', 'Contact');",
+              "err": {},
+              "uuid": "815c0731-c674-447c-a59d-624a2d8748df",
+              "parentUUID": "ca121892-8ee3-450f-87ad-345982ea72c5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[01-0006-06] Click on “TR” option for TÜRKİYE language.",
+              "fullTitle": "Languages testSuite [01-0006-06] Click on “TR” option for TÜRKİYE language.",
+              "timedOut": null,
+              "duration": 5167,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/');\ncy.get('[data-test=\"language\"]').should('be.visible').click();\ncy.get('#dropdown-animated > :nth-child(1) > .dropdown-item').should('be.visible').click();\ncy.get(\".nav-link[data-test='nav-contact']\").should('have.text', 'İletişim');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected '<a.nav-link>' to have text 'İletişim', but the text was 'Kontakt'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected '<a.nav-link>' to have text 'İletişim', but the text was 'Kontakt'\n    at Context.eval (webpack:///./cypress/e2e/Languages-Test-Suite/language.cy.js:42:53)",
+                "diff": "- 'Kontakt'\n+ 'İletişim'\n"
+              },
+              "uuid": "1d926f3b-ca2a-4773-960e-9d68dd5d8286",
+              "parentUUID": "ca121892-8ee3-450f-87ad-345982ea72c5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[01-0006-07] [Invalid] Click on “DE” option for Germany language [HTML “lang” attribute update.]",
+              "fullTitle": "Languages testSuite [01-0006-07] [Invalid] Click on “DE” option for Germany language [HTML “lang” attribute update.]",
+              "timedOut": null,
+              "duration": 4938,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/');\ncy.get('[data-test=\"language\"]').should('be.visible').click();\ncy.get('#dropdown-animated > :nth-child(1) > .dropdown-item').should('be.visible').click();\ncy.get('html').invoke('attr', 'lang').should('eq', 'de');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected 'en' to equal 'de'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected 'en' to equal 'de'\n    at Context.eval (webpack:///./cypress/e2e/Languages-Test-Suite/language.cy.js:49:45)",
+                "diff": "- 'en'\n+ 'de'\n"
+              },
+              "uuid": "2ce88deb-94f1-4b05-a85a-a2a934f6c122",
+              "parentUUID": "ca121892-8ee3-450f-87ad-345982ea72c5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[01-0006-08][Invalid] Click on “ES” option for Spain language [HTML “lang” attribute] update].",
+              "fullTitle": "Languages testSuite [01-0006-08][Invalid] Click on “ES” option for Spain language [HTML “lang” attribute] update].",
+              "timedOut": null,
+              "duration": 5035,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/');\ncy.get('[data-test=\"language\"]').should('be.visible').click();\ncy.get('#dropdown-animated > :nth-child(1) > .dropdown-item').should('be.visible').click();\ncy.get('html').invoke('attr', 'lang').should('eq', 'es');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected 'en' to equal 'es'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected 'en' to equal 'es'\n    at Context.eval (webpack:///./cypress/e2e/Languages-Test-Suite/language.cy.js:57:45)",
+                "diff": "- 'en'\n+ 'es'\n"
+              },
+              "uuid": "3a08ec06-08d4-4848-b5e4-78f5a3971673",
+              "parentUUID": "ca121892-8ee3-450f-87ad-345982ea72c5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[01-0006-09] [Invalid] Click on “FR” option for French language [HTML “lang” attribute] update].",
+              "fullTitle": "Languages testSuite [01-0006-09] [Invalid] Click on “FR” option for French language [HTML “lang” attribute] update].",
+              "timedOut": null,
+              "duration": 5064,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/');\ncy.get('[data-test=\"language\"]').should('be.visible').click();\ncy.get('#dropdown-animated > :nth-child(1) > .dropdown-item').should('be.visible').click();\ncy.get('html').invoke('attr', 'lang').should('eq', 'fr');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected 'en' to equal 'fr'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected 'en' to equal 'fr'\n    at Context.eval (webpack:///./cypress/e2e/Languages-Test-Suite/language.cy.js:65:45)",
+                "diff": "- 'en'\n+ 'fr'\n"
+              },
+              "uuid": "9fdee3e3-437b-40de-9780-f01114cf6701",
+              "parentUUID": "ca121892-8ee3-450f-87ad-345982ea72c5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[01-0006-10] [Invalid] Click on “NL” option for Netherlands language [HTML “lang” attribute update ].",
+              "fullTitle": "Languages testSuite [01-0006-10] [Invalid] Click on “NL” option for Netherlands language [HTML “lang” attribute update ].",
+              "timedOut": null,
+              "duration": 5005,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/');\ncy.get('[data-test=\"language\"]').should('be.visible').click();\ncy.get('#dropdown-animated > :nth-child(1) > .dropdown-item').should('be.visible').click();\ncy.get('html').invoke('attr', 'lang').should('eq', 'nl');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected 'en' to equal 'nl'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected 'en' to equal 'nl'\n    at Context.eval (webpack:///./cypress/e2e/Languages-Test-Suite/language.cy.js:73:45)",
+                "diff": "- 'en'\n+ 'nl'\n"
+              },
+              "uuid": "59a716b5-de96-4829-8639-ab50255d0f82",
+              "parentUUID": "ca121892-8ee3-450f-87ad-345982ea72c5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[01-0006-11][Invalid]  Click on “TR” option for TÜRKİYE language [HTML “lang” attribute] update ].",
+              "fullTitle": "Languages testSuite [01-0006-11][Invalid]  Click on “TR” option for TÜRKİYE language [HTML “lang” attribute] update ].",
+              "timedOut": null,
+              "duration": 5111,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/');\ncy.get('[data-test=\"language\"]').should('be.visible').click();\ncy.get('#dropdown-animated > :nth-child(1) > .dropdown-item').should('be.visible').click();\ncy.get('html').invoke('attr', 'lang').should('eq', 'tr');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected 'en' to equal 'tr'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected 'en' to equal 'tr'\n    at Context.eval (webpack:///./cypress/e2e/Languages-Test-Suite/language.cy.js:81:45)",
+                "diff": "- 'en'\n+ 'tr'\n"
+              },
+              "uuid": "369c00a8-e105-4eac-a2b5-644d2145479f",
+              "parentUUID": "ca121892-8ee3-450f-87ad-345982ea72c5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "42fc3dda-086f-4d96-b269-2c15dc9294f2",
+            "947bd8d4-0140-4ee6-9310-56469130636a",
+            "815c0731-c674-447c-a59d-624a2d8748df"
+          ],
+          "failures": [
+            "a41c6833-5d5c-43b9-add5-2c0e5835da3d",
+            "0d3d2535-922a-4040-bc8b-c37b8044edb1",
+            "d1bd13f3-2aab-453a-9cd8-148b0cd2c852",
+            "1d926f3b-ca2a-4773-960e-9d68dd5d8286",
+            "2ce88deb-94f1-4b05-a85a-a2a934f6c122",
+            "3a08ec06-08d4-4848-b5e4-78f5a3971673",
+            "9fdee3e3-437b-40de-9780-f01114cf6701",
+            "59a716b5-de96-4829-8639-ab50255d0f82",
+            "369c00a8-e105-4eac-a2b5-644d2145479f"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 47783,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "timestamp": "longDate"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

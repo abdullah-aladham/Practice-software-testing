@@ -1,0 +1,153 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 0,
+    "pending": 0,
+    "failures": 3,
+    "start": "2025-02-07T14:00:50.951Z",
+    "end": "2025-02-07T14:01:06.188Z",
+    "duration": 15237,
+    "testsRegistered": 3,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "73398bd3-60de-45da-a35d-2709e835ba22",
+      "title": "",
+      "fullFile": "cypress\\e2e\\favorites[testsuite]\\favorites.cy.js",
+      "file": "cypress\\e2e\\favorites[testsuite]\\favorites.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "682c5898-440a-4ee7-bf8c-8a513debfd04",
+          "title": "Favorites Testsuite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "[006-0005] [Valid] Adding product to favorites when signed in",
+              "fullTitle": "Favorites Testsuite [006-0005] [Valid] Adding product to favorites when signed in",
+              "timedOut": null,
+              "duration": 5162,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.login(\"customer@practicesoftwaretesting.com\", \"welcome01\");\ncy.get(\"a:nth-child(1) div:nth-child(2) h5:nth-child(1)\").should('be.visible').and('not.be.disabled').should('have.text', 'Combination Pliers').click();\ncy.get(\"#btn-add-to-favorites\").should('be.visible').and('not.be.disabled').click();\ncy.get(\"div[class='ng-tns-c2308121496-1 toast-message ng-star-inserted']\").should('be.visible').and('have.text', ' Product added to your favorites list.');\ncy.intercept({\n  method: \"OPTIONS\",\n  url: \"https://api.practicesoftwaretesting.com/favorites\"\n}).as(\"FacoritesOptionsReq\");\ncy.wait(\"@FacoritesOptionsReq\").then(interception => {\n  console.log(interception);\n  cy.wrap(interception.response.statusCode).should('eq', 204);\n});\ncy.intercept({\n  method: \"POST\",\n  url: \"https://api.practicesoftwaretesting.com/favorites\"\n}).as(\"AddtoFavoritesReq\");\ncy.wait(\"@AddtoFavoritesReq\").then(interception => {\n  console.log(interception);\n  cy.wrap(interception.response.statusCode).should('eq', 201);\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected '<input#email.form-control.ng-untouched.ng-pristine.ng-invalid>' to be null\n\nThis error occurred while creating the session. Because the session setup failed, we failed the test.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected '<input#email.form-control.ng-untouched.ng-pristine.ng-invalid>' to be null\n\nThis error occurred while creating the session. Because the session setup failed, we failed the test.\n    at Object.eval [as setup] (webpack:///./cypress/support/commands.js:15:53)\n    at Context.<anonymous> (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:132889:38)\n    at getRet (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:118338:20)\n    at tryCatcher (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:118349:66)\n    at Context.then (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:118600:21)\n    at wrapped (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:137883:19)",
+                "diff": null
+              },
+              "uuid": "95552101-7390-48e5-a918-a6c60b507ee9",
+              "parentUUID": "682c5898-440a-4ee7-bf8c-8a513debfd04",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[006-0006][invalid] Adding product to favorites when not signed in",
+              "fullTitle": "Favorites Testsuite [006-0006][invalid] Adding product to favorites when not signed in",
+              "timedOut": null,
+              "duration": 4474,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"a:nth-child(1) div:nth-child(2) h5:nth-child(1)\").should('be.visible').and('not.be.disabled').should('have.text', 'Combination Pliers').click();\ncy.get(\"#btn-add-to-favorites\").should('be.visible').and('not.be.disabled').click();\ncy.get('div[class=\"ng-tns-c2308121496-0 ng-star-inserted ng-trigger ng-trigger-flyInOut ngx-toastr toast-error\"]').should('be.visible').and('have.text', ' Product added to your favorites list.');\ncy.intercept({\n  method: \"OPTIONS\",\n  url: \"https://api.practicesoftwaretesting.com/favorites\"\n}).as(\"FacoritesOptionsReq\");\ncy.wait(\"@FacoritesOptionsReq\").then(interception => {\n  console.log(interception);\n  cy.wrap(interception.response.statusCode).should('eq', 204);\n});\ncy.intercept({\n  method: \"POST\",\n  url: \"https://api.practicesoftwaretesting.com/favorites\"\n}).as(\"AddtoFavoritesReq\");\ncy.wait(\"@FailAddToFavoritesReq\").then(interception => {\n  console.log(interception);\n  cy.wrap(interception.response.statusCode).should('eq', 401);\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `a:nth-child(1) div:nth-child(2) h5:nth-child(1)`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `a:nth-child(1) div:nth-child(2) h5:nth-child(1)`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/favorites[testsuite]/favorites.cy.js:27:66)",
+                "diff": null
+              },
+              "uuid": "a1f1281a-b0bd-469d-837f-aa8af74f582e",
+              "parentUUID": "682c5898-440a-4ee7-bf8c-8a513debfd04",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[006-0007][Valid] View Favorites lists",
+              "fullTitle": "Favorites Testsuite [006-0007][Valid] View Favorites lists",
+              "timedOut": null,
+              "duration": 5449,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.login(\"customer@practicesoftwaretesting.com\", \"welcome01\");\ncy.get(\".dropdown-item[data-test='nav-my-favorites']\").should('be.visible').and('not.be.disabled').click();\ncy.intercept({\n  method: \"GET\",\n  url: \"https://api.practicesoftwaretesting.com/favorites\"\n}).as(\"FavoritesList\");\ncy.wait(\"@FavoritesList\").then(interception => {\n  console.log(interception);\n  cy.wrap(interception.response.statusCode).should('eq', 200);\n});\nit(\"[006-0008] [Valid] Remove item from favorites list\", () => {\n  cy.login();\n  cy.get(\".dropdown-item[data-test='nav-my-favorites']\").should('be.visible').and('not.be.disabled').click();\n  cy.intercept({\n    method: \"OPTIONS\",\n    url: \"https://api.practicesoftwaretesting.com/favorites/01JK9K2GGJTN61SJW5W43NKWR2\"\n  }).as(\"DeleteOPTIONAPI\");\n  cy.wait(\"@DeleteOPTIONAPI\").then(interception => {\n    console.log(interception);\n    cy.wrap(interception.response.statusCode).should('eq', 204);\n  });\n  cy.intercept({\n    method: \"DELETE\",\n    url: \"https://api.practicesoftwaretesting.com/favorites/01JK9K2GGJTN61SJW5W43NKWR2\"\n  }).as(\"ProdDeleteRequest\");\n  cy.wait(\"@ProdDeleteRequest\").then(interception => {\n    console.log(interception);\n    cy.wrap(interception.response.statusCode).should('eq', 204);\n  });\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected '<input#email.form-control.ng-untouched.ng-pristine.ng-invalid>' to be null\n\nThis error occurred while creating the session. Because the session setup failed, we failed the test.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected '<input#email.form-control.ng-untouched.ng-pristine.ng-invalid>' to be null\n\nThis error occurred while creating the session. Because the session setup failed, we failed the test.\n    at Object.eval [as setup] (webpack:///./cypress/support/commands.js:15:53)\n    at Context.<anonymous> (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:132889:38)\n    at getRet (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:118338:20)\n    at tryCatcher (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:118349:66)\n    at Context.then (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:118600:21)\n    at wrapped (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:137883:19)",
+                "diff": null
+              },
+              "uuid": "27222d0d-c0de-41d3-a8fc-f6b0d7e5f447",
+              "parentUUID": "682c5898-440a-4ee7-bf8c-8a513debfd04",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "95552101-7390-48e5-a918-a6c60b507ee9",
+            "a1f1281a-b0bd-469d-837f-aa8af74f582e",
+            "27222d0d-c0de-41d3-a8fc-f6b0d7e5f447"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 15085,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "timestamp": "longDate"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

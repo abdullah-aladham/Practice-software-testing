@@ -1,0 +1,245 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 7,
+    "passes": 0,
+    "pending": 0,
+    "failures": 7,
+    "start": "2025-02-07T14:01:19.010Z",
+    "end": "2025-02-07T14:01:53.578Z",
+    "duration": 34568,
+    "testsRegistered": 7,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "5e3af613-6bb4-45dc-a5e2-4b6f7c21050f",
+      "title": "",
+      "fullFile": "cypress\\e2e\\UserMembership\\Sign-in[SI]\\Sign-in.cy.js",
+      "file": "cypress\\e2e\\UserMembership\\Sign-in[SI]\\Sign-in.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8962ae89-9fad-49b2-983f-eebc6c252285",
+          "title": "Sign-in[SI] TestSuite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "[003-SI-0001] [Valid]Sign in with Valid user data[Email: customer@practicesoftwaretesting.com,PW: welcome01]",
+              "fullTitle": "Sign-in[SI] TestSuite [003-SI-0001] [Valid]Sign in with Valid user data[Email: customer@practicesoftwaretesting.com,PW: welcome01]",
+              "timedOut": null,
+              "duration": 5004,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.login('customer@practicesoftwaretesting.com', 'welcome01');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected '<input#email.form-control.ng-untouched.ng-pristine.ng-invalid>' to be null\n\nThis error occurred while creating the session. Because the session setup failed, we failed the test.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected '<input#email.form-control.ng-untouched.ng-pristine.ng-invalid>' to be null\n\nThis error occurred while creating the session. Because the session setup failed, we failed the test.\n    at Object.eval [as setup] (webpack:///./cypress/support/commands.js:15:53)\n    at Context.<anonymous> (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:132889:38)\n    at getRet (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:118338:20)\n    at tryCatcher (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:118349:66)\n    at Context.then (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:118600:21)\n    at wrapped (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:137883:19)",
+                "diff": null
+              },
+              "uuid": "f0ca3423-abcc-4197-a303-53d008158b27",
+              "parentUUID": "8962ae89-9fad-49b2-983f-eebc6c252285",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[003-SI-0002] [Invalid]Sign in with invalid Email[Email customer423@practicesoftwaretesting.com,PW: welcome01]",
+              "fullTitle": "Sign-in[SI] TestSuite [003-SI-0002] [Invalid]Sign in with invalid Email[Email customer423@practicesoftwaretesting.com,PW: welcome01]",
+              "timedOut": null,
+              "duration": 4907,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.session('invalid login session', () => {\n  cy.visit('auth/login');\n  cy.get('input[id=\"email\"]').should('be.visible').and('be.null').type('customer423@practicesoftwaretesting.com');\n  cy.get('input[id=\"password\"]').should('be.visible').and('be.null').type('welcome01');\n  cy.get('button[value=\"Login\"]').should('be.visible').and('not.be.disabled').click();\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected '<input#email.form-control.ng-untouched.ng-pristine.ng-invalid>' to be null\n\nThis error occurred while creating the session. Because the session setup failed, we failed the test.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected '<input#email.form-control.ng-untouched.ng-pristine.ng-invalid>' to be null\n\nThis error occurred while creating the session. Because the session setup failed, we failed the test.\n    at Object.eval [as setup] (webpack:///./cypress/e2e/UserMembership/Sign-in[SI]/Sign-in.cy.js:8:57)\n    at Context.<anonymous> (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:132889:38)\n    at getRet (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:118338:20)\n    at tryCatcher (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:118349:66)\n    at Context.then (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:118600:21)\n    at wrapped (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:137883:19)",
+                "diff": null
+              },
+              "uuid": "54d827e3-138b-4557-8e2b-718ba1452b0b",
+              "parentUUID": "8962ae89-9fad-49b2-983f-eebc6c252285",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "•\t[003-SI-0003] [Invalid]Sign in with invalid password[Email: customer@practicesoftwaretesting.com,PW: welcome0jnewgr]",
+              "fullTitle": "Sign-in[SI] TestSuite •\t[003-SI-0003] [Invalid]Sign in with invalid password[Email: customer@practicesoftwaretesting.com,PW: welcome0jnewgr]",
+              "timedOut": null,
+              "duration": 4799,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.session('invalid login session', () => {\n  cy.visit('auth/login');\n  cy.get('input[id=\"email\"]').should('be.visible').and('be.null').type('customer@practicesoftwaretesting.com');\n  cy.get('input[id=\"password\"]').should('be.visible').and('be.null').type('welcome0jnewgr');\n  cy.get('button[value=\"Login\"]').should('be.visible').and('not.be.disabled').click();\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected '<input#email.form-control.ng-untouched.ng-pristine.ng-invalid>' to be null\n\nThis error occurred while creating the session. Because the session setup failed, we failed the test.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected '<input#email.form-control.ng-untouched.ng-pristine.ng-invalid>' to be null\n\nThis error occurred while creating the session. Because the session setup failed, we failed the test.\n    at Object.eval [as setup] (webpack:///./cypress/e2e/UserMembership/Sign-in[SI]/Sign-in.cy.js:17:58)\n    at Context.<anonymous> (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:132889:38)\n    at getRet (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:118338:20)\n    at tryCatcher (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:118349:66)\n    at Context.then (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:118600:21)\n    at wrapped (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:137883:19)",
+                "diff": null
+              },
+              "uuid": "34288fb5-bfb9-49e5-bad7-84ffdf069db5",
+              "parentUUID": "8962ae89-9fad-49b2-983f-eebc6c252285",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[003-SI-0004] [Invalid]Sign in with null values]",
+              "fullTitle": "Sign-in[SI] TestSuite [003-SI-0004] [Invalid]Sign in with null values]",
+              "timedOut": null,
+              "duration": 4861,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.session('invalid login session', () => {\n  cy.visit('auth/login');\n  //  cy.get('input[id=\"email\"]').should('be.visible').and('be.null').type('customer@practicesoftwaretesting.com');\n  //  cy.get('input[id=\"password\"]').should('be.visible').and('be.null').type('welcome0jnewgr');\n  cy.get('button[value=\"Login\"]').should('be.visible').and('not.be.disabled').click();\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `button[value=\"Login\"]`, but never found it.\n\nThis error occurred while creating the session. Because the session setup failed, we failed the test.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `button[value=\"Login\"]`, but never found it.\n\nThis error occurred while creating the session. Because the session setup failed, we failed the test.\n    at Object.eval [as setup] (webpack:///./cypress/e2e/UserMembership/Sign-in[SI]/Sign-in.cy.js:29:41)\n    at Context.<anonymous> (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:132889:38)\n    at getRet (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:118338:20)\n    at tryCatcher (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:118349:66)\n    at Context.then (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:118600:21)\n    at wrapped (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:137883:19)",
+                "diff": null
+              },
+              "uuid": "09098bf0-97d5-4aaf-b76c-1494129e7d96",
+              "parentUUID": "8962ae89-9fad-49b2-983f-eebc6c252285",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[003-SI-0005][Valid] Sign in with Google Authentication Button with valid credentials",
+              "fullTitle": "Sign-in[SI] TestSuite [003-SI-0005][Valid] Sign in with Google Authentication Button with valid credentials",
+              "timedOut": null,
+              "duration": 4846,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.session('invalid login session', () => {\n  cy.visit('auth/login');\n  //  cy.get('input[id=\"email\"]').should('be.visible').and('be.null').type('customer@practicesoftwaretesting.com');\n  //  cy.get('input[id=\"password\"]').should('be.visible').and('be.null').type('welcome0jnewgr');\n  cy.get('button[value=\"Login\"]').should('be.visible').and('not.be.disabled').click();\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `button[value=\"Login\"]`, but never found it.\n\nThis error occurred while creating the session. Because the session setup failed, we failed the test.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `button[value=\"Login\"]`, but never found it.\n\nThis error occurred while creating the session. Because the session setup failed, we failed the test.\n    at Object.eval [as setup] (webpack:///./cypress/e2e/UserMembership/Sign-in[SI]/Sign-in.cy.js:39:41)\n    at Context.<anonymous> (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:132889:38)\n    at getRet (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:118338:20)\n    at tryCatcher (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:118349:66)\n    at Context.then (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:118600:21)\n    at wrapped (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:137883:19)",
+                "diff": null
+              },
+              "uuid": "1f95d0c9-7923-479d-85a4-0bd8eff85c3f",
+              "parentUUID": "8962ae89-9fad-49b2-983f-eebc6c252285",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[003-SI-0006][Invalid] Sign in with Google authentication Button using invalid credentials",
+              "fullTitle": "Sign-in[SI] TestSuite [003-SI-0006][Invalid] Sign in with Google authentication Button using invalid credentials",
+              "timedOut": null,
+              "duration": 4931,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.session('invalid login session', () => {\n  cy.visit('auth/login');\n  //  cy.get('input[id=\"email\"]').should('be.visible').and('be.null').type('customer@practicesoftwaretesting.com');\n  //  cy.get('input[id=\"password\"]').should('be.visible').and('be.null').type('welcome0jnewgr');\n  cy.get('button[value=\"Login\"]').should('be.visible').and('not.be.disabled').click();\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `button[value=\"Login\"]`, but never found it.\n\nThis error occurred while creating the session. Because the session setup failed, we failed the test.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `button[value=\"Login\"]`, but never found it.\n\nThis error occurred while creating the session. Because the session setup failed, we failed the test.\n    at Object.eval [as setup] (webpack:///./cypress/e2e/UserMembership/Sign-in[SI]/Sign-in.cy.js:49:41)\n    at Context.<anonymous> (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:132889:38)\n    at getRet (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:118338:20)\n    at tryCatcher (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:118349:66)\n    at Context.then (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:118600:21)\n    at wrapped (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:137883:19)",
+                "diff": null
+              },
+              "uuid": "7ec58d79-b88b-4996-abe9-ee519d12334e",
+              "parentUUID": "8962ae89-9fad-49b2-983f-eebc6c252285",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[003-SI-0007][Valid] Sign in With show password button is clicked.",
+              "fullTitle": "Sign-in[SI] TestSuite [003-SI-0007][Valid] Sign in With show password button is clicked.",
+              "timedOut": null,
+              "duration": 4840,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.session('invalid login session', () => {\n  cy.visit('auth/login');\n  cy.get('input[id=\"email\"]').should('be.visible').and('be.null').type('customer423@practicesoftwaretesting.com');\n  cy.get(\"button[class='btn btn-outline-secondary']\").should('be.visible').and('not.be.disabled').click();\n  cy.get('input[id=\"password\"]').should('be.visible').and('be.null').type('welcome01');\n  cy.get('button[value=\"Login\"]').should('be.visible').and('not.be.disabled').click();\n  cy.url().should('eq', '/account');\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected '<input#email.form-control.ng-untouched.ng-pristine.ng-invalid>' to be null\n\nThis error occurred while creating the session. Because the session setup failed, we failed the test.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected '<input#email.form-control.ng-untouched.ng-pristine.ng-invalid>' to be null\n\nThis error occurred while creating the session. Because the session setup failed, we failed the test.\n    at Object.eval [as setup] (webpack:///./cypress/e2e/UserMembership/Sign-in[SI]/Sign-in.cy.js:56:58)\n    at Context.<anonymous> (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:132889:38)\n    at getRet (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:118338:20)\n    at tryCatcher (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:118349:66)\n    at Context.then (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:118600:21)\n    at wrapped (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:137883:19)",
+                "diff": null
+              },
+              "uuid": "0a230cf7-3ccb-49ed-92a4-b06262c4bc7e",
+              "parentUUID": "8962ae89-9fad-49b2-983f-eebc6c252285",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "f0ca3423-abcc-4197-a303-53d008158b27",
+            "54d827e3-138b-4557-8e2b-718ba1452b0b",
+            "34288fb5-bfb9-49e5-bad7-84ffdf069db5",
+            "09098bf0-97d5-4aaf-b76c-1494129e7d96",
+            "1f95d0c9-7923-479d-85a4-0bd8eff85c3f",
+            "7ec58d79-b88b-4996-abe9-ee519d12334e",
+            "0a230cf7-3ccb-49ed-92a4-b06262c4bc7e"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 34188,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "timestamp": "longDate"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

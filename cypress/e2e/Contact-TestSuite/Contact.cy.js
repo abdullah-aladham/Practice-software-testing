@@ -7,10 +7,10 @@ describe('Contact Test Suite',()=>{
         cy.url().should('eq',"https://practicesoftwaretesting.com/contact")
     })
 it('[004-0001] [Valid] Sending data in valid data format and valid text attachment.',()=>{
-    cy.get("#first_name").should('be.visible').and('not.be.disabled').type(faker.person.firstName);
-    cy.get("#last_name").should('be.visible').and('not.be.disabled').type(faker.person.lastName);
-    cy.get("#email").should('be.visible').and('not.be.disabled').type(faker.internet.email)
-    cy.get('#subject').should('be.visible').and('not.be.disabled').select(subjects[rand_index])
+    cy.get("#first_name").should('be.visible').and('not.be.disabled').type(faker.person.firstName.toString());
+    cy.get("#last_name").should('be.visible').and('not.be.disabled').type(faker.person.lastName.toString());
+    cy.get("#email").should('be.visible').and('not.be.disabled').type(faker.internet.email.toString())
+    cy.get('#subject').should('be.visible').and('not.be.disabled').select(subjects[rand_index].toString())
     cy.get('#message').should('be.visible').and('not.be.disabled').type("Test done by Abdullah Aladham ❤️,my account :https://www.linkedin.com/in/abdullah-aladham/");
     cy.get("#attachment").should('be.visible').and('not.be.disabled').selectFile("E:\github\cypress\practice-software-testing\cypress\e2e\test.txt")
     cy.get("input[value='Send']").should('be.visible').and('not.be.disabled').click();

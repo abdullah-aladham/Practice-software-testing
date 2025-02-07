@@ -1,0 +1,222 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 0,
+    "pending": 0,
+    "failures": 6,
+    "start": "2025-02-07T13:58:59.775Z",
+    "end": "2025-02-07T13:59:25.064Z",
+    "duration": 25289,
+    "testsRegistered": 6,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2dbd86e5-12fd-455d-9f5a-5b6bf9280e88",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Product Grid TestSuite\\price-range.cy.js",
+      "file": "cypress\\e2e\\Product Grid TestSuite\\price-range.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5936e706-b948-45d7-a1f2-444b92e88c15",
+          "title": "price range TestSuite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "[005-002-01][Valid] Range between 1-50.",
+              "fullTitle": "price range TestSuite [005-002-01][Valid] Range between 1-50.",
+              "timedOut": null,
+              "duration": 4190,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"span[aria-label='ngx-slider']\").should('be.visible').and('not.be.disabled').invoke('val', '1').trigger('input');\ncy.get(\"span[aria-label='ngx-slider']\").should('have.value', '1');\ncy.get(\"span[aria-label='ngx-slider-max']\").should('be.visible').and('not.be.disabled').invoke('val', '50').trigger('input');\ncy.get(\"span[aria-label='ngx-slider-max']\").should('have.value', '50');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `span[aria-label='ngx-slider']`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `span[aria-label='ngx-slider']`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/Product Grid TestSuite/price-range.cy.js:3:48)",
+                "diff": null
+              },
+              "uuid": "116d8145-9d04-4565-b615-bff09b278757",
+              "parentUUID": "5936e706-b948-45d7-a1f2-444b92e88c15",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[005-002-02][Valid] Range between 1-50.",
+              "fullTitle": "price range TestSuite [005-002-02][Valid] Range between 1-50.",
+              "timedOut": null,
+              "duration": 4203,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"span[aria-label='ngx-slider']\").should('be.visible').and('not.be.disabled').invoke('val', '1').trigger('input').should('have.value', '1');\ncy.get(\"span[aria-label='ngx-slider-max']\").should('be.visible').and('not.be.disabled').invoke('val', '50').trigger('input').should('have.value', '50');\ncy.intercept({\n  method: \"GET\",\n  url: 'https://api.practicesoftwaretesting.com/products?between=price,1,50&page=1'\n}).as('GetPriceRange101to150');\ncy.wait('@GetPriceRange101to150');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `span[aria-label='ngx-slider']`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `span[aria-label='ngx-slider']`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/Product Grid TestSuite/price-range.cy.js:15:48)",
+                "diff": null
+              },
+              "uuid": "fda30724-235a-4e71-9605-32692b7889b9",
+              "parentUUID": "5936e706-b948-45d7-a1f2-444b92e88c15",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[005-002-03][Valid] Range between 101-150",
+              "fullTitle": "price range TestSuite [005-002-03][Valid] Range between 101-150",
+              "timedOut": null,
+              "duration": 4187,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"span[aria-label='ngx-slider']\").should('be.visible').and('not.be.disabled').invoke('val', '101').trigger('input').should('have.value', '101');\ncy.get(\"span[aria-label='ngx-slider-max']\").should('be.visible').and('not.be.disabled').invoke('val', '150').trigger('input').should('have.value', '150');\ncy.intercept({\n  method: \"GET\",\n  url: 'https://api.practicesoftwaretesting.com/products?between=price,101,150&page=1'\n}).as('GetPriceRange101to150');\ncy.wait('@GetPriceRange101to150');\ncy.get(\"div[class='col-md-9'] div[class='container']\").should('be.visible').and('not.have.text', 'There are no products found.');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `span[aria-label='ngx-slider']`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `span[aria-label='ngx-slider']`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/Product Grid TestSuite/price-range.cy.js:31:48)",
+                "diff": null
+              },
+              "uuid": "9cc914ab-ac6b-45ac-9837-64f00ed88a40",
+              "parentUUID": "5936e706-b948-45d7-a1f2-444b92e88c15",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[005-002-04][Valid] Range between 151-200",
+              "fullTitle": "price range TestSuite [005-002-04][Valid] Range between 151-200",
+              "timedOut": null,
+              "duration": 4147,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"span[aria-label='ngx-slider']\").should('be.visible').and('not.be.disabled').invoke('val', '151').trigger('input').should('have.value', '151');\ncy.get(\"span[aria-label='ngx-slider-max']\").should('be.visible').and('not.be.disabled').invoke('val', '200').trigger('input').should('have.value', '200');\ncy.intercept({\n  method: \"GET\",\n  url: 'https://api.practicesoftwaretesting.com/products?between=price,1,100&page=1'\n}).as('GetPriceRange151to200');\ncy.wait('@GetPriceRange151to200');\ncy.get(\"div[class='col-md-9'] div[class='container']\").should('be.visible').and('not.have.text', 'There are no products found.');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `span[aria-label='ngx-slider']`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `span[aria-label='ngx-slider']`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/Product Grid TestSuite/price-range.cy.js:50:48)",
+                "diff": null
+              },
+              "uuid": "62bc9e11-1bd8-4c65-9279-9e99b08cf13f",
+              "parentUUID": "5936e706-b948-45d7-a1f2-444b92e88c15",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[005-002-05][Valid] Range between 0-0",
+              "fullTitle": "price range TestSuite [005-002-05][Valid] Range between 0-0",
+              "timedOut": null,
+              "duration": 4195,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"span[aria-label='ngx-slider']\").should('be.visible').and('not.be.disabled').invoke('val', '0').trigger('input').should('have.value', '0');\ncy.get(\"span[aria-label='ngx-slider-max']\").should('be.visible').and('not.be.disabled').invoke('val', '0').trigger('input').should('have.value', '0');\ncy.intercept({\n  method: \"GET\",\n  url: 'https://api.practicesoftwaretesting.com/products?between=price,1,100&page=1'\n}).as('GetPriceRange0to0');\ncy.wait('@GetPriceRange0to0');\ncy.get(\"div[class='col-md-9'] div[class='container']\").should('be.visible').and('have.text', 'There are no products found.');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `span[aria-label='ngx-slider']`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `span[aria-label='ngx-slider']`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/Product Grid TestSuite/price-range.cy.js:68:48)",
+                "diff": null
+              },
+              "uuid": "b1131bfb-18e8-4aa8-befe-55506323e050",
+              "parentUUID": "5936e706-b948-45d7-a1f2-444b92e88c15",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[005-002-06][Valid][Default] Range between 1-100.",
+              "fullTitle": "price range TestSuite [005-002-06][Valid][Default] Range between 1-100.",
+              "timedOut": null,
+              "duration": 4171,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"span[aria-label='ngx-slider']\").should('be.visible').and('not.be.disabled').invoke('val', '1').trigger('input');\ncy.get(\"span[aria-label='ngx-slider']\").should('have.value', '1');\ncy.get(\"span[aria-label='ngx-slider-max']\").should('be.visible').and('not.be.disabled').invoke('val', '100').trigger('input');\ncy.get(\"span[aria-label='ngx-slider-max']\").should('have.value', '100');\ncy.intercept({\n  method: \"GET\",\n  url: 'https://api.practicesoftwaretesting.com/products?between=price,1,100&page=1'\n}).as('GetPriceRange1to100');\ncy.wait('@GetPriceRange1to100');\ncy.get(\"div[class='col-md-9'] div[class='container']\").should('be.visible').and('not.have.text', 'There are no products found.');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `span[aria-label='ngx-slider']`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `span[aria-label='ngx-slider']`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/Product Grid TestSuite/price-range.cy.js:88:48)",
+                "diff": null
+              },
+              "uuid": "a5f438f3-8dee-4f54-b014-d48e664327c1",
+              "parentUUID": "5936e706-b948-45d7-a1f2-444b92e88c15",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "116d8145-9d04-4565-b615-bff09b278757",
+            "fda30724-235a-4e71-9605-32692b7889b9",
+            "9cc914ab-ac6b-45ac-9837-64f00ed88a40",
+            "62bc9e11-1bd8-4c65-9279-9e99b08cf13f",
+            "b1131bfb-18e8-4aa8-befe-55506323e050",
+            "a5f438f3-8dee-4f54-b014-d48e664327c1"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 25093,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "timestamp": "longDate"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
