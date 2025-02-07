@@ -304,14 +304,23 @@ cy.intercept({method:"GET",
     cy.get("div[class='col-md-6 offset-md-3 login-form-1'] div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled').click();
     cy.get("#state").should('be.visible').and('not.be.disabled').type(faker.location.state);
     cy.get('#postcode').should('be.visible').and('not.be.disabled').type('123456790')
-    cy.get("#payment-method").select('bank-transfer');
-    cy.get("#bank_name").should('be.visible').and('not.be.disabled').type('bank1');
-    cy.get("#account_name").should('be.visible').and('not.be.disabled').type(faker.finance.accountName);
-    cy.get("#account_number").should('be.visible').and('not.be.disabled').type('2314321g');
-    cy.get("body > app-root:nth-child(2) > div:nth-child(2) > app-checkout:nth-child(2) > aw-wizard:nth-child(1) > div:nth-child(2) > aw-wizard-completion-step:nth-child(4) > app-payment:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > form:nth-child(2) > div:nth-child(2) > div:nth-child(10)")
-    .should('be.visible').and('have.text','Account number must be numeric.');
-    cy.get("button[data-test='finish']").should('be.visible').and('be.disabled')
-
-
+    cy.get("#payment-method").select('Credit Card');
+   cy.get("#credit_card_number").should('be.visible').and('not.be.disabled').type(34235245245)
+   cy.get(".alert.alert-danger").should('be.visible').and('have.text','Invalid card number format.');
+cy.get("button[data-test='finish']").should('be.visible').and('be.disabled');
  })
+ it('[008-0014][Invalid] Buying a product with “Credit Card” with Credit Card Number in text format',()=>{
+    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
+    cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
+    cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
+    cy.get("div[class='col-md-6 offset-md-3 login-form-1'] div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled').click();
+    cy.get("#state").should('be.visible').and('not.be.disabled').type(faker.location.state);
+    cy.get('#postcode').should('be.visible').and('not.be.disabled').type('123456790')
+    cy.get("#payment-method").select('Credit Card');
+   cy.get("#credit_card_number").should('be.visible').and('not.be.disabled').type(34235245245)
+   cy.get(".alert.alert-danger").should('be.visible').and('have.text','Invalid card number format.');
+cy.get("button[data-test='finish']").should('be.visible').and('be.disabled');
+ })
+ 
 })
