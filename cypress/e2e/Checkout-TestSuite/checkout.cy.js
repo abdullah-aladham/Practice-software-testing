@@ -392,7 +392,93 @@ cy.get("button[data-test='finish']").should('be.visible').and('be.disabled');
     cy.get("#payment-method").select('Credit Card');
     cy.get("#credit_card_number").should('be.visible').and('not.be.disabled').type(faker.finance.creditCardNumber)
     cy.get("#expiration_date").should('be.visible').and('not.be.disabled').type("ddd")
-   cy.get(".alert.alert-danger").should('be.visible').and('have.text','Invalid date format. Use MM/YYYY.');
+    cy.get("#cvv").should('be.visible').and("not.be.disabled").type('12345')
+   cy.get(".alert.alert-danger.ng-star-inserted").should('be.visible').and('have.text','CVV must be 3 or 4 digits.');
 cy.get("button[data-test='finish']").should('be.visible').and('be.disabled');
+ })
+ it(' [008-0021][Invalid] Buying a product with “Credit Card” with blank CVV input ',()=>{
+    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
+    cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
+    cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
+    cy.get("div[class='col-md-6 offset-md-3 login-form-1'] div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled').click();
+    cy.get("#state").should('be.visible').and('not.be.disabled').type(faker.location.state);
+    cy.get('#postcode').should('be.visible').and('not.be.disabled').type('123456790')
+    cy.get("#payment-method").select('Credit Card');
+    cy.get("#credit_card_number").should('be.visible').and('not.be.disabled').type(faker.finance.creditCardNumber)
+    cy.get("#expiration_date").should('be.visible').and('not.be.disabled').type("ddd")
+    // cy.get("#cvv").should('be.visible').and("not.be.disabled").type('12345')
+   cy.get(".alert.alert-danger.ng-star-inserted").should('be.visible').and('have.text','CVV must be 3 or 4 digits.');
+cy.get("button[data-test='finish']").should('be.visible').and('be.disabled');
+cy.intercept({
+    method:"OPTIONS",
+    url:"https://api.practicesoftwaretesting.com/payment/check"
+}).as("AuthorizationOptionsReq");
+cy.intercept({
+    method:"POST",
+    url:"https://api.practicesoftwaretesting.com/payment/check"
+}).as("Content-Disposition");
+//Another One [found a bug since it should give a warning message in ui]
+ })
+ 
+ it('[008-0022][Invalid] Buying a product with “Credit Card” CVV input with invalid numeric data format (2 or less  digit number)',()=>{
+    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
+    cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
+    cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
+    cy.get("div[class='col-md-6 offset-md-3 login-form-1'] div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled').click();
+    cy.get("#state").should('be.visible').and('not.be.disabled').type(faker.location.state);
+    cy.get('#postcode').should('be.visible').and('not.be.disabled').type('123456790')
+    cy.get("#payment-method").select('Credit Card');
+    cy.get("#credit_card_number").should('be.visible').and('not.be.disabled').type(faker.finance.creditCardNumber)
+    cy.get("#expiration_date").should('be.visible').and('not.be.disabled').type("ddd")
+    cy.get("#cvv").should('be.visible').and("not.be.disabled").type('01')
+   cy.get(".alert.alert-danger.ng-star-inserted").should('be.visible').and('have.text','CVV must be 3 or 4 digits.');
+cy.get("button[data-test='finish']").should('be.visible').and('be.disabled');
+ })
+ 
+ it('[008-0023][Invalid] Buying a product with “Credit Card” Card Holder Name input with string that contains numbers',()=>{
+    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
+    cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
+    cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
+    cy.get("div[class='col-md-6 offset-md-3 login-form-1'] div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled').click();
+    cy.get("#state").should('be.visible').and('not.be.disabled').type(faker.location.state);
+    cy.get('#postcode').should('be.visible').and('not.be.disabled').type('123456790')
+    cy.get("#payment-method").select('Credit Card');
+    cy.get("#credit_card_number").should('be.visible').and('not.be.disabled').type(faker.finance.creditCardNumber)
+    cy.get("#expiration_date").should('be.visible').and('not.be.disabled').type("ddd")
+    cy.get("#cvv").should('be.visible').and("not.be.disabled").type('01')
+    cy.get("#card_holder_name").should('be.visible').and("not.be.disabled").type("John doe2")
+   cy.get(".alert.alert-danger").should('be.visible').and('have.text','Name must be string format only');
+cy.get("button[data-test='finish']").should('be.visible').and('be.disabled');
+cy.intercept({method:"POST",
+    url:"https://api.practicesoftwaretesting.com/payment/check"
+ }).as("CheckPOSTReq")
+ cy.intercept({method:"OPTIONS",
+    url:"https://api.practicesoftwaretesting.com/payment/check"
+ }).as("OPTIONSReq")
+ })//another one
+ it('[008-0024][Invalid] Buying a product with “Credit Card” Card Holder Name input with string that contains special characters like dot or comma.',()=>{
+    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
+    cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
+    cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
+    cy.get("div[class='col-md-6 offset-md-3 login-form-1'] div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled').click();
+    cy.get("#state").should('be.visible').and('not.be.disabled').type(faker.location.state);
+    cy.get('#postcode').should('be.visible').and('not.be.disabled').type('123456790')
+    cy.get("#payment-method").select('Credit Card');
+    cy.get("#credit_card_number").should('be.visible').and('not.be.disabled').type(faker.finance.creditCardNumber)
+    cy.get("#expiration_date").should('be.visible').and('not.be.disabled').type("ddd")
+    cy.get("#cvv").should('be.visible').and("not.be.disabled").type('01')
+    cy.get("#card_holder_name").should('be.visible').and("not.be.disabled").type("John doe2")
+   cy.get(".alert.alert-danger.ng-star-inserted").should('be.visible').and('have.text','');
+cy.get("button[data-test='finish']").should('be.visible').and('be.disabled');
+cy.intercept({method:"POST",
+    url:"https://api.practicesoftwaretesting.com/payment/check"
+ }).as("CheckPOSTReq")
+ cy.intercept({method:"OPTIONS",
+    url:"https://api.practicesoftwaretesting.com/payment/check"
+ }).as("OPTIONSReq")
  })
 })
