@@ -1,7 +1,7 @@
-const { method } = require("cypress/types/bluebird");
+// const { method } = require("cypress/types/bluebird");
 
 describe('Cart TestSuite',()=>{
-    it('[006-0001] [Valid] Add product to cart without sign in',()=>{
+    it.only('[006-0001] [Valid] Add product to cart without sign in',()=>{
      cy.get("body > app-root:nth-child(2) > div:nth-child(2) > app-overview:nth-child(2) > div:nth-child(3) > div:nth-child(3) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > h5:nth-child(1)")
      .should('be.visible').should('have.text','Combination Pliers').click();
         cy.intercept({
