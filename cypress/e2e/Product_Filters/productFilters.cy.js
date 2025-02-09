@@ -154,9 +154,9 @@ describe('Product Filters TestSuite',()=>{
     it.only('By checking “ForgeFlex Tools” check box',()=>{
         cy.get('[data-test="brand-01JKM3HAD919QEHRE7GZ4CQREN"]').should('be.visible').and('not.be.disabled').check(); 
        
-        cy.intercept({method:"GET",
-         url:"https://api.practicesoftwaretesting.com/products?between=price,1,100&by_brand=01JKM03Q0NVPS7Z3KR8Z8EVV5D&page=0"
- 
+        cy.intercept({
+         url:"https://api.practicesoftwaretesting.com/products?between=price,1,100&by_brand=01JKM3HAD919QEHRE7GZ4CQREN&page=0"
+         ,method:"GET"
         }).as("getProductsByBrand");
         cy.wait("@getProductsByBrand")
         .then(interception =>{
