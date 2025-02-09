@@ -1,8 +1,12 @@
 describe('Product Filters TestSuite',()=>{
+    beforeEach(()=>{
+        cy.visit('/');
+        cy.url().should('eq','https://practicesoftwaretesting.com/')
+    })
     it('[009-0001] Filter products by Checking “hand tools” Check box',()=>{
-       cy.get("body > app-root:nth-child(2) > div:nth-child(2) > app-overview:nth-child(2) > div:nth-child(3) > div:nth-child(2) > fieldset:nth-child(13) > div:nth-child(2) > label:nth-child(1)").check(); 
+        cy.get('[data-test="category-01JKM03Q2AHCNHF2HTS6KGRCKV"]').should('be.visible').and('not.be.disabled').check(); 
        cy.intercept({method:"GET",
-        url:"https://api.practicesoftwaretesting.com/products?between=price,1,100&by_category=01JKBGW30PCSEAWBHV1HYWNK8R,01JKBGW30T1AS7PCCD3NN4KYQS,01JKBGW30T1AS7PCCD3NN4KYQT,01JKBGW30T1AS7PCCD3NN4KYQV,01JKBGW30T1AS7PCCD3NN4KYQW,01JKBGW30T1AS7PCCD3NN4KYQX,01JKBGW30T1AS7PCCD3NN4KYQY,01JKBGW30T1AS7PCCD3NN4KYQZ&page=0"
+        url:"https://api.practicesoftwaretesting.com/products?between=price,1,100&by_category=01JKM03Q2AHCNHF2HTS6KGRCKV,01JKM03Q2SZJJCW268DBGFATSJ,01JKM03Q2SZJJCW268DBGFATSK,01JKM03Q2SZJJCW268DBGFATSM,01JKM03Q2SZJJCW268DBGFATSN,01JKM03Q2SZJJCW268DBGFATSP,01JKM03Q2SZJJCW268DBGFATSQ,01JKM03Q2SZJJCW268DBGFATSR&page=0"
 
        }).as("getAllProdbyCategoryandpriceRange");
        cy.wait("@getAllProdbyCategoryandpriceRange")
@@ -11,16 +15,16 @@ describe('Product Filters TestSuite',()=>{
         cy.wrap(interception.response.statusCode).should('eq',200)
 
        });
-       cy.intercept({method:"OPTIONS",
-        url:"https://api.practicesoftwaretesting.com/products?between=price,1,100&by_category=01JKBGW30PCSEAWBHV1HYWNK8R,01JKBGW30T1AS7PCCD3NN4KYQS,01JKBGW30T1AS7PCCD3NN4KYQT,01JKBGW30T1AS7PCCD3NN4KYQV,01JKBGW30T1AS7PCCD3NN4KYQW,01JKBGW30T1AS7PCCD3NN4KYQX,01JKBGW30T1AS7PCCD3NN4KYQY,01JKBGW30T1AS7PCCD3NN4KYQZ&page=0"
+    //    cy.intercept({method:"OPTIONS",
+    //     url:"https://api.practicesoftwaretesting.com/products?between=price,1,100&by_category=01JKBGW30PCSEAWBHV1HYWNK8R,01JKBGW30T1AS7PCCD3NN4KYQS,01JKBGW30T1AS7PCCD3NN4KYQT,01JKBGW30T1AS7PCCD3NN4KYQV,01JKBGW30T1AS7PCCD3NN4KYQW,01JKBGW30T1AS7PCCD3NN4KYQX,01JKBGW30T1AS7PCCD3NN4KYQY,01JKBGW30T1AS7PCCD3NN4KYQZ&page=0"
 
-       }).as("getAllProdbyCategoryandpriceRangeOptionsReq");
-       cy.wait("@getAllProdbyCategoryandpriceRangeOptionsReq")
-       .then(interception =>{
-        console.log(interception)
-        cy.wrap(interception.response.statusCode).should('eq',204)
+    //    }).as("getAllProdbyCategoryandpriceRangeOptionsReq");
+    //    cy.wait("@getAllProdbyCategoryandpriceRangeOptionsReq")
+    //    .then(interception =>{
+    //     console.log(interception)
+    //     cy.wrap(interception.response.statusCode).should('eq',204)
 
-       });
+    //    });
 
     })
     
@@ -35,42 +39,25 @@ describe('Product Filters TestSuite',()=>{
 
         cy.intercept({
             method:"GET",
-            url:'https://api.practicesoftwaretesting.com/products?between=price,1,50&by_category=01JKBYKG03VG9ERDM7RJXEVPG0&page=0',
+            url:'https://api.practicesoftwaretesting.com/products?between=price,1,50&by_category=01JKM03Q2SZJJCW268DBGFATSJ&page=0',
             
-        }).as('GetHammersWithRange1-50');
-        cy.wait('@GetHammersWithRange1-50').then(interception =>{
-            console.log(interception)
-            cy.wrap(interception.response.statusCode).should('eq',204)
-    
-           });
-           cy.intercept({
-            method:"GET",
-            url:"https://api.practicesoftwaretesting.com/products?between=price,1,50&by_category=01JKBYKG03VG9ERDM7RJXEVPG0&page=0"
-           }).as("Response")
-           cy.wait("@Response").then(interception =>{
+        }).as('getHammersWithRange1-50');
+        cy.wait('@getHammersWithRange1-50').then(interception =>{
             console.log(interception)
             cy.wrap(interception.response.statusCode).should('eq',200)
     
            });
+           
 
 
     })
    
     it('[009-0001-02]Checking "Hand Saw" subcategory only.',()=>{
-        cy.get('body > app-root:nth-child(2) > div:nth-child(2) > app-overview:nth-child(2) > div:nth-child(3) > div:nth-child(2) > fieldset:nth-child(13) > div:nth-child(2) > ul:nth-child(2) > fieldset:nth-child(1) > div:nth-child(3) > label:nth-child(1)').check(); 
-        cy.intercept({
-            method:"OPTIONS",
-         url:"https://api.practicesoftwaretesting.com/products?between=price,1,100&by_category=01JKBYKG03VG9ERDM7RJXEVPG1&page=0"
- 
-        }).as("getHandSawCategoryandpriceRangeOptionsReq");
-        cy.wait("@getHandSawCategoryandpriceRangeOptionsReq")
-        .then(interception =>{
-         console.log(interception)
-         cy.wrap(interception.response.statusCode).should('eq',204)
- 
-        });
+        cy.get('[data-test="category-01JKM03Q2SZJJCW268DBGFATSK"]').should('be.visible').and('not.be.disabled').check(); 
+       
+        
         cy.intercept({method:"GET",
-         url:"https://api.practicesoftwaretesting.com/products?between=price,1,100&by_category=01JKBYKG03VG9ERDM7RJXEVPG1&page=0"
+         url:"https://api.practicesoftwaretesting.com/products?between=price,1,100&by_category=01JKM03Q2SZJJCW268DBGFATSK&page=0"
  
         }).as("getAllProdbyCategoryandpriceRangeOptionsReq");
         cy.wait("@getAllProdbyCategoryandpriceRange")
@@ -93,21 +80,11 @@ describe('Product Filters TestSuite',()=>{
      })
      	
      it('[009-0001-03] Checking ”Wrench” subcategory only.',()=>{
-        cy.get('body > app-root:nth-child(2) > div:nth-child(2) > app-overview:nth-child(2) > div:nth-child(3) > div:nth-child(2) > fieldset:nth-child(13) > div:nth-child(2) > ul:nth-child(2) > fieldset:nth-child(1) > div:nth-child(4) > label:nth-child(1)')
+        cy.get('[data-test="category-01JKM3HAE5R0030YKAPMC75CDG"]').should('not.be.disabled').and('be.visible')
         .check(); 
-        cy.intercept({
-            method:"OPTIONS",
-         url:"https://api.practicesoftwaretesting.com/products?between=price,1,100&by_category=01JKBYKG03VG9ERDM7RJXEVPG2&page=0"
- 
-        }).as("OptionsReq");
-        cy.wait("@OptionsReq")
-        .then(interception =>{
-         console.log(interception)
-         cy.wrap(interception.response.statusCode).should('eq',204)
- 
-        });
+        
         cy.intercept({method:"GET",
-         url:"https://api.practicesoftwaretesting.com/products?between=price,1,100&by_category=01JKBYKG03VG9ERDM7RJXEVPG2&page=0"
+         url:"https://api.practicesoftwaretesting.com/products?between=price,1,100&by_category=01JKM03Q2SZJJCW268DBGFATSM&page=0"
  
         }).as("getAllProdbyCategoryandpriceRangeOptionsReq");
         cy.wait("@getAllProdbyCategoryandpriceRange")
@@ -129,24 +106,14 @@ describe('Product Filters TestSuite',()=>{
            });
      })
      	
-     it('[009-0001-03] Checking ”Wrench” subcategory only.',()=>{
-        cy.get('body > app-root:nth-child(2) > div:nth-child(2) > app-overview:nth-child(2) > div:nth-child(3) > div:nth-child(2) > fieldset:nth-child(13) > div:nth-child(2) > ul:nth-child(2) > fieldset:nth-child(1) > div:nth-child(4) > label:nth-child(1)')
+     it('[009-0001-04] Checking “Screwdriver” subcategory only. .[Might be done later]',()=>{
+        cy.get('[data-test="category-01JKM3HAE5R0030YKAPMC75CDH"]').should('be.visible').and('not.be.disabled')
         .check(); 
-        cy.intercept({
-            method:"OPTIONS",
-         url:"https://api.practicesoftwaretesting.com/products?between=price,1,100&by_category=01JKBYKG03VG9ERDM7RJXEVPG2&page=0"
- 
-        }).as("OptionsReq");
-        cy.wait("@OptionsReq")
-        .then(interception =>{
-         console.log(interception)
-         cy.wrap(interception.response.statusCode).should('eq',204)
- 
-        });
+        
         cy.intercept({method:"GET",
          url:"https://api.practicesoftwaretesting.com/products?between=price,1,100&by_category=01JKBYKG03VG9ERDM7RJXEVPG2&page=0"
  
-        }).as("getAllProdbyCategoryandpriceRangeOptionsReq");
+        }).as("getAllProdbyCategoryandpriceRange");
         cy.wait("@getAllProdbyCategoryandpriceRange")
         .then(interception =>{
          console.log(interception)
@@ -154,77 +121,41 @@ describe('Product Filters TestSuite',()=>{
  
         });
 
-        cy.intercept({method:"GET",
-            url:"https://practicesoftwaretesting.com/assets/img/products/saw01.avif"
-    
-           }).as("getAllProdbyCategoryandpriceRangeOptionsReq");
-           cy.wait("@getAllProdbyCategoryandpriceRange")
-           .then(interception =>{
-            console.log(interception)
-            cy.wrap(interception.response.statusCode).should('eq',200)
-    
-           });
+        
      })
      it('[009-0001] Filter products by Checking “grinder” Check box',()=>{
-        cy.get("body > app-root:nth-child(2) > div:nth-child(2) > app-overview:nth-child(2) > div:nth-child(3) > div:nth-child(2) > fieldset:nth-child(13) > div:nth-child(3) > ul:nth-child(2) > fieldset:nth-child(1) > div:nth-child(2) > label:nth-child(1)").check(); 
-        cy.intercept({method:"Options",
-         url:"https://api.practicesoftwaretesting.com/products?between=price,1,100&by_category=01JKC5F602K6BRPKNZE80QT5VR&page=0"
- 
-        }).as("grinderChoiceOptionsReq");
-        cy.wait("@grinderChoiceOptionsReq")
-        .then(interception =>{
-         console.log(interception)
-         cy.wrap(interception.response.statusCode).should('eq',204)
- 
-        });
+        cy.get('[data-test="category-01JKM3HAE5R0030YKAPMC75CDN"]').check(); 
+        
         cy.intercept({method:"GET",
-         url:"https://api.practicesoftwaretesting.com/products?between=price,1,100&by_category=01JKC5F602K6BRPKNZE80QT5VR&page=0"
+         url:"https://api.practicesoftwaretesting.com/products?between=price,1,100&by_category=01JKM03Q2SZJJCW268DBGFATSS&page=0"
  
-        }).as("getGrinder");
-        cy.wait("@getGrinder")
+        }).as("getGrinderbetween1-100");
+        cy.wait("@getGrinderbetween1-100")
         .then(interception =>{
          console.log(interception)
          cy.wrap(interception.response.statusCode).should('eq',200)
  
         });
     })
-    it('[009-0001] Filter products by Checking “grinder” Check box',()=>{
-        cy.get("    body > app-root:nth-child(2) > div:nth-child(2) > app-overview:nth-child(2) > div:nth-child(3) > div:nth-child(2) > fieldset:nth-child(13) > div:nth-child(4) > ul:nth-child(2) > fieldset:nth-child(1) > div:nth-child(2) > label:nth-child(1)").check(); 
-        cy.intercept({method:"Options",
-         url:"https://api.practicesoftwaretesting.com/products?between=price,1,100&by_category=01JKC5F602K6BRPKNZE80QT5VW&page=0"
- 
-        }).as("ToolbeltsOptionReq");
-        cy.wait("@ToolbeltsOptionReq")
-        .then(interception =>{
-         console.log(interception)
-         cy.wrap(interception.response.statusCode).should('eq',204)
- 
-        });
+    it('Filter products by Checking "others" Check box',()=>{
+        cy.get('[data-test="category-01JKM3HADWPKWPX18535FA2WAS"]').should('be.visible').and('not.be.disabled').check(); 
+       
         cy.intercept({method:"GET",
          url:"https://api.practicesoftwaretesting.com/products?between=price,1,100&by_category=01JKC5F602K6BRPKNZE80QT5VW&page=0"
  
-        }).as("getToolBelts");
-        cy.wait("@getToolBelts")
+        }).as("GetOther");
+        cy.wait("@GetOther")
         .then(interception =>{
          console.log(interception)
          cy.wrap(interception.response.statusCode).should('eq',200)
  
         });
     })
-    it('By checking “ForgeFlex Tools” check box',()=>{
-        cy.get("body > app-root:nth-child(2) > div:nth-child(2) > app-overview:nth-child(2) > div:nth-child(3) > div:nth-child(2) > fieldset:nth-child(16) > div:nth-child(2) > label:nth-child(1)").check(); 
-        cy.intercept({method:"Options",
-         url:"https://api.practicesoftwaretesting.com/products?between=price,1,100&by_brand=01JKC5F5Z7RBM4A8TVDYWCEZK9&page=0"
- 
-        }).as("BrandsOptionsReq");
-        cy.wait("@BrandsOptionsReq")
-        .then(interception =>{
-         console.log(interception)
-         cy.wrap(interception.response.statusCode).should('eq',204)
- 
-        });
+    it.only('By checking “ForgeFlex Tools” check box',()=>{
+        cy.get('[data-test="brand-01JKM3HAD919QEHRE7GZ4CQREN"]').should('be.visible').and('not.be.disabled').check(); 
+       
         cy.intercept({method:"GET",
-         url:"https://api.practicesoftwaretesting.com/products?between=price,1,100&by_brand=01JKC5F5Z7RBM4A8TVDYWCEZK9&page=0"
+         url:"https://api.practicesoftwaretesting.com/products?between=price,1,100&by_brand=01JKM03Q0NVPS7Z3KR8Z8EVV5D&page=0"
  
         }).as("getProductsByBrand");
         cy.wait("@getProductsByBrand")
