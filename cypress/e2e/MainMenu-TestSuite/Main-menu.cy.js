@@ -19,8 +19,9 @@ describe('Main-Menu Test-Suite', () => {
   it('[01-0003-01] [Valid] Select “Hand tools” option',()=>{
     cy.visit('/');
     cy.get('a[role="button"]').should('be.visible').and('not.be.disabled').click();
-
+    cy.get('[data-test="nav-categories"]').should('be.visible').and('not.be.disabled').click()
     cy.get('[data-test="nav-hand-tools"]').should('be.visible').click()
+  cy.url().should('eq','https://practicesoftwaretesting.com/category/hand-tools')
   })
 it('[01-0004] [Valid] Click on “Contact” List Item',()=>{
   cy.visit('/');

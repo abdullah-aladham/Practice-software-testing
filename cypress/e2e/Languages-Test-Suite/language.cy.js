@@ -1,9 +1,16 @@
 describe('Languages testSuite',()=>{
-    it('[01-0006] Clicks on “EN” Symbol',()=>{
+    it.only('[01-0006] Clicks on “DE” Symbol',()=>{
         cy.visit('/');
+        cy.url().should('eq',"https://practicesoftwaretesting.com/")
         cy.get('button[id="language"]').should('be.visible').and('not.be.disabled').click();
         cy.get('ul[id="dropdown-animated"]').should('be.visible');
-        cy.url().should('eq',"https://practicesoftwaretesting.com/")
+        cy.get("div[class='btn-group dropdown'] li:nth-child(1) a:nth-child(1)").should('be.visible').and('not.be.disabled').click()
+        cy.intercept({method:"GET",
+            url:"https://practicesoftwaretesting.com/assets/i18n/de.json"
+        }).as("DElang")
+        cy.wait('@DElang').then(interception =>{
+            cy.wrap(interception.response.statusCode).should('eq',200)
+        })
     })
     it('[01-0006-01][Valid] Click on “DE” option for Germany language For UI Only.',()=>{
         cy.visit('/');
