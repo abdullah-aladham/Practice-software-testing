@@ -2,6 +2,7 @@
 
 describe('Cart TestSuite',()=>{
     it.only('[006-0001] [Valid] Add product to cart without sign in',()=>{
+        cy.visit('/')
      cy.get("body > app-root:nth-child(2) > div:nth-child(2) > app-overview:nth-child(2) > div:nth-child(3) > div:nth-child(3) > div:nth-child(1) > a:nth-child(1) > div:nth-child(2) > h5:nth-child(1)")
      .should('be.visible').should('have.text','Combination Pliers').click();
         cy.intercept({
@@ -40,7 +41,7 @@ describe('Cart TestSuite',()=>{
             url:"https://api.practicesoftwaretesting.com/carts/01jk8b99fmv14r5v68nwd9sshv"
         }
         ).as('AddProductToCart');
-        caches.wait("@AddProductToCart").then(interception =>{
+        cy.wait("@AddProductToCart").then(interception =>{
             console.log(interception);
             cy.wrap(interception.response.statusCode).should('eq',204)
         });
