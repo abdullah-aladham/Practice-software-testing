@@ -3,7 +3,7 @@ import { faker } from "@faker-js/faker"
 // const { faker } = require("@faker-js/faker/.")
 
 describe('Checkout-TestSuite',()=>{
-   it.only('[008-0001]Add product to checkout list',()=>{
+   it('[008-0001]Add product to checkout list',()=>{
     cy.login("test13@test.com","TH!sIsAP@ssword184")
     cy.visit('/')
     cy.url().should('eq','https://practicesoftwaretesting.com/')
