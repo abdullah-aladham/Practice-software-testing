@@ -1,0 +1,198 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-02-10T16:53:43.766Z",
+    "end": "2025-02-10T16:53:51.339Z",
+    "duration": 7573,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6a435d6e-e0b9-4fcb-9646-b659f11e48ba",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Product Grid TestSuite\\searchSection.cy.js",
+      "file": "cypress\\e2e\\Product Grid TestSuite\\searchSection.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6d66e3b7-434f-4f70-855c-7624eed25c68",
+          "title": "Search Section Testsuite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "[005-003-01] [invalid] trying to search without typing in search bar.",
+              "fullTitle": "Search Section Testsuite [005-003-01] [invalid] trying to search without typing in search bar.",
+              "timedOut": null,
+              "duration": 1561,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"button[type='submit']\").should('be.visible').and('not.be.disabled').click();",
+              "err": {},
+              "uuid": "39222c76-c267-440c-9641-5ebd7fcb4af3",
+              "parentUUID": "6d66e3b7-434f-4f70-855c-7624eed25c68",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[005-003-02] [invalid] trying to search with numerical data between 0-9",
+              "fullTitle": "Search Section Testsuite [005-003-02] [invalid] trying to search with numerical data between 0-9",
+              "timedOut": null,
+              "duration": 1022,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"#search-query\").should('be.visible').and('not.be.disabled').type(\"0{enter}\");\n//nothing should be happened",
+              "err": {},
+              "uuid": "a68a5f75-6acf-42eb-8d16-ecb446c13b78",
+              "parentUUID": "6d66e3b7-434f-4f70-855c-7624eed25c68",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[005-003-03] [Valid] trying to search with string data[e.g :hammer]",
+              "fullTitle": "Search Section Testsuite [005-003-03] [Valid] trying to search with string data[e.g :hammer]",
+              "timedOut": null,
+              "duration": 1485,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"#search-query\").should('be.visible').and('not.be.disabled').type(\"hammer{enter}\");\ncy.intercept({\n  method: \"GET\",\n  url: '/products/search?q=hammer'\n}).as('getHammer');\ncy.wait('@getHammer');\ncy.get(\"h3[data-test='search-caption']\").should('have.text', 'Searched for: hammer').and('be.visible');",
+              "err": {},
+              "uuid": "43b6c6b7-304f-4414-aba2-dc7955d590a6",
+              "parentUUID": "6d66e3b7-434f-4f70-855c-7624eed25c68",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[005-003-04] [Invalid] trying to search with less than 3 digit number",
+              "fullTitle": "Search Section Testsuite [005-003-04] [Invalid] trying to search with less than 3 digit number",
+              "timedOut": null,
+              "duration": 947,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"#search-query\").should('be.visible').and('not.be.disabled').type(\"1{enter}\");",
+              "err": {},
+              "uuid": "47a28289-80d9-4b96-9e4a-b40067799d47",
+              "parentUUID": "6d66e3b7-434f-4f70-855c-7624eed25c68",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[005-003-05] [invalid] trying to search with less than 3 character string.",
+              "fullTitle": "Search Section Testsuite [005-003-05] [invalid] trying to search with less than 3 character string.",
+              "timedOut": null,
+              "duration": 839,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"#search-query\").should('be.visible').and('not.be.disabled').type(\"he{enter}\");",
+              "err": {},
+              "uuid": "861b8da7-be67-4dd0-918d-0601f5002e78",
+              "parentUUID": "6d66e3b7-434f-4f70-855c-7624eed25c68",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[005-003-06][Valid] trying to search with irrelevant data to the product\business. (e.g:cola).",
+              "fullTitle": "Search Section Testsuite [005-003-06][Valid] trying to search with irrelevant data to the product\business. (e.g:cola).",
+              "timedOut": null,
+              "duration": 1454,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"#search-query\").should('be.visible').and('not.be.disabled').type(\"cola{enter}\");\ncy.get(\"h3[data-test='search-caption']\").should('be.visible').and('have.text', \"Searched for: cola\");\ncy.get(\"div[data-test='no-results']\").should('have.text', 'There are no products found.');",
+              "err": {},
+              "uuid": "4081eb3a-aa0a-468e-befd-4e07740963ea",
+              "parentUUID": "6d66e3b7-434f-4f70-855c-7624eed25c68",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "39222c76-c267-440c-9641-5ebd7fcb4af3",
+            "a68a5f75-6acf-42eb-8d16-ecb446c13b78",
+            "43b6c6b7-304f-4414-aba2-dc7955d590a6",
+            "47a28289-80d9-4b96-9e4a-b40067799d47",
+            "861b8da7-be67-4dd0-918d-0601f5002e78",
+            "4081eb3a-aa0a-468e-befd-4e07740963ea"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 7308,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "timestamp": "longDate"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

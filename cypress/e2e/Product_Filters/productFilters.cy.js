@@ -151,7 +151,7 @@ describe('Product Filters TestSuite',()=>{
  
         });
     })
-    it.only('By checking “ForgeFlex Tools” check box',()=>{
+    it('By checking “ForgeFlex Tools” check box',()=>{
         cy.get('[data-test="brand-01JKM3HAD919QEHRE7GZ4CQREN"]').should('be.visible').and('not.be.disabled').check(); 
        
         cy.intercept({

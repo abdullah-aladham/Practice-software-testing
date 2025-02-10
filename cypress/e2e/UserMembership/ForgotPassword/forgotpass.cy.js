@@ -47,7 +47,7 @@ describe('Forgot Password TestSutie',()=>{
         })
     })
     	
-    it.only('[003-0026] [Valid] Send request with registered email.',()=>{
+    it('[003-0026] [Valid] Send request with registered email.',()=>{
         cy.get("#email").should('be.visible').type("customer@practicesoftwaretesting.com");
         cy.get("input[value='Set New Password']").should('be.visible').and('not.be.disabled').click();
         cy.intercept({method:"POST",

@@ -7,7 +7,7 @@ describe('Contact Test Suite',()=>{
         cy.visit('/contact');
         cy.url().should('eq',"https://practicesoftwaretesting.com/contact")
     })
-it.only('[004-0001] [Valid] Sending data in valid data format and valid text attachment.',()=>{
+it('[004-0001] [Valid] Sending data in valid data format and valid text attachment.',()=>{
     cy.visit("/contact");
        cy.url().should('eq','https://practicesoftwaretesting.com/contact')
     cy.get("#first_name").should('be.visible').and('not.be.disabled').type(faker.person.firstName());

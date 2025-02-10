@@ -1,0 +1,103 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-02-10T16:24:08.461Z",
+    "end": "2025-02-10T16:24:10.627Z",
+    "duration": 2166,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "bc25aed2-ed1f-40a6-b6f8-be9c3eb205bb",
+      "title": "",
+      "fullFile": "cypress\\e2e\\UserMembership\\ForgotPassword\\forgotpass.cy.js",
+      "file": "cypress\\e2e\\UserMembership\\ForgotPassword\\forgotpass.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d97da654-0395-41c4-84eb-e7a8a98d9da0",
+          "title": "Forgot Password TestSutie",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "[003-0026] [Valid] Send request with registered email.",
+              "fullTitle": "Forgot Password TestSutie [003-0026] [Valid] Send request with registered email.",
+              "timedOut": null,
+              "duration": 2110,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"#email\").should('be.visible').type(\"customer@practicesoftwaretesting.com\");\ncy.get(\"input[value='Set New Password']\").should('be.visible').and('not.be.disabled').click();\ncy.intercept({\n  method: \"POST\",\n  url: \"https://api.practicesoftwaretesting.com/users/forgot-password\"\n}).as(\"ValidRequest\");\ncy.wait(\"@ValidRequest\").then(interception => {\n  cy.wrap(interception.response.statusCode).should('eq', 200);\n});",
+              "err": {},
+              "uuid": "0d363f34-bf8a-4982-9863-995422331783",
+              "parentUUID": "d97da654-0395-41c4-84eb-e7a8a98d9da0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "0d363f34-bf8a-4982-9863-995422331783"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2110,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "timestamp": "longDate"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

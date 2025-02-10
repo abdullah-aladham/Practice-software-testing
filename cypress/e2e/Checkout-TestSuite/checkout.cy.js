@@ -4,12 +4,13 @@ import { faker } from "@faker-js/faker"
 
 describe('Checkout-TestSuite',()=>{
    it.only('[008-0001]Add product to checkout list',()=>{
-    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    cy.login("test13@test.com","TH!sIsAP@ssword184")
     cy.visit('/')
     cy.url().should('eq','https://practicesoftwaretesting.com/')
     cy.get("img[alt='Pliers']").should('be.visible').and('not.be.disabled').click()
     cy.get("#btn-add-to-cart").should('not.be.disabled').and('be.visible').click();
     cy.get('.ng-trigger').should('be.visible').and('have.text',' Product added to shopping cart. ');
+    cy.get("a[aria-label='cart']").should('be.visible');
     // cy.intercept({
     //     method:"OPTIONS",
     //     url:"https://api.practicesoftwaretesting.com/carts/01jkc8946hc30mdqmjdeqwd7rb"
@@ -40,11 +41,14 @@ describe('Checkout-TestSuite',()=>{
     
    }) 
 
- it("[008-0002][Valid]View Checkout list",()=>{//this testcase sometimes need to be done after adding product to checkout since it stays for sometime and vanishes from it
-    cy.login("customer@practicesoftwaretesting.com","welcome01")
-    cy.visit('/account/favorites');
+ it.only("[008-0002][Valid]View Checkout list",()=>{//this testcase sometimes need to be done after adding product to checkout since it stays for sometime and vanishes from it
+    // cy.login("customer@practicesoftwaretesting.com","TH!sIsAP@ssword184")
+    // cy.login("test13@test.com","TH!sIsAP@ssword184")
+cy.visit('/')
+
+    //  cy.visit('/account/checkout');
     // cy.url().should('eq','https://practicesoftwaretesting.com/');
-    // cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click();
+    cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click();
 
     // cy.intercept({
     //     method:"OPTIONS",
@@ -65,7 +69,7 @@ describe('Checkout-TestSuite',()=>{
 
  })
 it("[008-0003][Valid]View Checkout list",()=>{
-    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    // cy.login("customer@practicesoftwaretesting.com","TH!sIsAP@ssword184")
     cy.visit('/');
     cy.url().should('eq','https://practicesoftwaretesting.com/');
     cy.get("img[alt='Pliers']").should('be.visible').and('not.be.disabled').click();
@@ -107,7 +111,7 @@ cy.get('.ng-trigger').should('be.visible').and('have.text',' Product quantity up
 // })
 })
  it('[008-0005] [Valid] Remove product from the checkout list.',()=>{
-    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    // cy.login("customer@practicesoftwaretesting.com","TH!sIsAP@ssword184")
     cy.visit('/checkout');
     cy.url().should('eq','https://practicesoftwaretesting.com/checkout');
     // cy.visit('/account/favorites');
@@ -163,7 +167,7 @@ cy.get('.ng-trigger').should('be.visible').and('have.text',' Product quantity up
         })
  })
  it('[008-0007][Valid] Buying a product with “bank transfer” Method using valid data.',()=>{
-    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    // cy.login("customer@practicesoftwaretesting.com","TH!sIsAP@ssword184")
     cy.visit('/checkout')
     cy.get("div[class='wizard-steps horizontal'] aw-wizard-step app-cart div button[type='button']").should('be.visible').and('not.be.disabled').click()
     cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
@@ -197,7 +201,7 @@ cy.get('.ng-trigger').should('be.visible').and('have.text',' Product quantity up
  })
  it(' [008-0008][Valid] Buying a product with “Cash on delivery” Method..',()=>{
 
-    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    // cy.login("customer@practicesoftwaretesting.com","welcome01")
         cy.visit('/checkout')
 
     cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
@@ -220,7 +224,7 @@ cy.get('.ng-trigger').should('be.visible').and('have.text',' Product quantity up
     }).as("CashonDileveryReq");
  })
  it('[008-0009][Valid] Buying a product with “Credit Card” Method.',()=>{
-    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    // cy.login("customer@practicesoftwaretesting.com","welcome01")
     cy.visit('/')
     cy.url().should('eq','https://practicesoftwaretesting.com/')
     cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
@@ -257,7 +261,7 @@ cy.get('.ng-trigger').should('be.visible').and('have.text',' Product quantity up
 
  
  it('[008-0010]&[008-0026][Valid] Buying a product with “Buy now Pay later” Method.',()=>{
-    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    // cy.login("customer@practicesoftwaretesting.com","welcome01")
     cy.visit('/')
     cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
     cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
@@ -288,7 +292,7 @@ cy.get('.ng-trigger').should('be.visible').and('have.text',' Product quantity up
  })
  
  it('[008-0009][Valid] Buying a product with “Gift Card” Method.',()=>{
-    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    // cy.login("customer@practicesoftwaretesting.com","welcome01")
     cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
     cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
     cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
@@ -320,7 +324,7 @@ cy.get('.ng-trigger').should('be.visible').and('have.text',' Product quantity up
 
  	
  it('[008-00010][Invalid] Buying a product with “Bank Transfer” with invalid bank name format',()=>{
-    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    // cy.login("customer@practicesoftwaretesting.com","welcome01")
 cy.visit('/')
     cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
     cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
@@ -339,7 +343,7 @@ cy.visit('/')
  })
 
  it('[008-0011][Invalid] Buying a product with “Bank Transfer” with invalid Account Name format',()=>{
-    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    // cy.login("customer@practicesoftwaretesting.com","welcome01")
     cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
     cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
     cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
@@ -358,7 +362,7 @@ cy.visit('/')
  })
  	
  it('[008-0012][Invalid] Buying a product with “Bank Transfer” with invalid Account Number format',()=>{
-    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    // cy.login("customer@practicesoftwaretesting.com","welcome01")
     cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
     cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
     cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
@@ -377,7 +381,7 @@ cy.visit('/')
  })
  
  it('[008-0013][Invalid] Buying a product with “Credit Card” with Credit Card Number with invalid numeric format',()=>{
-    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    // cy.login("customer@practicesoftwaretesting.com","welcome01")
     cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
     cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
     cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
@@ -390,7 +394,7 @@ cy.visit('/')
 cy.get("button[data-test='finish']").should('be.visible').and('be.disabled');
  })
  it('[008-0014][Invalid] Buying a product with “Credit Card” with Credit Card Number in text format',()=>{
-    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    // cy.login("customer@practicesoftwaretesting.com","welcome01")
     cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
     cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
     cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
@@ -404,7 +408,7 @@ cy.get("button[data-test='finish']").should('be.visible').and('be.disabled');
  })
  	
  it('[008-0015][Invalid] Buying a product with “Credit Card” with Credit Card Number with special characters format',()=>{
-    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    // cy.login("customer@practicesoftwaretesting.com","welcome01")
     cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
     cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
     cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
@@ -418,7 +422,7 @@ cy.get("button[data-test='finish']").should('be.visible').and('be.disabled');
  })
  
  it('[008-0016][Invalid] Buying a product with “Credit Card” with Expiration date with ‘mm/dd/yyyy format',()=>{
-    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    // cy.login("customer@practicesoftwaretesting.com","welcome01")
     cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
     cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
     cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
@@ -432,7 +436,7 @@ cy.get("button[data-test='finish']").should('be.visible').and('be.disabled');
     cy.get("button[data-test='finish']").should('be.visible').and('be.disabled');
  })
  it('[008-0017][Invalid] Buying a product with “Credit Card” with Expiration date that is expired (e.g 04/2024)',()=>{
-    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    // cy.login("customer@practicesoftwaretesting.com","welcome01")
     cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
     cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
     cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
@@ -446,7 +450,7 @@ cy.get("button[data-test='finish']").should('be.visible').and('be.disabled');
     cy.get("button[data-test='finish']").should('be.visible').and('be.disabled');
  })
  it('[008-0018][Invalid] Buying a product with “Credit Card” with Expiration date with string data',()=>{
-    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    // cy.login("customer@practicesoftwaretesting.com","welcome01")
     cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
     cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
     cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
@@ -462,7 +466,7 @@ cy.get("button[data-test='finish']").should('be.visible').and('be.disabled');
   
 
  it(' [008-0020][Invalid] Buying a product with “Credit Card” CVV input with invalid numeric data format (5 digit number)',()=>{
-    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    // cy.login("customer@practicesoftwaretesting.com","welcome01")
     cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
     cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
     cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
@@ -477,7 +481,7 @@ cy.get("button[data-test='finish']").should('be.visible').and('be.disabled');
 cy.get("button[data-test='finish']").should('be.visible').and('be.disabled');
  })
  it(' [008-0021][Invalid] Buying a product with “Credit Card” with blank CVV input ',()=>{
-    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    // cy.login("customer@practicesoftwaretesting.com","welcome01")
     cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
     cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
     cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
@@ -502,7 +506,7 @@ cy.intercept({
  })
  
  it('[008-0022][Invalid] Buying a product with “Credit Card” CVV input with invalid numeric data format (2 or less  digit number)',()=>{
-    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    // cy.login("customer@practicesoftwaretesting.com","welcome01")
     cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
     cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
     cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
@@ -517,8 +521,8 @@ cy.intercept({
 cy.get("button[data-test='finish']").should('be.visible').and('be.disabled');
  })
  
- it.only('[008-0023][Invalid] Buying a product with “Credit Card” Card Holder Name input with string that contains numbers',()=>{
-    cy.login("customer2@practicesoftwaretesting.com","welcome01")
+ it('[008-0023][Invalid] Buying a product with “Credit Card” Card Holder Name input with string that contains numbers',()=>{
+    // cy.login("customer2@practicesoftwaretesting.com","welcome01")
     cy.visit('/')
     cy.url().should('eq',"https://practicesoftwaretesting.com/")
     cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
@@ -542,7 +546,7 @@ cy.intercept({method:"POST",
  }).as("OPTIONSReq")
  })//another one 🤣
  it('[008-0024][Invalid] Buying a product with “Credit Card” Card Holder Name input with string that contains special characters like dot or comma.',()=>{
-    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    // cy.login("customer@practicesoftwaretesting.com","welcome01")
     cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
     cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
     cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
@@ -566,7 +570,7 @@ cy.intercept({method:"POST",
 
  
  it('[008-0025][Invalid] Buying a product with “Buy now Pay Later” option and not choosing any option from “Choose your monthly installments”.',()=>{
-    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    // cy.login("customer@practicesoftwaretesting.com","welcome01")
     cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
     cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
     cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
@@ -589,7 +593,7 @@ cy.intercept({method:"POST",
  })
 
  it('[008-0027][Valid] Buying a product with “Buy now Pay Later” option and choosing “6 monthly Installments”.',()=>{
-    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    // cy.login("customer@practicesoftwaretesting.com","welcome01")
     cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
     cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
     cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
@@ -612,7 +616,7 @@ cy.intercept({method:"POST",
     cy.wait("@BuyNowPayLaterReq");
  })
  it('[008-0028][Valid] Buying a product with “Buy now Pay Later” option and choosing “9 monthly Installments”.',()=>{
-    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    // cy.login("customer@practicesoftwaretesting.com","welcome01")
     cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
     cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
     cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
@@ -636,7 +640,7 @@ cy.intercept({method:"POST",
  })
  	
  it('[008-0029][Valid] Buying a product with “Buy now Pay Later” option and choosing “12 monthly Installments”.',()=>{
-    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    // cy.login("customer@practicesoftwaretesting.com","welcome01")
     cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
     cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
     cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
@@ -663,9 +667,9 @@ cy.intercept({method:"POST",
         console.log(interception);
         cy.wrap(interception.response.statusCode).should('eq',200);})
  })
-});
+
  it('[008-0030][invalid] Buying a product with blank gift card number',()=>{
-    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    // cy.login("customer@practicesoftwaretesting.com","welcome01")
     cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
     cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
     cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
@@ -680,7 +684,7 @@ cy.get(".alert.alert-danger").should('be.visible').and('have.text','Gift card nu
    
  })
  it('[008-0031][invalid] Buying a product with gift card number with invalid format(Contains special characters)',()=>{
-    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    // cy.login("customer@practicesoftwaretesting.com","welcome01")
     cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
     cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
     cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
@@ -697,7 +701,7 @@ cy.get(".alert.alert-danger").should('be.visible').and('have.text','Gift card nu
  
 
  it('[008-0032][invalid] Buying a product with gift card by leaving the validation code blank',()=>{
-    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    // cy.login("customer@practicesoftwaretesting.com","welcome01")
     cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
     cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
     cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
@@ -713,7 +717,7 @@ cy.get(".alert.alert-danger.ng-star-inserted").should('be.visible').and('have.te
  })
  
  it('[008-0033][invalid] Buying a product with gift card by filling the “validation code” with invalid format.',()=>{
-    cy.login("customer@practicesoftwaretesting.com","welcome01")
+    // cy.login("customer@practicesoftwaretesting.com","welcome01")
     cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
     cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
     cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
@@ -727,3 +731,4 @@ cy.get(".alert.alert-danger.ng-star-inserted").should('be.visible').and('have.te
     cy.get(".alert.alert-danger.ng-star-inserted").should('be.visible').and('have.text','Validation code must be alphanumeric.')
     cy.get("button[data-test='finish']").should('be.visible').and('be.disabled')
  })
+});

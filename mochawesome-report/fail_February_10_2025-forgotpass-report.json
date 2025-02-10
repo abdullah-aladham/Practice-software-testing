@@ -1,0 +1,203 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 5,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-02-10T16:55:43.327Z",
+    "end": "2025-02-10T16:55:57.705Z",
+    "duration": 14378,
+    "testsRegistered": 6,
+    "passPercent": 83.33333333333334,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "49b71931-e2dc-4b08-a665-1b22c7343988",
+      "title": "",
+      "fullFile": "cypress\\e2e\\UserMembership\\ForgotPassword\\forgotpass.cy.js",
+      "file": "cypress\\e2e\\UserMembership\\ForgotPassword\\forgotpass.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9c185a71-4514-41f4-b3b9-b76e05e66b02",
+          "title": "Forgot Password TestSutie",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "[003-0020] Send request with valid email format",
+              "fullTitle": "Forgot Password TestSutie [003-0020] Send request with valid email format",
+              "timedOut": null,
+              "duration": 2286,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"#email\").should('be.visible').type('customer@practicesoftwaretesting.com');\ncy.get(\"input[value='Set New Password']\").should('be.visible').and('not.be.disabled').click();\ncy.intercept({\n  url: \"https://api.practicesoftwaretesting.com/users/forgot-password\",\n  method: \"POST\"\n}).as(\"ForgotPassformSubmitReq\");\ncy.wait(\"@ForgotPassformSubmitReq\").then(interception => {\n  cy.wrap(interception.response.statusCode).should('eq', 200);\n});",
+              "err": {},
+              "uuid": "8f8301ef-c3b7-4c6d-bd90-04dfa7115aec",
+              "parentUUID": "9c185a71-4514-41f4-b3b9-b76e05e66b02",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[003-0021] Send request with invalid email format (e.g : admin@practicesoftwaretesting)",
+              "fullTitle": "Forgot Password TestSutie [003-0021] Send request with invalid email format (e.g : admin@practicesoftwaretesting)",
+              "timedOut": null,
+              "duration": 1925,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"#email\").should('be.visible').type('admin@practicesoftwaretesting');\ncy.get(\"input[value='Set New Password']\").should('be.visible').and('not.be.disabled').click();\n// cy.get('div[class=\"alert alert-danger mt-3\"]').should('be.visible').and('have.text','The selected email is invalid.')\ncy.intercept({\n  method: \"POST\",\n  url: \"https://api.practicesoftwaretesting.com/users/forgot-password\"\n}).as(\"InvalidReq\");\ncy.wait(\"@InvalidReq\").then(interception => {\n  cy.wrap(interception.response.statusCode).should('eq', 422);\n});",
+              "err": {},
+              "uuid": "260eacfa-577a-4a67-b793-258e582600dd",
+              "parentUUID": "9c185a71-4514-41f4-b3b9-b76e05e66b02",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[003-0023] Send request with number",
+              "fullTitle": "Forgot Password TestSutie [003-0023] Send request with number",
+              "timedOut": null,
+              "duration": 5309,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('input[data-test=\"email\"]').should('be.visible').type('541541');\ncy.get(\"input[value='Set New Password']\").should('be.visible').and('not.be.disabled').click();\ncy.get('div[class=\"alert alert-danger mt-3\"]').should('be.visible').and('have.text', 'invalid email format');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `div[class=\"alert alert-danger mt-3\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `div[class=\"alert alert-danger mt-3\"]`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/UserMembership/ForgotPassword/forgotpass.cy.js:32:55)",
+                "diff": null
+              },
+              "uuid": "f682e8b8-3d6e-46a2-848a-fad0c8f73761",
+              "parentUUID": "9c185a71-4514-41f4-b3b9-b76e05e66b02",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[003-0024] Send request with blank",
+              "fullTitle": "Forgot Password TestSutie [003-0024] Send request with blank",
+              "timedOut": null,
+              "duration": 920,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"input[value='Set New Password']\").should('be.visible').and('not.be.disabled').click();\ncy.get('[data-test=\"email-error\"]').should('be.visible').and('have.text', 'Email is required');",
+              "err": {},
+              "uuid": "6dd7f9cb-2f14-48de-ab2c-6f1125fe3a00",
+              "parentUUID": "9c185a71-4514-41f4-b3b9-b76e05e66b02",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[003-0025] [Invalid] Send request with not registered email",
+              "fullTitle": "Forgot Password TestSutie [003-0025] [Invalid] Send request with not registered email",
+              "timedOut": null,
+              "duration": 1632,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"#email\").should('be.visible').type(faker.internet.email());\ncy.get(\"input[value='Set New Password']\").should('be.visible').and('not.be.disabled').click();\n// cy.get('.alert').should('be.visible').and('have.text','The selected email is invalid.')\ncy.intercept({\n  method: \"POST\",\n  url: \"https://api.practicesoftwaretesting.com/users/forgot-password\"\n}).as(\"invalidForgotPassReq\");\ncy.wait(\"@invalidForgotPassReq\").then(interception => {\n  cy.wrap(interception.response.statusCode).should('eq', 422);\n});",
+              "err": {},
+              "uuid": "fe98ef17-628c-49fc-995d-0e9a26f49ff0",
+              "parentUUID": "9c185a71-4514-41f4-b3b9-b76e05e66b02",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[003-0026] [Valid] Send request with registered email.",
+              "fullTitle": "Forgot Password TestSutie [003-0026] [Valid] Send request with registered email.",
+              "timedOut": null,
+              "duration": 1942,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"#email\").should('be.visible').type(\"customer@practicesoftwaretesting.com\");\ncy.get(\"input[value='Set New Password']\").should('be.visible').and('not.be.disabled').click();\ncy.intercept({\n  method: \"POST\",\n  url: \"https://api.practicesoftwaretesting.com/users/forgot-password\"\n}).as(\"ValidRequest\");\ncy.wait(\"@ValidRequest\").then(interception => {\n  cy.wrap(interception.response.statusCode).should('eq', 200);\n});",
+              "err": {},
+              "uuid": "91340b95-8a92-4c43-add4-fdc2338f3807",
+              "parentUUID": "9c185a71-4514-41f4-b3b9-b76e05e66b02",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8f8301ef-c3b7-4c6d-bd90-04dfa7115aec",
+            "260eacfa-577a-4a67-b793-258e582600dd",
+            "6dd7f9cb-2f14-48de-ab2c-6f1125fe3a00",
+            "fe98ef17-628c-49fc-995d-0e9a26f49ff0",
+            "91340b95-8a92-4c43-add4-fdc2338f3807"
+          ],
+          "failures": [
+            "f682e8b8-3d6e-46a2-848a-fad0c8f73761"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 14014,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "timestamp": "longDate"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

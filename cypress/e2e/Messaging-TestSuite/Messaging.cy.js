@@ -21,7 +21,7 @@ describe('Messaging TestSuite',()=>{
         cy.get("button[type='submit']").should('be.visible').and('not.be.disabled').click()
         cy.get('body > app-root:nth-child(2) > div:nth-child(2) > app-message-detail:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3)').should('be.visible')
     })
-    it.only('[004-002-0003][invalid] Respond to incoming message with blank data',()=>{
+    it('[004-002-0003][invalid] Respond to incoming message with blank data',()=>{
         cy.get('[data-test="nav-messages"]').should('be.visible').and('not.be.disabled').click()
         cy.get('.btn.btn-sm.btn-primary.mr-1').should('be.visible').and('not.be.disabled').click();//Another one🤣
         cy.get('[data-test="reply-submit"]').should('be.visible').and('not.be.disabled').click();

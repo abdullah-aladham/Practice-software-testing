@@ -1,0 +1,241 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-02-10T16:51:06.704Z",
+    "end": "2025-02-10T16:51:13.419Z",
+    "duration": 6715,
+    "testsRegistered": 8,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 7,
+    "hasSkipped": true
+  },
+  "results": [
+    {
+      "uuid": "dfc2c1c2-4de1-4313-b627-54f0bfbaecd7",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Contact-TestSuite\\Contact-Sign-in.cy.js",
+      "file": "cypress\\e2e\\Contact-TestSuite\\Contact-Sign-in.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ea25dc51-579e-4f7c-84b9-d71f88242053",
+          "title": "Contact after sign in",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "[004-001-0001] [Valid] Sending Contact data with valid data format with valid text attachment",
+              "fullTitle": "Contact after sign in [004-001-0001] [Valid] Sending Contact data with valid data format with valid text attachment",
+              "timedOut": null,
+              "duration": 6586,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"/contact\");\ncy.url().should('eq', 'https://practicesoftwaretesting.com/contact');\ncy.get(\".nav-link[data-test='nav-contact']\").should('be.visible').and('not.be.disabled').click();\ncy.get(\"#subject\").select(subjects[rand_index]);\ncy.get(\"#message\").should('be.visible').and('not.be.disabled').type(\"Test Test Test TestTest TestTest TestTest TestTest TestTest TestTest TestTest TestTest TestTest TestTest TestTest TestTest Test\");\ncy.get(\"#attachment\").should('be.visible').and('not.be.disabled').selectFile(\"E:\\\\github\\\\cypress\\\\practice-software-testing\\\\cypress\\\\e2e\\\\test.txt\");\ncy.get(\"input[value='Send']\").should('be.visible').and('not.be.disabled').click();\ncy.intercept(\"POST\", \"https://api.practicesoftwaretesting.com/messages\").as(\"SubmitReq\");\ncy.wait(\"@SubmitReq\").then(interception => {\n  console.log(interception);\n  cy.wrap(interception.response.statusCode).should('eq', 200);\n});\n// cy.intercept({\n//     method:\"POST\",\n//     url:\"https://api.practicesoftwaretesting.com/messages/01jkh6705ng7z9wsnjnr34b199/attach-file\"}).as(\"FileAttachment\");\n//     cy.wait(\"@FileAttachment\").then(interception =>{\n//         console.log(interception);\n//         cy.wrap(interception.response.statusCode).should('eq',200)\n//     });\ncy.get('.alert').should('be.visible').and('have.text', ' Thanks for your message! We will contact you shortly. ');\n// cy.intercept({\n//     method:\"POST\",\n//     url:\"https://api.practicesoftwaretesting.com/messages/01jkh6705ng7z9wsnjnr34b199/attach-file\"}).as(\"FileAttachment\");\n//     cy.wait(\"@SubmitReq\").then(interception =>{\n//         console.log(interception);\n//         cy.wrap(interception.response.statusCode).should('eq',200)\n//     });",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected 'https://practicesoftwaretesting.com/auth/login' to equal 'https://practicesoftwaretesting.com/account'\n\nThis error occurred while creating the session. Because the session setup failed, we failed the test.\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Contact after sign in`",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected 'https://practicesoftwaretesting.com/auth/login' to equal 'https://practicesoftwaretesting.com/account'\n\nThis error occurred while creating the session. Because the session setup failed, we failed the test.\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Contact after sign in`\n    at Object.eval [as setup] (webpack:///./cypress/support/commands.js:18:13)\n    at Context.<anonymous> (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:132829:38)\n    at getRet (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:118278:20)\n    at tryCatcher (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:118289:66)\n    at Context.then (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:118540:21)\n    at wrapped (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:137823:19)",
+                "diff": "- '\\'https://practicesoftwaretesting.com/auth/login\\''\n+ '\\'https://practicesoftwaretesting.com/account\\''\n"
+              },
+              "uuid": "15543233-233d-4172-b9e0-6a0199c0e349",
+              "parentUUID": "ea25dc51-579e-4f7c-84b9-d71f88242053",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[004-001-0002] [Valid] Sending Contact data with valid data format without attachment.",
+              "fullTitle": "Contact after sign in [004-001-0002] [Valid] Sending Contact data with valid data format without attachment.",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"/contact\");\ncy.url().should('eq', 'https://practicesoftwaretesting.com/contact');\ncy.get(\".nav-link[data-test='nav-contact']\").should('be.visible').and('not.be.disabled').click();\ncy.get(\"#subject\").select(subjects[rand_index]);\ncy.get(\"#message\").should('be.visible').and('not.be.disabled').type(\"Test Test Test TestTest TestTest TestTest TestTest TestTest TestTest TestTest TestTest TestTest TestTest TestTest TestTest Test\");\ncy.get(\"input[value='Send']\").should('be.visible').and('not.be.disabled').click();\ncy.get(\"div[role='alert']\").should('be.visible').and('have.text', ' Thanks for your message! We will contact you shortly. ');\n//     cy.intercept(\"POST\",\"https://api.practicesoftwaretesting.com/messages\").as(\"SubmitReq\")\n//     cy.wait(\"@SubmitReq\")\n//  .then(interception =>{\n//         console.log(interception);\n//        cy.wrap(interception.response.statusCode).should('eq',200)\n//      });",
+              "err": {},
+              "uuid": "4b3f08a1-6681-4fd5-8849-5f284a200174",
+              "parentUUID": "ea25dc51-579e-4f7c-84b9-d71f88242053",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "[004-001-0003] [Invalid] Sending data without selecting subject.",
+              "fullTitle": "Contact after sign in [004-001-0003] [Invalid] Sending data without selecting subject.",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"/contact\");\ncy.url().should('eq', 'https://practicesoftwaretesting.com/contact');\ncy.get(\".nav-link[data-test='nav-contact']\").should('be.visible').and('not.be.disabled').click();\ncy.get(\"#subject\").select(subjects[rand_index]);\ncy.get(\"#message\").should('be.visible').and('not.be.disabled').type(\"Test Test Test TestTest TestTest TestTest TestTest TestTest TestTest TestTest TestTest TestTest TestTest TestTest TestTest Test\");\ncy.get(\"#attachment\").should('be.visible').and('not.be.disabled').selectFile(\"E:\\\\github\\\\cypress\\\\practice-software-testing\\\\cypress\\\\e2e\\\\test.txt\");\ncy.get(\"input[value='Send']\").should('be.visible').and('not.be.disabled').click();\ncy.get(\"div[role='alert']\").should('be.visible').and('have.text', ' Thanks for your message! We will contact you shortly. ');",
+              "err": {},
+              "uuid": "d20e1d71-ba5f-42f5-a2ac-42f7148a12fc",
+              "parentUUID": "ea25dc51-579e-4f7c-84b9-d71f88242053",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "[004-001-0004] [invalid] Sending data with blank message input field.",
+              "fullTitle": "Contact after sign in [004-001-0004] [invalid] Sending data with blank message input field.",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"/contact\");\ncy.url().should('eq', 'https://practicesoftwaretesting.com/contact');\ncy.get(\".nav-link[data-test='nav-contact']\").should('be.visible').and('not.be.disabled').click();\ncy.get(\"#subject\").select(subjects[rand_index]);\ncy.get(\"#attachment\").should('be.visible').and('not.be.disabled').selectFile(\"E:\\\\github\\\\cypress\\\\practice-software-testing\\\\cypress\\\\e2e\\\\test.txt\");\ncy.get(\"input[value='Send']\").should('be.visible').and('not.be.disabled').click();\ncy.get('#message_alert').should('be.visible').and('have.text', 'Message is required');",
+              "err": {},
+              "uuid": "6a29663d-b745-4595-bbbd-c9495021ffa4",
+              "parentUUID": "ea25dc51-579e-4f7c-84b9-d71f88242053",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "[004-001-0005] [invalid] Sending data with less than 50 character length message input field.",
+              "fullTitle": "Contact after sign in [004-001-0005] [invalid] Sending data with less than 50 character length message input field.",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"/contact\");\ncy.url().should('eq', 'https://practicesoftwaretesting.com/contact');\ncy.get(\".nav-link[data-test='nav-contact']\").should('be.visible').and('not.be.disabled').click();\ncy.get(\"#subject\").select(subjects[rand_index]);\ncy.get(\"#message\").should('be.visible').and('not.be.disabled').type(\"Test Test Test TestTest TestTest test\");\ncy.get(\"#attachment\").should('be.visible').and('not.be.disabled').selectFile(\"E:\\\\github\\\\cypress\\\\practice-software-testing\\\\cypress\\\\e2e\\\\test.txt\");\ncy.get(\"input[value='Send']\").should('be.visible').and('not.be.disabled').click();\ncy.get(\"#message_alert\").should('be.visible').and('have.text', 'Message must be minimal 50 characters');",
+              "err": {},
+              "uuid": "469f3bb7-ec6d-4147-9216-ba15332f83a3",
+              "parentUUID": "ea25dc51-579e-4f7c-84b9-d71f88242053",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "[004-001-0006] [invalid] Sending data with non .txt file extension and bigger than 0kb size",
+              "fullTitle": "Contact after sign in [004-001-0006] [invalid] Sending data with non .txt file extension and bigger than 0kb size",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"/contact\");\ncy.url().should('eq', 'https://practicesoftwaretesting.com/contact');\ncy.get(\".nav-link[data-test='nav-contact']\").should('be.visible').and('not.be.disabled').click();\ncy.get(\"#subject\").select(subjects[rand_index]);\ncy.get(\"#message\").should('be.visible').and('not.be.disabled').type(\"Test Test Test TestTest TestTest test test test test\");\ncy.get(\"#attachment\").should('be.visible').and('not.be.disabled').selectFile(\"E:\\\\github\\\\cypress\\\\practice-software-testing\\\\cypress\\\\e2e\\\\invalid.docx\");\ncy.get(\"input[value='Send']\").should('be.visible').and('not.be.disabled').click();\ncy.get(\"#attachment_alert\").should('be.visible').and('have.text', 'File should be empty.');",
+              "err": {},
+              "uuid": "49c00444-06d4-4d54-92bf-d1b40a7460bf",
+              "parentUUID": "ea25dc51-579e-4f7c-84b9-d71f88242053",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "[004-001-0007] [inValid] Sending data with non .txt file extension and 0kb size",
+              "fullTitle": "Contact after sign in [004-001-0007] [inValid] Sending data with non .txt file extension and 0kb size",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"/contact\");\ncy.url().should('eq', 'https://practicesoftwaretesting.com/contact');\ncy.get(\".nav-link[data-test='nav-contact']\").should('be.visible').and('not.be.disabled').click();\ncy.get(\"#subject\").select(subjects[rand_index]);\ncy.get(\"#message\").should('be.visible').and('not.be.disabled').type(\"Test Test Test TestTest TestTest test test test tesst\");\ncy.get(\"#attachment\").should('be.visible').and('not.be.disabled').selectFile(\"E:\\\\github\\\\cypress\\\\practice-software-testing\\\\cypress\\\\e2e\\\\test.docx\");\ncy.get(\"input[value='Send']\").should('be.visible').and('not.be.disabled').click();\ncy.get(\"#attachment_alert\").should('be.visible').and('have.text', 'File should have a txt extension.');",
+              "err": {},
+              "uuid": "40b4a91c-14b7-44a8-bc23-198fe0188b4b",
+              "parentUUID": "ea25dc51-579e-4f7c-84b9-d71f88242053",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "[004-001-0008] [Invalid] Sending data with .txt file extension and bigger than 0kb size",
+              "fullTitle": "Contact after sign in [004-001-0008] [Invalid] Sending data with .txt file extension and bigger than 0kb size",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"/contact\");\ncy.url().should('eq', 'https://practicesoftwaretesting.com/contact');\ncy.get(\".nav-link[data-test='nav-contact']\").should('be.visible').and('not.be.disabled').click();\ncy.get(\"#subject\").select(subjects[rand_index]);\ncy.get(\"#message\").should('be.visible').and('not.be.disabled').type(\"Test Test Test TestTest TestTest test\");\ncy.get(\"#attachment\").should('be.visible').and('not.be.disabled').selectFile(\"E:\\\\github\\\\cypress\\\\practice-software-testing\\\\cypress\\\\e2e\\\\test.txt\");\ncy.get(\"input[value='Send']\").should('be.visible').and('not.be.disabled').click();\ncy.get('[data-test=\"message-error\"]').should('be.visible').and('have.text', 'Message must be minimal 50 characters');",
+              "err": {},
+              "uuid": "97a400e6-d6b2-4f19-b4af-4ed961d4800f",
+              "parentUUID": "ea25dc51-579e-4f7c-84b9-d71f88242053",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "15543233-233d-4172-b9e0-6a0199c0e349"
+          ],
+          "pending": [],
+          "skipped": [
+            "4b3f08a1-6681-4fd5-8849-5f284a200174",
+            "d20e1d71-ba5f-42f5-a2ac-42f7148a12fc",
+            "6a29663d-b745-4595-bbbd-c9495021ffa4",
+            "469f3bb7-ec6d-4147-9216-ba15332f83a3",
+            "49c00444-06d4-4d54-92bf-d1b40a7460bf",
+            "40b4a91c-14b7-44a8-bc23-198fe0188b4b",
+            "97a400e6-d6b2-4f19-b4af-4ed961d4800f"
+          ],
+          "duration": 6586,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "timestamp": "longDate"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

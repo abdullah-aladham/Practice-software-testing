@@ -1,0 +1,160 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-02-10T16:53:54.845Z",
+    "end": "2025-02-10T16:54:00.777Z",
+    "duration": 5932,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "5d6032a2-0a56-40a7-bcdd-2ead07776d71",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Product Grid TestSuite\\sort.cy.js",
+      "file": "cypress\\e2e\\Product Grid TestSuite\\sort.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d37d308c-6748-4a29-9885-5eb9732f7718",
+          "title": "Sort Test Suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "[005-001-01][Valid] Sort products alphabetically from A-Z.",
+              "fullTitle": "Sort Test Suite [005-001-01][Valid] Sort products alphabetically from A-Z.",
+              "timedOut": null,
+              "duration": 1779,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"select[aria-label='sort']\").should('be.visible').and('not.be.disabled').select('Name (A - Z)');\ncy.intercept({\n  method: \"GET\",\n  url: \"https://api.practicesoftwaretesting.com/products?sort=name,asc&between=price,1,100&page=0\"\n}).as(\"getProdA-Z\");\ncy.wait(\"@getProdA-Z\").then(interception => {\n  cy.wrap(interception.response.statusCode).should('eq', 200);\n});",
+              "err": {},
+              "uuid": "88133965-c1c3-4d39-bdd5-1346d6a75495",
+              "parentUUID": "d37d308c-6748-4a29-9885-5eb9732f7718",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[005-001-02][Valid] Sort products alphabetically from Z-A.",
+              "fullTitle": "Sort Test Suite [005-001-02][Valid] Sort products alphabetically from Z-A.",
+              "timedOut": null,
+              "duration": 1262,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"select[aria-label='sort']\").should('be.visible').and('not.be.disabled').select('Name (Z - A)');\ncy.intercept({\n  url: \"https://api.practicesoftwaretesting.com/products?sort=name,desc&between=price,1,100&page=0\"\n}).as(\"GetProdZ-A\");\ncy.wait(\"@GetProdZ-A\").then(interception => {\n  cy.wrap(interception.response.statusCode).should('eq', 200);\n});",
+              "err": {},
+              "uuid": "94f20545-9fc8-4946-8d8f-2c5cf8163293",
+              "parentUUID": "d37d308c-6748-4a29-9885-5eb9732f7718",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[005-001-03][Valid] Sort products by price from High-Low.",
+              "fullTitle": "Sort Test Suite [005-001-03][Valid] Sort products by price from High-Low.",
+              "timedOut": null,
+              "duration": 1344,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"select[aria-label='sort']\").should('be.visible').and('not.be.disabled').select('Price (High - Low)');\ncy.intercept({\n  url: \"        https://api.practicesoftwaretesting.com/products?sort=price,desc&between=price,1,100&page=0\"\n}).as(\"GetProdH-L\");\ncy.wait(\"@GetProdH-L\").then(interception => {\n  cy.wrap(interception.response.statusCode).should('eq', 200);\n});",
+              "err": {},
+              "uuid": "d368492a-85f4-45a7-ad16-652a3751abb1",
+              "parentUUID": "d37d308c-6748-4a29-9885-5eb9732f7718",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[005-001-04][Valid] Sort products by price from Low-High.",
+              "fullTitle": "Sort Test Suite [005-001-04][Valid] Sort products by price from Low-High.",
+              "timedOut": null,
+              "duration": 1340,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"select[aria-label='sort']\").should('be.visible').and('not.be.disabled').select('Price (Low - High)');\ncy.intercept({\n  url: \"https://api.practicesoftwaretesting.com/products?sort=price,asc&between=price,1,100&page=0\"\n}).as(\"GetProdL-H\");\ncy.wait(\"@GetProdL-H\").then(interception => {\n  cy.wrap(interception.response.statusCode).should('eq', 200);\n});",
+              "err": {},
+              "uuid": "679a7fd1-2cd5-4f63-8feb-e8d88127d55a",
+              "parentUUID": "d37d308c-6748-4a29-9885-5eb9732f7718",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "88133965-c1c3-4d39-bdd5-1346d6a75495",
+            "94f20545-9fc8-4946-8d8f-2c5cf8163293",
+            "d368492a-85f4-45a7-ad16-652a3751abb1",
+            "679a7fd1-2cd5-4f63-8feb-e8d88127d55a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5725,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "timestamp": "longDate"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

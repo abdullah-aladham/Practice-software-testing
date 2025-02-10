@@ -1,0 +1,184 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 4,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-02-10T16:55:20.671Z",
+    "end": "2025-02-10T16:55:35.728Z",
+    "duration": 15057,
+    "testsRegistered": 5,
+    "passPercent": 80,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "cc708ab6-2634-443e-a1e3-2b8b0981a29a",
+      "title": "",
+      "fullFile": "cypress\\e2e\\UserMembership\\Sign-in[SI]\\Sign-in.cy.js",
+      "file": "cypress\\e2e\\UserMembership\\Sign-in[SI]\\Sign-in.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "77526e39-86c9-403e-8413-1b477ff282ea",
+          "title": "Sign-in[SI] TestSuite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "[003-SI-0001] [Valid]Sign in with Valid user data",
+              "fullTitle": "Sign-in[SI] TestSuite [003-SI-0001] [Valid]Sign in with Valid user data",
+              "timedOut": null,
+              "duration": 7305,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.login('test123@test.com', 'TH!sIsAP@ssword184');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected 'https://practicesoftwaretesting.com/auth/login' to equal 'https://practicesoftwaretesting.com/account'\n\nThis error occurred while creating the session. Because the session setup failed, we failed the test.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected 'https://practicesoftwaretesting.com/auth/login' to equal 'https://practicesoftwaretesting.com/account'\n\nThis error occurred while creating the session. Because the session setup failed, we failed the test.\n    at Object.eval [as setup] (webpack:///./cypress/support/commands.js:18:13)\n    at Context.<anonymous> (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:132829:38)\n    at getRet (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:118278:20)\n    at tryCatcher (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:118289:66)\n    at Context.then (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:118540:21)\n    at wrapped (https://practicesoftwaretesting.com/__cypress/runner/cypress_runner.js:137823:19)",
+                "diff": "- 'https://practicesoftwaretesting.com/auth/login'\n+ 'https://practicesoftwaretesting.com/account'\n"
+              },
+              "uuid": "fb3a13f0-3fa2-4b5b-9404-aeb09c8f3fa7",
+              "parentUUID": "77526e39-86c9-403e-8413-1b477ff282ea",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[003-SI-0002] [Invalid]Sign in with invalid Email",
+              "fullTitle": "Sign-in[SI] TestSuite [003-SI-0002] [Invalid]Sign in with invalid Email",
+              "timedOut": null,
+              "duration": 2109,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('input[id=\"email\"]').should('be.visible').and('not.be.disabled').type(\"test12@test.com\");\ncy.get('input[id=\"password\"]').should('be.visible').and('not.be.disabled').type(\"TH!sIsAP@ssword184\");\ncy.get('[data-test=\"login-submit\"]').should('be.visible').and('not.be.disabled').click();\n// cy.visit('/auth/account')\ncy.get('[data-test=\"login-error\"]').should('be.visible').and('have.text', 'Invalid email or password');",
+              "err": {},
+              "uuid": "5ec6319f-39ce-40e4-b069-7d142907fca9",
+              "parentUUID": "77526e39-86c9-403e-8413-1b477ff282ea",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[003-SI-0003] [Invalid]Sign in with invalid password",
+              "fullTitle": "Sign-in[SI] TestSuite [003-SI-0003] [Invalid]Sign in with invalid password",
+              "timedOut": null,
+              "duration": 1860,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('input[id=\"email\"]').should('be.visible').and('not.be.disabled').type(\"test123@test.com\");\ncy.get('input[id=\"password\"]').should('be.visible').and('not.be.disabled').type(\"THsIsAP@ssword184\");\ncy.get('[data-test=\"login-submit\"]').should('be.visible').and('not.be.disabled').click();\n// cy.visit('/auth/account')\ncy.get('[data-test=\"login-error\"]').should('be.visible').and('have.text', 'Invalid email or password');\n//  cy.intercept({method:\"POST\",\n//     url:\"https://api.practicesoftwaretesting.com/users/login\"\n//  }).as(\"InvalidPassLoginReq\")\n//  cy.wait(\"@InvalidPassLoginReq\").then(interception =>{\n//     cy.wrap(interception.request.statusCode).should('eq',401)\n//  })",
+              "err": {},
+              "uuid": "989869f4-83b5-4279-b9a1-53045562df9a",
+              "parentUUID": "77526e39-86c9-403e-8413-1b477ff282ea",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[003-SI-0004] [Invalid]Sign in with null values]",
+              "fullTitle": "Sign-in[SI] TestSuite [003-SI-0004] [Invalid]Sign in with null values]",
+              "timedOut": null,
+              "duration": 672,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[data-test=\"login-submit\"]').should('be.visible').and('not.be.disabled').click();\n// cy.visit('/auth/account')\ncy.get('[data-test=\"email-error\"]').should('be.visible').and('have.text', 'Email is required');\ncy.get('[data-test=\"password-error\"]').should('be.visible').and('have.text', 'Password is required');",
+              "err": {},
+              "uuid": "1947de3d-ab5a-48bd-8cec-78d1fb1a094f",
+              "parentUUID": "77526e39-86c9-403e-8413-1b477ff282ea",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[003-SI-0007][Valid] Sign in With show password button is clicked.",
+              "fullTitle": "Sign-in[SI] TestSuite [003-SI-0007][Valid] Sign in With show password button is clicked.",
+              "timedOut": null,
+              "duration": 2734,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('auth/login');\ncy.get('input[id=\"email\"]').should('be.visible').type('test13@test.com');\ncy.get(\"button[class='btn btn-outline-secondary']\").should('be.visible').and('not.be.disabled').click();\ncy.get('input[id=\"password\"]').should('be.visible').type('TH!sIsAP@ssword184');\ncy.get('[data-test=\"login-submit\"]').should('be.visible').and('not.be.disabled').click();\ncy.url().should('eq', 'https://practicesoftwaretesting.com/account');",
+              "err": {},
+              "uuid": "61874676-9576-4b39-ad24-77fdd8a41a3e",
+              "parentUUID": "77526e39-86c9-403e-8413-1b477ff282ea",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "5ec6319f-39ce-40e4-b069-7d142907fca9",
+            "989869f4-83b5-4279-b9a1-53045562df9a",
+            "1947de3d-ab5a-48bd-8cec-78d1fb1a094f",
+            "61874676-9576-4b39-ad24-77fdd8a41a3e"
+          ],
+          "failures": [
+            "fb3a13f0-3fa2-4b5b-9404-aeb09c8f3fa7"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 14680,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "timestamp": "longDate"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -84,7 +84,7 @@ describe('Invoices TestSuite',()=>{
        
     })
     	
-    it.only('[007-0002] [Invalid] Visit invoices page without sign in',()=>{
+    it('[007-0002] [Invalid] Visit invoices page without sign in',()=>{
         cy.visit("account/invoices/");
         
         // cy.intercept({

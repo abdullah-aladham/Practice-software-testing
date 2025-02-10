@@ -92,7 +92,7 @@ describe('Favorites Testsuite',()=>{
                 cy.wrap(interception.response.statusCode).should('eq',204)
             });
         })
-        it.only('adding a product to favorites that is already added',()=>{
+        it('adding a product to favorites that is already added',()=>{
             cy.login("customer@practicesoftwaretesting.com","welcome01")
             cy.visit('/')
             cy.url().should('eq','https://practicesoftwaretesting.com/')
