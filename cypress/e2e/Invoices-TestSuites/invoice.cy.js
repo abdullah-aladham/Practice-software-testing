@@ -1,18 +1,5 @@
 describe('Invoices TestSuite',()=>{
-    // function nav_Single_page(){
-    //     cy.get('body app-root app-invoices li:nth-child(3) > .page-link').then($button=>{
-    //       if($button.prop("disabled",true)){
-            
-           
-    //         cy.end() 
-      
-    //       }
-    //       else{
-    //         cy.get(':nth-child(11) > .page-link').should('not.be.disabled').and('be.visible').click()
-            
-    //       }
-    //     })
-    //   }
+
     it("[007-0001] [Valid] Visiting Invoices page after sign in.",()=>{
         cy.login("customer@practicesoftwaretesting.com","welcome01")
         cy.visit('/account')

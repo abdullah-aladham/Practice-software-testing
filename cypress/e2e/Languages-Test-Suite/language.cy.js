@@ -56,7 +56,7 @@ describe('Languages testSuite',()=>{
         cy.get('html').invoke('attr','lang').should('eq','de');
         
 
-    })
+    })//another one*5
     it('[01-0006-08][Invalid] Click on “ES” option for Spain language [HTML “lang” attribute] update].',()=>{
         cy.visit('/');
         cy.get('[data-test="language"]').should('be.visible').click()
