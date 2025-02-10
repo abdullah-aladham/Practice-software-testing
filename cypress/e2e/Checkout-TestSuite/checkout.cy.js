@@ -3,7 +3,7 @@ import { faker } from "@faker-js/faker"
 // const { faker } = require("@faker-js/faker/.")
 
 describe('Checkout-TestSuite',()=>{
-   it('[008-0001]Add product to checkout list',()=>{
+   it.only('[008-0001]Add product to checkout list',()=>{
     cy.login("customer@practicesoftwaretesting.com","welcome01")
     cy.visit('/')
     cy.url().should('eq','https://practicesoftwaretesting.com/')
@@ -287,7 +287,7 @@ cy.get('.ng-trigger').should('be.visible').and('have.text',' Product quantity up
     });
  })
  
- it.only('[008-0009][Valid] Buying a product with “Gift Card” Method.',()=>{
+ it('[008-0009][Valid] Buying a product with “Gift Card” Method.',()=>{
     cy.login("customer@practicesoftwaretesting.com","welcome01")
     cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
     cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
@@ -517,8 +517,10 @@ cy.intercept({
 cy.get("button[data-test='finish']").should('be.visible').and('be.disabled');
  })
  
- it('[008-0023][Invalid] Buying a product with “Credit Card” Card Holder Name input with string that contains numbers',()=>{
-    cy.login("customer@practicesoftwaretesting.com","welcome01")
+ it.only('[008-0023][Invalid] Buying a product with “Credit Card” Card Holder Name input with string that contains numbers',()=>{
+    cy.login("customer2@practicesoftwaretesting.com","welcome01")
+    cy.visit('/')
+    cy.url().should('eq',"https://practicesoftwaretesting.com/")
     cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
     cy.get("div[class='float-end ng-star-inserted'] button[type='button']").should('be.visible').and('not.be.disabled');
     cy.get("p[class='ng-star-inserted']").should('be.visible').and('not.be.disabled').and('have.text','Hello Jane Doe, you are already logged in. You can proceed to checkout.')
@@ -651,7 +653,7 @@ cy.intercept({method:"POST",
     }).as("CheckReq").then(interception =>{
         console.log(interception);
         cy.wrap(interception.response.statusCode).should('eq',200)});
-    });
+    
     cy.wait("@CheckReq")
     cy.intercept({
         method:"OPTIONS",
@@ -661,7 +663,7 @@ cy.intercept({method:"POST",
         console.log(interception);
         cy.wrap(interception.response.statusCode).should('eq',200);})
  })
- 	
+});
  it('[008-0030][invalid] Buying a product with blank gift card number',()=>{
     cy.login("customer@practicesoftwaretesting.com","welcome01")
     cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click()
