@@ -202,7 +202,7 @@ it('[003-0015][Invalid] Register User with blank email address.',()=>{
     cy.get("div[data-test='email-error']").should('have.text'," Email is required ").and('be.visible');
 
 })
-it('[003-0016][Invalid] Register User with invalid email format',()=>{
+it.only('[003-0016][Invalid] Register User with invalid email format',()=>{
     cy.visit('/auth/login')
     cy.get("a[aria-label='Register your account']").should('be.visible').and('not.be.disabled').click();
     cy.url().should('eq','https://practicesoftwaretesting.com/auth/register');
@@ -220,7 +220,7 @@ it('[003-0016][Invalid] Register User with invalid email format',()=>{
     cy.get("button[type='submit']").should('be.visible').and('not.be.disabled').click()
     // cy.url().should('eq','auth/login');
 })//another one
-it('[003-0016][Invalid] Register User with invalid email format.',()=>{
+it.only('[003-0017][Invalid] Register User with invalid email format.',()=>{
     cy.visit('https://practicesoftwaretesting.com/auth/login')
     cy.get("a[aria-label='Register your account']").should('be.visible').and('not.be.disabled').click();
     cy.url().should('eq','https://practicesoftwaretesting.com/auth/register');
@@ -233,12 +233,12 @@ it('[003-0016][Invalid] Register User with invalid email format.',()=>{
     cy.get('input[id="state"]').should('be.visible').and('not.be.disabled').type(faker.location.state());
     cy.get('select[id="country"]').select("US");
     cy.get('input[id="phone"]').should('be.visible').type('5225424');
-    cy.get('input[id="email"]').should('be.visible').type("test@test");
+    cy.get('input[id="email"]').should('be.visible').type("test1@test");
     cy.get('input[id="password"]').should('be.visible').and('not.be.disabled').type('H3lp1111!')
     cy.get("button[type='submit']").should('be.visible').and('not.be.disabled').click()
    
 })//another one 
-it('[003-0016][Invalid] Register User with invalid email format (e.g “test”,e.g2 “test@test”,eg.3 “test@test,com”).',()=>{
+it('[003-0018][Invalid] Register User with invalid email format (e.g “test”,e.g2 “test@test”,eg.3 “test@test,com”).',()=>{
     cy.visit('/auth/login')
     cy.get("a[aria-label='Register your account']").should('be.visible').and('not.be.disabled').click();
     cy.url().should('eq','https://practicesoftwaretesting.com/auth/register');
@@ -256,7 +256,7 @@ it('[003-0016][Invalid] Register User with invalid email format (e.g “test”,
     cy.get("button[type='submit']").should('be.visible').and('not.be.disabled').click()
     cy.get('[data-test="email-error"]').should('be.visible').and('have.text','Invalid Email format')
 })//fail here because of bug in the system
-it('[003-0016][Invalid] Register User with invalid email format (e.g “test”,e.g2 “test@test”,eg.3 “test@test,com”).',()=>{
+it('[003-0019][Invalid] Register User with invalid email format (e.g “test”,e.g2 “test@test”,eg.3 “test@test,com”).',()=>{
     cy.visit('/auth/login')
     cy.get("a[aria-label='Register your account']").should('be.visible').and('not.be.disabled').click();
     cy.url().should('eq','https://practicesoftwaretesting.com/auth/register');
@@ -274,7 +274,7 @@ it('[003-0016][Invalid] Register User with invalid email format (e.g “test”,
     cy.get("button[type='submit']").should('be.visible').and('not.be.disabled').click()
    cy.get("div[data-test='email-error']").should('be.visible').and('have.text','invalid email format');
 })//same bug
-it('[003-0017][invalid] Register User with invalid password length (password length less than 8)',()=>{
+it.only('[003-0020][invalid] Register User with invalid password length (password length less than 8)',()=>{
     cy.visit('/auth/login')
     cy.get("a[aria-label='Register your account']").should('be.visible').and('not.be.disabled').click();
     cy.url().should('eq','https://practicesoftwaretesting.com/auth/register');
@@ -368,7 +368,7 @@ it('[003-0021] Register User with password that does not have any special symbol
     cy.get("button[type='submit']").should('be.visible').and('not.be.disabled').click()
     cy.get("div[data-test='password-error']").should('be.visible').and('have.text',' Password can not include invalid characters. ')
 })
-it.only('[003-0022] Register User with blank password',()=>{
+it('[003-0022] Register User with blank password',()=>{
     cy.visit('/auth/login')
     cy.get("a[aria-label='Register your account']").should('be.visible').and('not.be.disabled').click();
     cy.url().should('eq','https://practicesoftwaretesting.com/auth/register');
