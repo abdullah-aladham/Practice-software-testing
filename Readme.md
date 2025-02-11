@@ -4,7 +4,10 @@
     and <code>MochAwesome</code> plugin for reporting.
   </p>
   <span>The project has:</span>
-  <ul></ul>
+  <ul>
+  <li><span>✅</span> <span>100+ automated Test Cases that aims to detect bugs and Ensuring that System is working properly</li>
+  <li><span>✅</span> <span>10 manual Bug Reports designed </li>
+  </ul>
   <ul>
     <li>Cloning the repo by the following code <code>git clone https://github.com/abdullah-aladham/SuperQ-Api-SE.git</code></li>
     <li><code>JavaSE-21</code> being installed on your machine</li>
