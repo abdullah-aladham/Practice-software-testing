@@ -16,6 +16,7 @@
   <ul>
     <li>Cloning the repo by the following code <code>git clone https://github.com/abdullah-aladham/Practice-software-testing.git</code></li>
     <li><span><code>Cypress v14.0.2</code> being installed on your machine</span></li>
+    <li><span><code>cypress-mochawesome-reporter v3.8.2</code>or newer version is being installed</span></li>
     <li><span>Node.js is being installed on your machine</span></li>
   <li><code>VSCode</code> or similar editor is being installed on your machine</li>
   </ul>
