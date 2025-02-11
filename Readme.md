@@ -14,15 +14,10 @@
   
   </ul>
   <ul>
-    <li>Cloning the repo by the following code <code>git clone https://github.com/abdullah-aladham/SuperQ-Api-SE.git</code></li>
-    <li><code>JavaSE-21</code> being installed on your machine</li>
-    <li>Chrome selenium web driver <code>v122.0.6261.94</code> or newer if you don't ,you'll have it downloaded from  <a href="https://googlechromelabs.github.io/chrome-for-testing/">here</a></li>
-  <li><code>Eclipse IDE</code></li>
-    <li><code>Selenium v4.17.0</code> being added to project library by <code>Right click>Build Path>configure build path>libraries </code> <br>
-    click on class path and then click on add library... and then user library and click on next and click on User libraries... <br> click on new and then add <code>Selenium v4.16.1</code> JARs after being downloaded from <a href="https://www.selenium.dev/downloads/">here</a> and preferably naming them by <code>selenium v4.16.1</code></li>
-    <li><code>TestNg v7.4.0</code> Plugin is being installed on <code>Eclipse</code>IDE by use the following path <code>Help>Eclipse Marketplace...>typing in search input "TestNg"</code>-
-    and then click on install ,so it is being installed.</li>
-    <li>To add <code>TestNG</code> on project just do right click and then hover over build path>add libraires.... then choose TestNG and click on finish and finally it will be added</li>
+    <li>Cloning the repo by the following code <code>git clone https://github.com/abdullah-aladham/Practice-software-testing.git</code></li>
+    <li><span><code>Cypress v14.0.2</code> being installed on your machine</span></li>
+    <li><span>Node.js is being installed on your machine</span></li>
+  <li><code>VSCode</code> or similar editor is being installed on your machine</li>
   </ul>
   <span>If you're interested in the repo then click on <code>Watch</code> to be notified ,and if you like it click on ⭐ to give it a star so you get similar repos</span>
   <div>
