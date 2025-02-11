@@ -5,8 +5,13 @@
   </p>
   <span>The project has:</span>
   <ul>
-  <li><span>✅</span> <span>100+ automated Test Cases that aims to detect bugs and Ensuring that System is working properly</li>
-  <li><span>✅</span> <span>10 manual Bug Reports designed </li>
+  <li><span>✅</span> <span>100+ automated Test Cases that aims to detect bugs and Ensuring that System is working properly</span></li>
+  <li><span>✅</span> <span>10 manual Bug Reports designed</span> you can find each one of them in folders under <code>docs\Automation Testcases\Bug reports</code></li>
+  <li><span>✅</span> <span>The project has test plan. which is under <code>docs\Practice-Software-Testing-Test-Plan.docx</code>path</span> </li>
+  <li><span>✅</span> <span>The project has a file that has test case titles in abstract way,which you can find under <code>docs\Automation Testcases\Automation Testcases[Abstract].docx </code>path</li>
+  <li><span>✅</span> <span>The project has traceability features by testsuite id and test id <code>[testsuiteId-testId]</code> and some time the subcategory id is included and the format is <code>[testsuiteId-subcategoryId-testId]</code> example for <code>[testsuiteId-testId]</code> =>[001-0001]and for <code>[testsuiteId-subcategoryId-testId]</code> => [001-002-0003]  </li>
+  <li><span>✅</span> <span>Bug reports has traceability feature too ,and the format for them is [projshortcut-testername shortcut-bugreportid] </li>
+  
   </ul>
   <ul>
     <li>Cloning the repo by the following code <code>git clone https://github.com/abdullah-aladham/SuperQ-Api-SE.git</code></li>
