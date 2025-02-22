@@ -1,9 +1,8 @@
-// const { faker } = require("@faker-js/faker/.")
 import { faker } from "@faker-js/faker"
 // const { faker } = require("@faker-js/faker/.")
 
 describe('Checkout-TestSuite',()=>{
-   it('[008-0001]Add product to checkout list',()=>{
+   it.only('[008-0001]Add product to checkout list',()=>{
     cy.login("test13@test.com","TH!sIsAP@ssword184")
     cy.visit('/')
     cy.url().should('eq','https://practicesoftwaretesting.com/')
@@ -11,33 +10,7 @@ describe('Checkout-TestSuite',()=>{
     cy.get("#btn-add-to-cart").should('not.be.disabled').and('be.visible').click();
     cy.get('.ng-trigger').should('be.visible').and('have.text',' Product added to shopping cart. ');
     cy.get("a[aria-label='cart']").should('be.visible');
-    // cy.intercept({
-    //     method:"OPTIONS",
-    //     url:"https://api.practicesoftwaretesting.com/carts/01jkc8946hc30mdqmjdeqwd7rb"
-    // }).as("AddtoCheckoutOptionsReq");
-    // cy.wait("@AddtoCheckoutOptionsReq")
-
-    // cy.intercept({
-    //     method:"GET",
-    //     url:"https://api.practicesoftwaretesting.com/carts/01jkc8946hc30mdqmjdeqwd7rb"
-    // }).as("AddtoCheckoutGETReq");
-    // cy.wait("@AddtoCheckoutGETReq")
-    // cy.intercept({
-    //     method:"POST",
-    //     url:"https://api.practicesoftwaretesting.com/carts/01jkk4gqpsapvrata8w3f2sn1y"
-    // }).as("AddToCheckoutPostReq");
-    // cy.wait("@AddToCheckoutPostReq").then(interception =>{
-    //     console.log(interception);
-    //     cy.wrap(interception.response.statusCode).should('eq',200)
-    // });
-//     cy.intercept({url:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA1MTIgNTEyJyB3aWR0aD0nNTEyJyBoZWlnaHQ9JzUxMic+PHBhdGggZmlsbD0ncmdiKDI1NSwyNTUsMjU1KScgZD0nTTE3My44OTggNDM5LjQwNGwtMTY2LjQtMTY2LjRjLTkuOTk3LTkuOTk3LTkuOTk3LTI2LjIwNiAwLTM2LjIwNGwzNi4yMDMtMzYuMjA0YzkuOTk3LTkuOTk4IDI2LjIwNy05Ljk5OCAzNi4yMDQgMEwxOTIgMzEyLjY5IDQzMi4wOTUgNzIuNTk2YzkuOTk3LTkuOTk3IDI2LjIwNy05Ljk5NyAzNi4yMDQgMGwzNi4yMDMgMzYuMjA0YzkuOTk3IDkuOTk3IDkuOTk3IDI2LjIwNiAwIDM2LjIwNGwtMjk0LjQgMjk0LjQwMWMtOS45OTggOS45OTctMjYuMjA3IDkuOTk3LTM2LjIwNC0uMDAxeicvPjwvc3ZnPg==",
-//         method:"GET"
-    
-//     }).as("SuccessNotification");
-//  cy.wait("@SuccessNotification").then(interception =>{
-//         console.log(interception);
-//         cy.wrap(interception.response.statusCode).should('eq',200)
-//     })
+   
     
    }) 
 
@@ -50,22 +23,6 @@ cy.visit('/')
     // cy.url().should('eq','https://practicesoftwaretesting.com/');
     cy.get("a[aria-label='cart']").should('be.visible').and('not.be.disabled').click();
 
-    // cy.intercept({
-    //     method:"OPTIONS",
-    //     url:"https://api.practicesoftwaretesting.com/carts/01jkc9xt5w3tvjepf4tb7v6vr4"
-    // }).as('')
-    // cy.intercept({
-    //     method:"OPTIONS",
-    //     url:"https://api.practicesoftwaretesting.com/users/me"
-    // }).as('LoginReqOptions')
-//     cy.intercept({ 
-//       method: "GET",
-//          url:"https://api.practicesoftwaretesting.com/carts/01jkc9xt5w3tvjepf4tb7v6vr4"
-//      }).as("getCartList");
-//  cy.wait("getCartList").then(interception =>{
-//      console.log(interception);
-//      cy.wrap(interception.response.statusCode).should('eq',200)
-//  })
 
  })
 it("[008-0003][Valid]View Checkout list",()=>{
